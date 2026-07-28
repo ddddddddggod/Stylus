@@ -1,0 +1,349 @@
+/* ==UserStyle==
+@name           ChatGPT Sakura Theme
+@namespace      https://chatgpt.com
+@version        1.3.0
+@description    Cherry blossom theme for ChatGPT - soft sakura light mode and deep burgundy dark mode.
+@author         adapted for ChatGPT
+@homepageURL    https://chatgpt.com
+==/UserStyle== */
+
+@-moz-document domain("chatgpt.com"), domain("chat.openai.com") {
+  :root {
+    --sakura-pink-50: #fff7fa;
+    --sakura-pink-100: #fce4ec;
+    --sakura-pink-200: #f8bbd0;
+    --sakura-pink-300: #f0b8d4;
+    --sakura-pink-500: #e91e63;
+    --sakura-wine: #880e4f;
+    --sakura-light-border: #f3cfdd;
+  }
+
+  /* Main light background */
+  html:not(.dark) body,
+  html:not(.dark) main {
+    background: #fff !important;
+  }
+
+  /* Sidebar: preserve the sakura artwork from the Gemini theme */
+  html:not(.dark) #stage-slideover-sidebar,
+  html:not(.dark) #stage-slideover-sidebar > div,
+  html:not(.dark) [data-testid="sidebar"],
+  html:not(.dark) [data-testid="sidebar"] > div,
+  html:not(.dark) aside,
+  html:not(.dark) aside > div {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250' viewBox='0 0 250 250'%3E%3Cg opacity='0.08'%3E%3Cg transform='translate(30,30) scale(0.5)'%3E%3Cpath fill='%23c2185b' d='M52.5,48.7C67.9,69.5,90.6,65,97.5,58.8c0,0-3.4-3.9-12.1-8.5c5.8-3.1,13.3-8.8,13.3-8.8C91.9,36.3,67.9,32.4,52.5,48.7z'/%3E%3Cpath fill='%23c2185b' d='M65.5,13.6C65.8,7.9,63,1.3,62,0c-8.4,3.5-19.8,23-12,43.9c24.3-2,30.7-29.8,27.3-38C75.7,6.6,71.5,8.7,65.5,13.6z'/%3E%3Cpath fill='%23c2185b' d='M46.3,43.9C46.6,17.6,30.4,5.6,21.1,5.3c0,0-0.3,5.2,2.7,14.6c-5.7-3.8-15.7-3-15.7-3C9.4,25.3,23.8,44.8,46.3,43.9z'/%3E%3Cpath fill='%23c2185b' d='M14,63.5c-3.6,4.3-5.5,11.2-5.4,12.9c8.8,2.3,29.7-6.3,36.2-27.6C24.3,35.6,2.4,53.8,0,62.3C1.7,62.8,6.3,63.7,14,63.5z'/%3E%3Cpath fill='%23c2185b' d='M52.5,85.9c2.6,5,11.1,9.4,12.6,10c5.6-7.2,3.5-36.3-15.9-43.6C29,66,39,92.9,46,98.4C47,97,49.7,93.1,52.5,85.9z'/%3E%3Ccircle cx='49' cy='49' r='6' fill='%23f8bbd0'/%3E%3C/g%3E%3Cg transform='translate(160,140) scale(0.35) rotate(45)'%3E%3Cpath fill='%23c2185b' d='M52.5,48.7C67.9,69.5,90.6,65,97.5,58.8c0,0-3.4-3.9-12.1-8.5c5.8-3.1,13.3-8.8,13.3-8.8C91.9,36.3,67.9,32.4,52.5,48.7z'/%3E%3Cpath fill='%23c2185b' d='M65.5,13.6C65.8,7.9,63,1.3,62,0c-8.4,3.5-19.8,23-12,43.9c24.3-2,30.7-29.8,27.3-38C75.7,6.6,71.5,8.7,65.5,13.6z'/%3E%3Cpath fill='%23c2185b' d='M46.3,43.9C46.6,17.6,30.4,5.6,21.1,5.3c0,0-0.3,5.2,2.7,14.6c-5.7-3.8-15.7-3-15.7-3C9.4,25.3,23.8,44.8,46.3,43.9z'/%3E%3Cpath fill='%23c2185b' d='M14,63.5c-3.6,4.3-5.5,11.2-5.4,12.9c8.8,2.3,29.7-6.3,36.2-27.6C24.3,35.6,2.4,53.8,0,62.3C1.7,62.8,6.3,63.7,14,63.5z'/%3E%3Cpath fill='%23c2185b' d='M52.5,85.9c2.6,5,11.1,9.4,12.6,10c5.6-7.2,3.5-36.3-15.9-43.6C29,66,39,92.9,46,98.4C47,97,49.7,93.1,52.5,85.9z'/%3E%3Ccircle cx='49' cy='49' r='5' fill='%23f8bbd0'/%3E%3C/g%3E%3Cg transform='translate(180,30) scale(0.25) rotate(-20)'%3E%3Cpath fill='%23c2185b' d='M52.5,48.7C67.9,69.5,90.6,65,97.5,58.8c0,0-3.4-3.9-12.1-8.5c5.8-3.1,13.3-8.8,13.3-8.8C91.9,36.3,67.9,32.4,52.5,48.7z'/%3E%3Cpath fill='%23c2185b' d='M65.5,13.6C65.8,7.9,63,1.3,62,0c-8.4,3.5-19.8,23-12,43.9c24.3-2,30.7-29.8,27.3-38C75.7,6.6,71.5,8.7,65.5,13.6z'/%3E%3Cpath fill='%23c2185b' d='M46.3,43.9C46.6,17.6,30.4,5.6,21.1,5.3c0,0-0.3,5.2,2.7,14.6c-5.7-3.8-15.7-3-15.7-3C9.4,25.3,23.8,44.8,46.3,43.9z'/%3E%3Cpath fill='%23c2185b' d='M14,63.5c-3.6,4.3-5.5,11.2-5.4,12.9c8.8,2.3,29.7-6.3,36.2-27.6C24.3,35.6,2.4,53.8,0,62.3C1.7,62.8,6.3,63.7,14,63.5z'/%3E%3Cpath fill='%23c2185b' d='M52.5,85.9c2.6,5,11.1,9.4,12.6,10c5.6-7.2,3.5-36.3-15.9-43.6C29,66,39,92.9,46,98.4C47,97,49.7,93.1,52.5,85.9z'/%3E%3C/g%3E%3Cg transform='translate(60,200) scale(0.3) rotate(70)'%3E%3Cpath fill='%23c2185b' d='M52.5,48.7C67.9,69.5,90.6,65,97.5,58.8c0,0-3.4-3.9-12.1-8.5c5.8-3.1,13.3-8.8,13.3-8.8C91.9,36.3,67.9,32.4,52.5,48.7z'/%3E%3Cpath fill='%23c2185b' d='M65.5,13.6C65.8,7.9,63,1.3,62,0c-8.4,3.5-19.8,23-12,43.9c24.3-2,30.7-29.8,27.3-38C75.7,6.6,71.5,8.7,65.5,13.6z'/%3E%3Cpath fill='%23c2185b' d='M46.3,43.9C46.6,17.6,30.4,5.6,21.1,5.3c0,0-0.3,5.2,2.7,14.6c-5.7-3.8-15.7-3-15.7-3C9.4,25.3,23.8,44.8,46.3,43.9z'/%3E%3Cpath fill='%23c2185b' d='M14,63.5c-3.6,4.3-5.5,11.2-5.4,12.9c8.8,2.3,29.7-6.3,36.2-27.6C24.3,35.6,2.4,53.8,0,62.3C1.7,62.8,6.3,63.7,14,63.5z'/%3E%3Cpath fill='%23c2185b' d='M52.5,85.9c2.6,5,11.1,9.4,12.6,10c5.6-7.2,3.5-36.3-15.9-43.6C29,66,39,92.9,46,98.4C47,97,49.7,93.1,52.5,85.9z'/%3E%3Ccircle cx='49' cy='49' r='4' fill='%23f8bbd0'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+      linear-gradient(to bottom, #fce4ec 0%, #fde5ec 50%, #fce4ec 100%) !important;
+    border-right-color: var(--sakura-light-border) !important;
+  }
+
+  /* Sidebar history items */
+  #stage-slideover-sidebar a,
+  #stage-slideover-sidebar button,
+  [data-testid="sidebar"] a,
+  [data-testid="sidebar"] button,
+  aside a,
+  aside button {
+    transition: background-color .15s ease, box-shadow .15s ease, transform .15s ease !important;
+  }
+
+  html:not(.dark) #stage-slideover-sidebar a:hover,
+  html:not(.dark) #stage-slideover-sidebar button:hover,
+  html:not(.dark) [data-testid="sidebar"] a:hover,
+  html:not(.dark) [data-testid="sidebar"] button:hover,
+  html:not(.dark) aside a:hover,
+  html:not(.dark) aside button:hover {
+    background-color: rgba(240,184,212,.28) !important;
+    border-radius: 10px !important;
+  }
+
+  /* User message bubble */
+  html:not(.dark) [data-message-author-role="user"] .user-message-bubble-color,
+  html:not(.dark) [data-turn="user"] .user-message-bubble-color {
+    background: #fce4ec !important;
+    color: #3a1825 !important;
+    border: 1px solid rgba(194,24,91,.08) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 2px 8px rgba(230,124,171,.08) !important;
+    transition: box-shadow .15s ease, transform .15s ease !important;
+  }
+
+  html:not(.dark) [data-message-author-role="user"] .user-message-bubble-color:hover,
+  html:not(.dark) [data-turn="user"] .user-message-bubble-color:hover {
+    box-shadow: 0 5px 16px rgba(230,124,171,.18) !important;
+    transform: translateY(-1px) !important;
+  }
+
+  /* Composer */
+  html:not(.dark) form:has(#prompt-textarea) > div,
+  html:not(.dark) div:has(> #prompt-textarea) {
+    border-color: #f1cad9 !important;
+  }
+
+  html:not(.dark) form:has(#prompt-textarea) > div:focus-within,
+  html:not(.dark) div:has(> #prompt-textarea):focus-within {
+    border-color: #e98aae !important;
+    box-shadow: 0 0 0 1px rgba(233,30,99,.08), 0 8px 24px rgba(233,30,99,.08) !important;
+  }
+
+  /* Code blocks - warm pink */
+  html:not(.dark) [data-message-author-role="assistant"] pre,
+  html:not(.dark) [data-message-author-role="assistant"] code[class*="language-"] {
+    background-color: #fff1f5 !important;
+    border-color: #f4d5e0 !important;
+  }
+
+  /* Selection */
+  ::selection {
+    background: #f8bbd0 !important;
+    color: #4a1028 !important;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 9px !important; height: 9px !important; }
+  ::-webkit-scrollbar-track { background: transparent !important; }
+  ::-webkit-scrollbar-thumb { background: transparent !important; border-radius: 999px !important; }
+  *:hover::-webkit-scrollbar-thumb { background: #f5d1e0 !important; }
+  *:hover::-webkit-scrollbar-thumb:hover { background: #f0b8d4 !important; }
+
+  /* Wider conversation area, close to the original Gemini layout tweak */
+  [data-testid^="conversation-turn-"] > div,
+  [data-turn] > div {
+    max-width: 1100px !important;
+  }
+
+  /* Expanded sidebar fallback: keep inner wrappers transparent so the sakura background stays visible */
+  html:not(.dark) #stage-slideover-sidebar > div,
+  html:not(.dark) [data-testid="sidebar"] > div,
+  html:not(.dark) aside > div {
+    background-color: transparent !important;
+  }
+
+
+  /* =========================================================
+     ChatGPT expanded sidebar hardening
+     The expanded sidebar creates several opaque token-background wrappers.
+     Keep those wrappers transparent so the sakura artwork on the sidebar
+     itself remains visible.
+     ========================================================= */
+
+  #stage-slideover-sidebar,
+  [data-testid="sidebar"],
+  aside {
+    isolation: isolate !important;
+  }
+
+  /* ChatGPT sidebar surface wrappers */
+  #stage-slideover-sidebar [class*="bg-token-sidebar"],
+  #stage-slideover-sidebar [class*="bg-token-main-surface"],
+  [data-testid="sidebar"] [class*="bg-token-sidebar"],
+  [data-testid="sidebar"] [class*="bg-token-main-surface"],
+  aside [class*="bg-token-sidebar"],
+  aside [class*="bg-token-main-surface"] {
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+
+  /* Catch deeply nested full-height/full-width wrappers used only as surfaces. */
+  #stage-slideover-sidebar > div > div,
+  #stage-slideover-sidebar > div > div > div,
+  [data-testid="sidebar"] > div > div,
+  [data-testid="sidebar"] > div > div > div {
+    background-color: transparent !important;
+  }
+
+  /* Newer ChatGPT builds may expose the expanded navigation as nav. */
+  html:not(.dark) nav[class*="sidebar"],
+  html:not(.dark) nav:has(a[href="/"]) {
+    background-color: transparent !important;
+  }
+
+  html.dark nav[class*="sidebar"],
+  html.dark nav:has(a[href="/"]) {
+    background-color: transparent !important;
+  }
+
+
+  /* =========================================================
+     Expanded sidebar TOP / ChatGPT Plus area
+     Keep the top section inside the opened sidebar on the SAME
+     sakura surface as the rest of the sidebar.
+     ========================================================= */
+
+  /* Important: target headers ONLY when they live inside the sidebar.
+     Do not theme the main page header. */
+  #stage-slideover-sidebar header,
+  [data-testid="sidebar"] header,
+  aside header,
+  #stage-slideover-sidebar [class*="sticky"][class*="top-0"],
+  [data-testid="sidebar"] [class*="sticky"][class*="top-0"],
+  aside [class*="sticky"][class*="top-0"] {
+    background-color: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+  }
+
+  /* ChatGPT Plus / workspace button and its immediate wrappers can have
+     their own opaque token surfaces. Make only those sidebar descendants
+     transparent so the sakura artwork behind them remains visible. */
+  #stage-slideover-sidebar header > div,
+  #stage-slideover-sidebar header > div > div,
+  [data-testid="sidebar"] header > div,
+  [data-testid="sidebar"] header > div > div,
+  aside header > div,
+  aside header > div > div,
+  #stage-slideover-sidebar [class*="sticky"][class*="top-0"] > div,
+  [data-testid="sidebar"] [class*="sticky"][class*="top-0"] > div,
+  aside [class*="sticky"][class*="top-0"] > div {
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+
+  /* Newer ChatGPT builds sometimes put the model/account title row in a
+     nav-like first section rather than a semantic header. Limit this to
+     the FIRST sidebar section so the main app header is untouched. */
+  #stage-slideover-sidebar > div > div:first-child,
+  [data-testid="sidebar"] > div > div:first-child,
+  aside > div > div:first-child {
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+
+  /* Remove opaque token surfaces specifically inside the sidebar top area. */
+  #stage-slideover-sidebar header [class*="bg-token-"],
+  [data-testid="sidebar"] header [class*="bg-token-"],
+  aside header [class*="bg-token-"],
+  #stage-slideover-sidebar [class*="sticky"][class*="top-0"] [class*="bg-token-"],
+  [data-testid="sidebar"] [class*="sticky"][class*="top-0"] [class*="bg-token-"],
+  aside [class*="sticky"][class*="top-0"] [class*="bg-token-"] {
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+
+  /* Keep hover feedback on the ChatGPT Plus row without covering flowers. */
+  html:not(.dark) #stage-slideover-sidebar header button:hover,
+  html:not(.dark) [data-testid="sidebar"] header button:hover,
+  html:not(.dark) aside header button:hover,
+  html:not(.dark) #stage-slideover-sidebar header a:hover,
+  html:not(.dark) [data-testid="sidebar"] header a:hover,
+  html:not(.dark) aside header a:hover {
+    background-color: rgba(240,184,212,.28) !important;
+  }
+
+  html.dark #stage-slideover-sidebar header button:hover,
+  html.dark [data-testid="sidebar"] header button:hover,
+  html.dark aside header button:hover,
+  html.dark #stage-slideover-sidebar header a:hover,
+  html.dark [data-testid="sidebar"] header a:hover,
+  html.dark aside header a:hover {
+    background-color: rgba(255,183,197,.10) !important;
+  }
+
+  /* ======================== DARK MODE ======================== */
+  html.dark,
+  html.dark body {
+    background: #1a0a10 !important;
+    color-scheme: dark !important;
+  }
+
+  html.dark main {
+    background: #1a0a10 !important;
+  }
+
+  html.dark #stage-slideover-sidebar,
+  html.dark #stage-slideover-sidebar > div,
+  html.dark [data-testid="sidebar"],
+  html.dark [data-testid="sidebar"] > div,
+  html.dark aside,
+  html.dark aside > div {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250' viewBox='0 0 250 250'%3E%3Cg opacity='0.12'%3E%3Cg transform='translate(30,30) scale(0.5)'%3E%3Cpath fill='%23ffb7c5' d='M52.5,48.7C67.9,69.5,90.6,65,97.5,58.8c0,0-3.4-3.9-12.1-8.5c5.8-3.1,13.3-8.8,13.3-8.8C91.9,36.3,67.9,32.4,52.5,48.7z'/%3E%3Cpath fill='%23ffb7c5' d='M65.5,13.6C65.8,7.9,63,1.3,62,0c-8.4,3.5-19.8,23-12,43.9c24.3-2,30.7-29.8,27.3-38C75.7,6.6,71.5,8.7,65.5,13.6z'/%3E%3Cpath fill='%23ffb7c5' d='M46.3,43.9C46.6,17.6,30.4,5.6,21.1,5.3c0,0-0.3,5.2,2.7,14.6c-5.7-3.8-15.7-3-15.7-3C9.4,25.3,23.8,44.8,46.3,43.9z'/%3E%3Cpath fill='%23ffb7c5' d='M14,63.5c-3.6,4.3-5.5,11.2-5.4,12.9c8.8,2.3,29.7-6.3,36.2-27.6C24.3,35.6,2.4,53.8,0,62.3C1.7,62.8,6.3,63.7,14,63.5z'/%3E%3Cpath fill='%23ffb7c5' d='M52.5,85.9c2.6,5,11.1,9.4,12.6,10c5.6-7.2,3.5-36.3-15.9-43.6C29,66,39,92.9,46,98.4C47,97,49.7,93.1,52.5,85.9z'/%3E%3Ccircle cx='49' cy='49' r='6' fill='%23ffd4dc' fill-opacity='0.3'/%3E%3C/g%3E%3Cg transform='translate(160,140) scale(0.35) rotate(45)'%3E%3Cpath fill='%23ffb7c5' d='M52.5,48.7C67.9,69.5,90.6,65,97.5,58.8c0,0-3.4-3.9-12.1-8.5c5.8-3.1,13.3-8.8,13.3-8.8C91.9,36.3,67.9,32.4,52.5,48.7z'/%3E%3Cpath fill='%23ffb7c5' d='M65.5,13.6C65.8,7.9,63,1.3,62,0c-8.4,3.5-19.8,23-12,43.9c24.3-2,30.7-29.8,27.3-38C75.7,6.6,71.5,8.7,65.5,13.6z'/%3E%3Cpath fill='%23ffb7c5' d='M46.3,43.9C46.6,17.6,30.4,5.6,21.1,5.3c0,0-0.3,5.2,2.7,14.6c-5.7-3.8-15.7-3-15.7-3C9.4,25.3,23.8,44.8,46.3,43.9z'/%3E%3Cpath fill='%23ffb7c5' d='M14,63.5c-3.6,4.3-5.5,11.2-5.4,12.9c8.8,2.3,29.7-6.3,36.2-27.6C24.3,35.6,2.4,53.8,0,62.3C1.7,62.8,6.3,63.7,14,63.5z'/%3E%3Cpath fill='%23ffb7c5' d='M52.5,85.9c2.6,5,11.1,9.4,12.6,10c5.6-7.2,3.5-36.3-15.9-43.6C29,66,39,92.9,46,98.4C47,97,49.7,93.1,52.5,85.9z'/%3E%3Ccircle cx='49' cy='49' r='5' fill='%23ffd4dc' fill-opacity='0.3'/%3E%3C/g%3E%3Cg transform='translate(180,30) scale(0.25) rotate(-20)'%3E%3Cpath fill='%23ffb7c5' d='M52.5,48.7C67.9,69.5,90.6,65,97.5,58.8c0,0-3.4-3.9-12.1-8.5c5.8-3.1,13.3-8.8,13.3-8.8C91.9,36.3,67.9,32.4,52.5,48.7z'/%3E%3Cpath fill='%23ffb7c5' d='M65.5,13.6C65.8,7.9,63,1.3,62,0c-8.4,3.5-19.8,23-12,43.9c24.3-2,30.7-29.8,27.3-38C75.7,6.6,71.5,8.7,65.5,13.6z'/%3E%3Cpath fill='%23ffb7c5' d='M46.3,43.9C46.6,17.6,30.4,5.6,21.1,5.3c0,0-0.3,5.2,2.7,14.6c-5.7-3.8-15.7-3-15.7-3C9.4,25.3,23.8,44.8,46.3,43.9z'/%3E%3Cpath fill='%23ffb7c5' d='M14,63.5c-3.6,4.3-5.5,11.2-5.4,12.9c8.8,2.3,29.7-6.3,36.2-27.6C24.3,35.6,2.4,53.8,0,62.3C1.7,62.8,6.3,63.7,14,63.5z'/%3E%3Cpath fill='%23ffb7c5' d='M52.5,85.9c2.6,5,11.1,9.4,12.6,10c5.6-7.2,3.5-36.3-15.9-43.6C29,66,39,92.9,46,98.4C47,97,49.7,93.1,52.5,85.9z'/%3E%3C/g%3E%3Cg transform='translate(60,200) scale(0.3) rotate(70)'%3E%3Cpath fill='%23ffb7c5' d='M52.5,48.7C67.9,69.5,90.6,65,97.5,58.8c0,0-3.4-3.9-12.1-8.5c5.8-3.1,13.3-8.8,13.3-8.8C91.9,36.3,67.9,32.4,52.5,48.7z'/%3E%3Cpath fill='%23ffb7c5' d='M65.5,13.6C65.8,7.9,63,1.3,62,0c-8.4,3.5-19.8,23-12,43.9c24.3-2,30.7-29.8,27.3-38C75.7,6.6,71.5,8.7,65.5,13.6z'/%3E%3Cpath fill='%23ffb7c5' d='M46.3,43.9C46.6,17.6,30.4,5.6,21.1,5.3c0,0-0.3,5.2,2.7,14.6c-5.7-3.8-15.7-3-15.7-3C9.4,25.3,23.8,44.8,46.3,43.9z'/%3E%3Cpath fill='%23ffb7c5' d='M14,63.5c-3.6,4.3-5.5,11.2-5.4,12.9c8.8,2.3,29.7-6.3,36.2-27.6C24.3,35.6,2.4,53.8,0,62.3C1.7,62.8,6.3,63.7,14,63.5z'/%3E%3Cpath fill='%23ffb7c5' d='M52.5,85.9c2.6,5,11.1,9.4,12.6,10c5.6-7.2,3.5-36.3-15.9-43.6C29,66,39,92.9,46,98.4C47,97,49.7,93.1,52.5,85.9z'/%3E%3Ccircle cx='49' cy='49' r='4' fill='%23ffd4dc' fill-opacity='0.3'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+      linear-gradient(to bottom, #2d0f1a 0%, #1f0a12 50%, #2d0f1a 100%) !important;
+    border-right: 1px solid #4a1a2a !important;
+  }
+
+  html.dark #stage-slideover-sidebar a:hover,
+  html.dark #stage-slideover-sidebar button:hover,
+  html.dark [data-testid="sidebar"] a:hover,
+  html.dark [data-testid="sidebar"] button:hover,
+  html.dark aside a:hover,
+  html.dark aside button:hover {
+    background-color: rgba(255,183,197,.10) !important;
+    border-radius: 10px !important;
+  }
+
+  html.dark [data-message-author-role="user"] .user-message-bubble-color,
+  html.dark [data-turn="user"] .user-message-bubble-color {
+    background: #4a1a2a !important;
+    color: #ffeef2 !important;
+    border: 1px solid #63213a !important;
+    border-radius: 18px !important;
+    box-shadow: 0 2px 12px rgba(255,128,171,.14) !important;
+  }
+
+  html.dark [data-message-author-role="user"] .user-message-bubble-color:hover,
+  html.dark [data-turn="user"] .user-message-bubble-color:hover {
+    box-shadow: 0 5px 26px rgba(255,183,197,.24) !important;
+  }
+
+  html.dark [data-message-author-role="assistant"],
+  html.dark [data-message-author-role="assistant"] .markdown {
+    color: #f5e6ea !important;
+  }
+
+  html.dark form:has(#prompt-textarea) > div,
+  html.dark div:has(> #prompt-textarea) {
+    background-color: #2a1018 !important;
+    border-color: #4a1a2a !important;
+    transition: border-color .2s ease, box-shadow .2s ease !important;
+  }
+
+  html.dark form:has(#prompt-textarea) > div:focus-within,
+  html.dark div:has(> #prompt-textarea):focus-within {
+    border-color: #ff80ab !important;
+    box-shadow: 0 0 20px rgba(255,128,171,.28), inset 0 0 10px rgba(255,128,171,.08) !important;
+  }
+
+  html.dark #prompt-textarea {
+    color: #ffeef2 !important;
+  }
+
+  html.dark #prompt-textarea p[data-placeholder]::before,
+  html.dark #prompt-textarea[data-placeholder]::before {
+    color: #9b6172 !important;
+  }
+
+  html.dark pre,
+  html.dark [data-message-author-role="assistant"] pre {
+    background-color: #150810 !important;
+    border-color: #3a1525 !important;
+  }
+
+  html.dark code {
+    background-color: #241019 !important;
+  }
+
+  html.dark ::selection {
+    background: #8a2050 !important;
+    color: #fff !important;
+  }
+
+  html.dark *:hover::-webkit-scrollbar-thumb {
+    background: #6a2040 !important;
+    box-shadow: 0 0 8px rgba(255,183,197,.25) !important;
+  }
+  html.dark *:hover::-webkit-scrollbar-thumb:hover {
+    background: #8a2050 !important;
+    box-shadow: 0 0 12px rgba(255,183,197,.4) !important;
+  }
+
+  /* Expanded sidebar fallback for dark mode */
+  html.dark #stage-slideover-sidebar > div,
+  html.dark [data-testid="sidebar"] > div,
+  html.dark aside > div {
+    background-color: transparent !important;
+  }
+
+  /* Also respect OS dark mode if ChatGPT does not expose html.dark */
+  @media (prefers-color-scheme: dark) {
+    html:not(.light) body { background: #1a0a10 !important; }
+  }
+}
