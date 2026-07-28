@@ -1,0 +1,349 @@
+/* ==UserStyle==
+@name           ChatGPT Sky Cloud Theme
+@namespace      https://chatgpt.com
+@version        1.4.0
+@description    Sky-blue cloud theme for ChatGPT - soft pastel blue light mode and deep navy blue dark mode.
+@author         adapted for ChatGPT
+@homepageURL    https://chatgpt.com
+==/UserStyle== */
+
+@-moz-document domain("chatgpt.com"), domain("chat.openai.com") {
+  :root {
+    --sakura-pink-50: #f6fbff;
+    --sakura-pink-100: #e3f3ff;
+    --sakura-pink-200: #b8e2ff;
+    --sakura-pink-300: #a8d9f7;
+    --sakura-pink-500: #45aee8;
+    --sakura-wine: #2d7fb3;
+    --sakura-light-border: #c9e8f7;
+  }
+
+  /* Main light background */
+  html:not(.dark) body,
+  html:not(.dark) main {
+    background: #fff !important;
+  }
+
+  /* Sidebar: soft cloud artwork */
+  html:not(.dark) #stage-slideover-sidebar,
+  html:not(.dark) #stage-slideover-sidebar > div,
+  html:not(.dark) [data-testid="sidebar"],
+  html:not(.dark) [data-testid="sidebar"] > div,
+  html:not(.dark) aside,
+  html:not(.dark) aside > div {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='220' viewBox='0 0 280 220'%3E%3Cg fill='%23ffffff' fill-opacity='0.62'%3E%3Cg transform='translate(18 28)'%3E%3Cellipse cx='58' cy='42' rx='42' ry='20'/%3E%3Ccircle cx='42' cy='34' r='22'/%3E%3Ccircle cx='66' cy='25' r='29'/%3E%3Ccircle cx='91' cy='39' r='22'/%3E%3C/g%3E%3Cg transform='translate(155 118) scale(.72)'%3E%3Cellipse cx='58' cy='42' rx='42' ry='20'/%3E%3Ccircle cx='42' cy='34' r='22'/%3E%3Ccircle cx='66' cy='25' r='29'/%3E%3Ccircle cx='91' cy='39' r='22'/%3E%3C/g%3E%3Cg transform='translate(175 10) scale(.42)' fill-opacity='.48'%3E%3Cellipse cx='58' cy='42' rx='42' ry='20'/%3E%3Ccircle cx='42' cy='34' r='22'/%3E%3Ccircle cx='66' cy='25' r='29'/%3E%3Ccircle cx='91' cy='39' r='22'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+      linear-gradient(to bottom, #e3f3ff 0%, #eaf7ff 50%, #e3f3ff 100%) !important;
+    border-right-color: var(--sakura-light-border) !important;
+  }
+
+  /* Sidebar history items */
+  #stage-slideover-sidebar a,
+  #stage-slideover-sidebar button,
+  [data-testid="sidebar"] a,
+  [data-testid="sidebar"] button,
+  aside a,
+  aside button {
+    transition: background-color .15s ease, box-shadow .15s ease, transform .15s ease !important;
+  }
+
+  html:not(.dark) #stage-slideover-sidebar a:hover,
+  html:not(.dark) #stage-slideover-sidebar button:hover,
+  html:not(.dark) [data-testid="sidebar"] a:hover,
+  html:not(.dark) [data-testid="sidebar"] button:hover,
+  html:not(.dark) aside a:hover,
+  html:not(.dark) aside button:hover {
+    background-color: rgba(168,217,247,.30) !important;
+    border-radius: 10px !important;
+  }
+
+  /* User message bubble */
+  html:not(.dark) [data-message-author-role="user"] .user-message-bubble-color,
+  html:not(.dark) [data-turn="user"] .user-message-bubble-color {
+    background: #e3f3ff !important;
+    color: #17384d !important;
+    border: 1px solid rgba(69,174,232,.10) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 2px 8px rgba(91,183,231,.10) !important;
+    transition: box-shadow .15s ease, transform .15s ease !important;
+  }
+
+  html:not(.dark) [data-message-author-role="user"] .user-message-bubble-color:hover,
+  html:not(.dark) [data-turn="user"] .user-message-bubble-color:hover {
+    box-shadow: 0 5px 16px rgba(91,183,231,.20) !important;
+    transform: translateY(-1px) !important;
+  }
+
+  /* Composer */
+  html:not(.dark) form:has(#prompt-textarea) > div,
+  html:not(.dark) div:has(> #prompt-textarea) {
+    border-color: #c7e6f5 !important;
+  }
+
+  html:not(.dark) form:has(#prompt-textarea) > div:focus-within,
+  html:not(.dark) div:has(> #prompt-textarea):focus-within {
+    border-color: #79c6ee !important;
+    box-shadow: 0 0 0 1px rgba(69,174,232,.10), 0 8px 24px rgba(69,174,232,.10) !important;
+  }
+
+  /* Code blocks - warm pink */
+  html:not(.dark) [data-message-author-role="assistant"] pre,
+  html:not(.dark) [data-message-author-role="assistant"] code[class*="language-"] {
+    background-color: #f1f9ff !important;
+    border-color: #d4edf9 !important;
+  }
+
+  /* Selection */
+  ::selection {
+    background: #b8e2ff !important;
+    color: #16384c !important;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 9px !important; height: 9px !important; }
+  ::-webkit-scrollbar-track { background: transparent !important; }
+  ::-webkit-scrollbar-thumb { background: transparent !important; border-radius: 999px !important; }
+  *:hover::-webkit-scrollbar-thumb { background: #c8e8f7 !important; }
+  *:hover::-webkit-scrollbar-thumb:hover { background: #a8d9f7 !important; }
+
+  /* Wider conversation area, close to the original Gemini layout tweak */
+  [data-testid^="conversation-turn-"] > div,
+  [data-turn] > div {
+    max-width: 1100px !important;
+  }
+
+  /* Expanded sidebar fallback: keep inner wrappers transparent so the cloud background stays visible */
+  html:not(.dark) #stage-slideover-sidebar > div,
+  html:not(.dark) [data-testid="sidebar"] > div,
+  html:not(.dark) aside > div {
+    background-color: transparent !important;
+  }
+
+
+  /* =========================================================
+     ChatGPT expanded sidebar hardening
+     The expanded sidebar creates several opaque token-background wrappers.
+     Keep those wrappers transparent so the cloud artwork on the sidebar
+     itself remains visible.
+     ========================================================= */
+
+  #stage-slideover-sidebar,
+  [data-testid="sidebar"],
+  aside {
+    isolation: isolate !important;
+  }
+
+  /* ChatGPT sidebar surface wrappers */
+  #stage-slideover-sidebar [class*="bg-token-sidebar"],
+  #stage-slideover-sidebar [class*="bg-token-main-surface"],
+  [data-testid="sidebar"] [class*="bg-token-sidebar"],
+  [data-testid="sidebar"] [class*="bg-token-main-surface"],
+  aside [class*="bg-token-sidebar"],
+  aside [class*="bg-token-main-surface"] {
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+
+  /* Catch deeply nested full-height/full-width wrappers used only as surfaces. */
+  #stage-slideover-sidebar > div > div,
+  #stage-slideover-sidebar > div > div > div,
+  [data-testid="sidebar"] > div > div,
+  [data-testid="sidebar"] > div > div > div {
+    background-color: transparent !important;
+  }
+
+  /* Newer ChatGPT builds may expose the expanded navigation as nav. */
+  html:not(.dark) nav[class*="sidebar"],
+  html:not(.dark) nav:has(a[href="/"]) {
+    background-color: transparent !important;
+  }
+
+  html.dark nav[class*="sidebar"],
+  html.dark nav:has(a[href="/"]) {
+    background-color: transparent !important;
+  }
+
+
+  /* =========================================================
+     Expanded sidebar TOP / ChatGPT Plus area
+     Keep the top section inside the opened sidebar on the SAME
+     cloud surface as the rest of the sidebar.
+     ========================================================= */
+
+  /* Important: target headers ONLY when they live inside the sidebar.
+     Do not theme the main page header. */
+  #stage-slideover-sidebar header,
+  [data-testid="sidebar"] header,
+  aside header,
+  #stage-slideover-sidebar [class*="sticky"][class*="top-0"],
+  [data-testid="sidebar"] [class*="sticky"][class*="top-0"],
+  aside [class*="sticky"][class*="top-0"] {
+    background-color: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+  }
+
+  /* ChatGPT Plus / workspace button and its immediate wrappers can have
+     their own opaque token surfaces. Make only those sidebar descendants
+     transparent so the cloud artwork behind them remains visible. */
+  #stage-slideover-sidebar header > div,
+  #stage-slideover-sidebar header > div > div,
+  [data-testid="sidebar"] header > div,
+  [data-testid="sidebar"] header > div > div,
+  aside header > div,
+  aside header > div > div,
+  #stage-slideover-sidebar [class*="sticky"][class*="top-0"] > div,
+  [data-testid="sidebar"] [class*="sticky"][class*="top-0"] > div,
+  aside [class*="sticky"][class*="top-0"] > div {
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+
+  /* Newer ChatGPT builds sometimes put the model/account title row in a
+     nav-like first section rather than a semantic header. Limit this to
+     the FIRST sidebar section so the main app header is untouched. */
+  #stage-slideover-sidebar > div > div:first-child,
+  [data-testid="sidebar"] > div > div:first-child,
+  aside > div > div:first-child {
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+
+  /* Remove opaque token surfaces specifically inside the sidebar top area. */
+  #stage-slideover-sidebar header [class*="bg-token-"],
+  [data-testid="sidebar"] header [class*="bg-token-"],
+  aside header [class*="bg-token-"],
+  #stage-slideover-sidebar [class*="sticky"][class*="top-0"] [class*="bg-token-"],
+  [data-testid="sidebar"] [class*="sticky"][class*="top-0"] [class*="bg-token-"],
+  aside [class*="sticky"][class*="top-0"] [class*="bg-token-"] {
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+
+  /* Keep hover feedback on the ChatGPT Plus row without covering clouds. */
+  html:not(.dark) #stage-slideover-sidebar header button:hover,
+  html:not(.dark) [data-testid="sidebar"] header button:hover,
+  html:not(.dark) aside header button:hover,
+  html:not(.dark) #stage-slideover-sidebar header a:hover,
+  html:not(.dark) [data-testid="sidebar"] header a:hover,
+  html:not(.dark) aside header a:hover {
+    background-color: rgba(168,217,247,.30) !important;
+  }
+
+  html.dark #stage-slideover-sidebar header button:hover,
+  html.dark [data-testid="sidebar"] header button:hover,
+  html.dark aside header button:hover,
+  html.dark #stage-slideover-sidebar header a:hover,
+  html.dark [data-testid="sidebar"] header a:hover,
+  html.dark aside header a:hover {
+    background-color: rgba(139,211,247,.12) !important;
+  }
+
+  /* ======================== DARK MODE ======================== */
+  html.dark,
+  html.dark body {
+    background: #081722 !important;
+    color-scheme: dark !important;
+  }
+
+  html.dark main {
+    background: #081722 !important;
+  }
+
+  html.dark #stage-slideover-sidebar,
+  html.dark #stage-slideover-sidebar > div,
+  html.dark [data-testid="sidebar"],
+  html.dark [data-testid="sidebar"] > div,
+  html.dark aside,
+  html.dark aside > div {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='220' viewBox='0 0 280 220'%3E%3Cg fill='%2398dcfa' fill-opacity='0.20'%3E%3Cg transform='translate(18 28)'%3E%3Cellipse cx='58' cy='42' rx='42' ry='20'/%3E%3Ccircle cx='42' cy='34' r='22'/%3E%3Ccircle cx='66' cy='25' r='29'/%3E%3Ccircle cx='91' cy='39' r='22'/%3E%3C/g%3E%3Cg transform='translate(155 118) scale(.72)'%3E%3Cellipse cx='58' cy='42' rx='42' ry='20'/%3E%3Ccircle cx='42' cy='34' r='22'/%3E%3Ccircle cx='66' cy='25' r='29'/%3E%3Ccircle cx='91' cy='39' r='22'/%3E%3C/g%3E%3Cg transform='translate(175 10) scale(.42)' fill-opacity='.15'%3E%3Cellipse cx='58' cy='42' rx='42' ry='20'/%3E%3Ccircle cx='42' cy='34' r='22'/%3E%3Ccircle cx='66' cy='25' r='29'/%3E%3Ccircle cx='91' cy='39' r='22'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+      linear-gradient(to bottom, #102b3e 0%, #0b1e2c 50%, #102b3e 100%) !important;
+    border-right: 1px solid #163b52 !important;
+  }
+
+  html.dark #stage-slideover-sidebar a:hover,
+  html.dark #stage-slideover-sidebar button:hover,
+  html.dark [data-testid="sidebar"] a:hover,
+  html.dark [data-testid="sidebar"] button:hover,
+  html.dark aside a:hover,
+  html.dark aside button:hover {
+    background-color: rgba(139,211,247,.12) !important;
+    border-radius: 10px !important;
+  }
+
+  html.dark [data-message-author-role="user"] .user-message-bubble-color,
+  html.dark [data-turn="user"] .user-message-bubble-color {
+    background: #163b52 !important;
+    color: #eef9ff !important;
+    border: 1px solid #24506a !important;
+    border-radius: 18px !important;
+    box-shadow: 0 2px 12px rgba(86,185,235,.16) !important;
+  }
+
+  html.dark [data-message-author-role="user"] .user-message-bubble-color:hover,
+  html.dark [data-turn="user"] .user-message-bubble-color:hover {
+    box-shadow: 0 5px 26px rgba(139,211,247,.25) !important;
+  }
+
+  html.dark [data-message-author-role="assistant"],
+  html.dark [data-message-author-role="assistant"] .markdown {
+    color: #e6f5fc !important;
+  }
+
+  html.dark form:has(#prompt-textarea) > div,
+  html.dark div:has(> #prompt-textarea) {
+    background-color: #102634 !important;
+    border-color: #163b52 !important;
+    transition: border-color .2s ease, box-shadow .2s ease !important;
+  }
+
+  html.dark form:has(#prompt-textarea) > div:focus-within,
+  html.dark div:has(> #prompt-textarea):focus-within {
+    border-color: #67c7f5 !important;
+    box-shadow: 0 0 20px rgba(103,199,245,.28), inset 0 0 10px rgba(103,199,245,.09) !important;
+  }
+
+  html.dark #prompt-textarea {
+    color: #eef9ff !important;
+  }
+
+  html.dark #prompt-textarea p[data-placeholder]::before,
+  html.dark #prompt-textarea[data-placeholder]::before {
+    color: #7199ad !important;
+  }
+
+  html.dark pre,
+  html.dark [data-message-author-role="assistant"] pre {
+    background-color: #06121a !important;
+    border-color: #123246 !important;
+  }
+
+  html.dark code {
+    background-color: #0d2230 !important;
+  }
+
+  html.dark ::selection {
+    background: #2d83ad !important;
+    color: #fff !important;
+  }
+
+  html.dark *:hover::-webkit-scrollbar-thumb {
+    background: #235f7f !important;
+    box-shadow: 0 0 8px rgba(139,211,247,.26) !important;
+  }
+  html.dark *:hover::-webkit-scrollbar-thumb:hover {
+    background: #2d83ad !important;
+    box-shadow: 0 0 12px rgba(139,211,247,.40) !important;
+  }
+
+  /* Expanded sidebar fallback for dark mode */
+  html.dark #stage-slideover-sidebar > div,
+  html.dark [data-testid="sidebar"] > div,
+  html.dark aside > div {
+    background-color: transparent !important;
+  }
+
+  /* Also respect OS dark mode if ChatGPT does not expose html.dark */
+  @media (prefers-color-scheme: dark) {
+    html:not(.light) body { background: #081722 !important; }
+  }
+}
