@@ -1,6 +1,6 @@
 # Stylus
 ---
-- Chat GPT
+### Chat GPT
   : Created 4 GitHub-themed variations inspired by Gemini's Sakura theme.
   - 🌸 Pink Sakura
     
@@ -25,7 +25,7 @@
 | Light | Dark |
 |-------|------|
 | <img src="./images/green-light.png" width="400"> | <img src="./images/green-dark.png" width="400"> |
-- Github
+### Github
   : Updated the Catppuccin theme to replace the GitHub activity graph (contribution grid) with a cherry blossom-shaped design.
   
 | Theme | Graph |
