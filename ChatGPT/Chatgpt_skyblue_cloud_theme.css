@@ -1,8 +1,8 @@
 /* ==UserStyle==
-@name            ChatGPT Sky Cloud Theme
+@name           ChatGPT Sky Cloud Theme (Single Border & Neon Glow)
 @namespace      https://chatgpt.com
-@version         1.4.5
-@description    Sky-blue cloud theme for ChatGPT - soft pastel blue light mode and deep navy blue dark mode.
+@version        1.4.6
+@description    Sky-blue cloud theme for ChatGPT - single rounded border & neon cyan/sky focus mode.
 @author         M.R. Lee
 @homepageURL    https://chatgpt.com
 ==/UserStyle== */
@@ -24,7 +24,7 @@
     background: #fff !important;
   }
 
-  /* Sidebar: soft cloud artwork (라이트 모드 구름 투명도 연하게 조정) */
+  /* Sidebar */
   html:not(.dark) #stage-slideover-sidebar,
   html:not(.dark) #stage-slideover-sidebar > div,
   html:not(.dark) [data-testid="sidebar"],
@@ -73,16 +73,28 @@
     transform: translateY(-1px) !important;
   }
 
-  /* Composer */
-  html:not(.dark) form:has(#prompt-textarea) > div,
-  html:not(.dark) div:has(> #prompt-textarea) {
-    border-color: #c7e6f5 !important;
+  /* =========================================================
+     Composer (중복 border 제거 및 단일 래퍼 적용)
+     ========================================================= */
+
+  /* 자식/내부 래퍼 border & shadow 초기화 (이중 띠 현상 완벽 방지) */
+  form:has(#prompt-textarea) div:has(> #prompt-textarea) {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
   }
 
-  html:not(.dark) form:has(#prompt-textarea) > div:focus-within,
-  html:not(.dark) div:has(> #prompt-textarea):focus-within {
+  /* 라이트 모드 외곽 단일 래퍼 */
+  html:not(.dark) form:has(#prompt-textarea) > div {
+    border: 1px solid #c7e6f5 !important;
+    border-radius: 28px !important;
+    box-shadow: 0 2px 10px rgba(69,174,232,.05) !important;
+    transition: border-color .2s ease, box-shadow .2s ease !important;
+  }
+
+  html:not(.dark) form:has(#prompt-textarea) > div:focus-within {
     border-color: #79c6ee !important;
-    box-shadow: 0 0 0 1px rgba(69,174,232,.10), 0 8px 24px rgba(69,174,232,.10) !important;
+    box-shadow: 0 0 0 2px rgba(69,174,232,.18), 0 8px 24px rgba(69,174,232,.12) !important;
   }
 
   /* Code blocks base */
@@ -111,13 +123,7 @@
     max-width: 1100px !important;
   }
 
-  /* Expanded sidebar fallback */
-  html:not(.dark) #stage-slideover-sidebar > div,
-  html:not(.dark) [data-testid="sidebar"] > div,
-  html:not(.dark) aside > div {
-    background-color: transparent !important;
-  }
-
+  /* Sidebar layout wrappers transparency */
   #stage-slideover-sidebar,
   [data-testid="sidebar"],
   aside {
@@ -221,7 +227,7 @@
     background: #081722 !important;
   }
 
-  /* 다크 모드 구름: 전체 그룹에 opacity를 통합 적용하여 원 내부 겹침 현상 완전 제거 */
+  /* Dark mode sidebar */
   html.dark #stage-slideover-sidebar,
   html.dark #stage-slideover-sidebar > div,
   html.dark [data-testid="sidebar"],
@@ -262,17 +268,18 @@
     color: #e6f5fc !important;
   }
 
-  html.dark form:has(#prompt-textarea) > div,
-  html.dark div:has(> #prompt-textarea) {
+  /* Dark mode Composer 단일 네온 스카이블루 래퍼 */
+  html.dark form:has(#prompt-textarea) > div {
     background-color: #102634 !important;
-    border-color: #163b52 !important;
-    transition: border-color .2s ease, box-shadow .2s ease !important;
+    border: 1px solid #163b52 !important;
+    border-radius: 28px !important;
+    transition: border-color .2s ease, box-shadow .25s ease !important;
   }
 
-  html.dark form:has(#prompt-textarea) > div:focus-within,
-  html.dark div:has(> #prompt-textarea):focus-within {
-    border-color: #67c7f5 !important;
-    box-shadow: 0 0 20px rgba(103,199,245,.28), inset 0 0 10px rgba(103,199,245,.09) !important;
+  /* 다크모드 입력창 네온 스카이블루/시안 글로우 */
+  html.dark form:has(#prompt-textarea) > div:focus-within {
+    border-color: #00d2ff !important;
+    box-shadow: 0 0 8px #00d2ff, 0 0 22px rgba(0, 210, 255, 0.48), inset 0 0 10px rgba(0, 210, 255, 0.15) !important;
   }
 
   html.dark #prompt-textarea {
@@ -320,7 +327,7 @@
 }
 
 /* =========================================================
-   Code block edge-bleed & double-layer fix (Sky Cloud Theme 적용)
+   Code block edge-bleed & double-layer fix
    ========================================================= */
 @-moz-document domain("chatgpt.com"), domain("chat.openai.com") {
 
