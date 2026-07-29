@@ -25,6 +25,7 @@
 | Light | Dark |
 |-------|------|
 | <img src="./images/green-light.png" width="400"> | <img src="./images/green-dark.png" width="400"> |
+
 ### Gemini
 **Light mode Only!!!!!!**
 Dark mode is under development.
