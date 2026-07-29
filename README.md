@@ -6,25 +6,25 @@
     
 | Light | Dark |
 |-------|------|
-| <img src="./images/pink-light.png" width="400"> | <img src="./images/pink-dark.png" width="400"> |
+| <img src="pic/chatgpt_pink_light.png" width="400"> | <img src="pic/chatgpt_pinks_dark.png" width="400"> |
 
   - ☁️ Skyblue Cloud
     
 | Light | Dark |
 |-------|------|
-| <img src="./images/skyblue-light.png" width="400"> | <img src="./images/skyblue-dark.png" width="400"> |
+| <img src="pic/chatgpt_skyblue_light.png" width="400"> | <img src="pic/chatgpt_skyblue_dark.png" width="400"> |
 
   - 💜 Purple Heart
     
 | Light | Dark |
 |-------|------|
-| <img src="./images/purple-light.png" width="400"> | <img src="./images/purple-dark.png" width="400"> |
+| <img src="pic/chatgpt_purple_light.png" width="400"> | <img src="pic/chatgpt_purple_dark.png" width="400"> |
 
   - 🌿 Green Sprig
     
 | Light | Dark |
 |-------|------|
-| <img src="./images/green-light.png" width="400"> | <img src="./images/green-dark.png" width="400"> |
+| <img src="pic/chatgpt_green_light.png" width="400"> | <img src="pic/chatgpt_green_dark.png" width="400"> |
 
 ### Gemini
 **Light mode Only!!!!!!**
