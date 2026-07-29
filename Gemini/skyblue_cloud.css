@@ -1,8 +1,8 @@
 /* ==UserStyle==
-@name           Gemini Sky Cloud Theme (Default Syntax Color Restored)
+@name           Gemini Sky Cloud Theme (Vivid Light Mode Syntax Highlighting)
 @namespace      https://gemini.google.com
-@version        1.5.8
-@description    Sky-blue cloud theme for Google Gemini with clean default light & dark mode syntax highlighting.
+@version        1.5.9
+@description    Sky-blue cloud theme for Google Gemini with vivid high-contrast color palette for light mode code blocks.
 @author         M.R. Lee
 @homepageURL    https://gemini.google.com
 ==/UserStyle== */
@@ -213,7 +213,7 @@
 		display: none !important;
 	}
 
-	/* Sky Blue Code Blocks (Light Mode 디폴트 고대비) */
+	/* Sky Blue Code Blocks (Light Mode) */
 	code-block,
 	pre,
 	.formatted-code-block-internal-container {
@@ -222,7 +222,7 @@
 		border-radius: 12px !important;
 	}
 
-	/* 라이트 모드 코드 헤더 */
+	/* 라이트 모드 코드 헤더 바 */
 	.code-block-decoration {
 		background-color: #e3f3ff !important;
 		border-bottom: 1px solid #d4edf9 !important;
@@ -231,6 +231,71 @@
 
 	.code-block-decoration * {
 		color: #17384d !important;
+	}
+
+	/* ═══════════════════════════════════════════════════════════════════════════
+	   [라이트 모드 전용 선명한 구문 강조(Syntax Highlighting) 패치]
+	   ═══════════════════════════════════════════════════════════════════════════ */
+
+	/* 1. 코드 기본 일반 텍스트 & 변수명 */
+	html:not(.dark-theme) code-block code,
+	html:not(.dark-theme) code-block pre,
+	html:not(.dark-theme) pre code {
+		color: #0f172a !important; /* 진한 딥 슬레이트/네비 */
+	}
+
+	/* 2. 주석 (Comments) */
+	html:not(.dark-theme) code-block [class*="comment"],
+	html:not(.dark-theme) pre [class*="comment"],
+	html:not(.dark-theme) code-block .token.comment {
+		color: #475569 !important; /* 또렷한 슬레이트 회색 */
+		font-style: italic !important;
+	}
+
+	/* 3. 예약어/키워드 (module, input, wire, always, assign, begin 등) */
+	html:not(.dark-theme) code-block [class*="keyword"],
+	html:not(.dark-theme) pre [class*="keyword"],
+	html:not(.dark-theme) code-block .token.keyword {
+		color: #1d4ed8 !important; /* 또렷한 선명 로열 블루 */
+		font-weight: 600 !important;
+	}
+
+	/* 4. 지시어/매크로 (`timescale 등) */
+	html:not(.dark-theme) code-block [class*="directive"],
+	html:not(.dark-theme) code-block [class*="macro"],
+	html:not(.dark-theme) code-block .token.important {
+		color: #b91c1c !important; /* 진한 크림슨 레드 */
+		font-weight: 600 !important;
+	}
+
+	/* 5. 숫자 / 리터럴 / 불리언 (1, 0, 1'b0 등) */
+	html:not(.dark-theme) code-block [class*="number"],
+	html:not(.dark-theme) code-block [class*="literal"],
+	html:not(.dark-theme) code-block .token.number,
+	html:not(.dark-theme) code-block .token.boolean {
+		color: #c026d3 !important; /* 또렷한 마젠타/바이올렛 */
+		font-weight: 500 !important;
+	}
+
+	/* 6. 문자열 (Strings) */
+	html:not(.dark-theme) code-block [class*="string"],
+	html:not(.dark-theme) code-block .token.string {
+		color: #047857 !important; /* 진한 에메랄드 초록 */
+	}
+
+	/* 7. 함수/모듈 이름 & 파라미터 (cdc_synchronizer 등) */
+	html:not(.dark-theme) code-block [class*="function"],
+	html:not(.dark-theme) code-block [class*="title"],
+	html:not(.dark-theme) code-block .token.function {
+		color: #0369a1 !important; /* 어두운 시안 블루 */
+		font-weight: 600 !important;
+	}
+
+	/* 8. 괄호, 콜론, 세미콜론 등 구문 기호 */
+	html:not(.dark-theme) code-block [class*="punctuation"],
+	html:not(.dark-theme) code-block .token.punctuation,
+	html:not(.dark-theme) code-block .token.operator {
+		color: #334155 !important; /* 또렷한 진회색 */
 	}
 }
 
