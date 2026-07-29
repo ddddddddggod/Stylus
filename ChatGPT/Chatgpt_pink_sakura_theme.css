@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           ChatGPT Sakura Theme
 @namespace      https://chatgpt.com
-@version        1.3.0
+@version        1.3.9
 @description    Cherry blossom theme for ChatGPT - soft sakura light mode and deep burgundy dark mode.
 @author         adapted for ChatGPT
 @homepageURL    https://chatgpt.com
@@ -111,20 +111,12 @@
     max-width: 1100px !important;
   }
 
-  /* Expanded sidebar fallback: keep inner wrappers transparent so the sakura background stays visible */
+  /* Expanded sidebar fallback */
   html:not(.dark) #stage-slideover-sidebar > div,
   html:not(.dark) [data-testid="sidebar"] > div,
   html:not(.dark) aside > div {
     background-color: transparent !important;
   }
-
-
-  /* =========================================================
-     ChatGPT expanded sidebar hardening
-     The expanded sidebar creates several opaque token-background wrappers.
-     Keep those wrappers transparent so the sakura artwork on the sidebar
-     itself remains visible.
-     ========================================================= */
 
   #stage-slideover-sidebar,
   [data-testid="sidebar"],
@@ -132,7 +124,6 @@
     isolation: isolate !important;
   }
 
-  /* ChatGPT sidebar surface wrappers */
   #stage-slideover-sidebar [class*="bg-token-sidebar"],
   #stage-slideover-sidebar [class*="bg-token-main-surface"],
   [data-testid="sidebar"] [class*="bg-token-sidebar"],
@@ -143,7 +134,6 @@
     background-image: none !important;
   }
 
-  /* Catch deeply nested full-height/full-width wrappers used only as surfaces. */
   #stage-slideover-sidebar > div > div,
   #stage-slideover-sidebar > div > div > div,
   [data-testid="sidebar"] > div > div,
@@ -151,7 +141,6 @@
     background-color: transparent !important;
   }
 
-  /* Newer ChatGPT builds may expose the expanded navigation as nav. */
   html:not(.dark) nav[class*="sidebar"],
   html:not(.dark) nav:has(a[href="/"]) {
     background-color: transparent !important;
@@ -162,15 +151,6 @@
     background-color: transparent !important;
   }
 
-
-  /* =========================================================
-     Expanded sidebar TOP / ChatGPT Plus area
-     Keep the top section inside the opened sidebar on the SAME
-     sakura surface as the rest of the sidebar.
-     ========================================================= */
-
-  /* Important: target headers ONLY when they live inside the sidebar.
-     Do not theme the main page header. */
   #stage-slideover-sidebar header,
   [data-testid="sidebar"] header,
   aside header,
@@ -182,9 +162,6 @@
     box-shadow: none !important;
   }
 
-  /* ChatGPT Plus / workspace button and its immediate wrappers can have
-     their own opaque token surfaces. Make only those sidebar descendants
-     transparent so the sakura artwork behind them remains visible. */
   #stage-slideover-sidebar header > div,
   #stage-slideover-sidebar header > div > div,
   [data-testid="sidebar"] header > div,
@@ -198,9 +175,6 @@
     background-image: none !important;
   }
 
-  /* Newer ChatGPT builds sometimes put the model/account title row in a
-     nav-like first section rather than a semantic header. Limit this to
-     the FIRST sidebar section so the main app header is untouched. */
   #stage-slideover-sidebar > div > div:first-child,
   [data-testid="sidebar"] > div > div:first-child,
   aside > div > div:first-child {
@@ -208,7 +182,6 @@
     background-image: none !important;
   }
 
-  /* Remove opaque token surfaces specifically inside the sidebar top area. */
   #stage-slideover-sidebar header [class*="bg-token-"],
   [data-testid="sidebar"] header [class*="bg-token-"],
   aside header [class*="bg-token-"],
@@ -219,7 +192,6 @@
     background-image: none !important;
   }
 
-  /* Keep hover feedback on the ChatGPT Plus row without covering flowers. */
   html:not(.dark) #stage-slideover-sidebar header button:hover,
   html:not(.dark) [data-testid="sidebar"] header button:hover,
   html:not(.dark) aside header button:hover,
@@ -335,15 +307,82 @@
     box-shadow: 0 0 12px rgba(255,183,197,.4) !important;
   }
 
-  /* Expanded sidebar fallback for dark mode */
   html.dark #stage-slideover-sidebar > div,
   html.dark [data-testid="sidebar"] > div,
   html.dark aside > div {
     background-color: transparent !important;
   }
 
-  /* Also respect OS dark mode if ChatGPT does not expose html.dark */
   @media (prefers-color-scheme: dark) {
     html:not(.light) body { background: #1a0a10 !important; }
+  }
+}
+
+/* =========================================================
+   v1.3.9 - Code block edge-bleed & double-layer fix
+   ========================================================= */
+@-moz-document domain("chatgpt.com"), domain("chat.openai.com") {
+
+  /* 1. 최외각 컨테이너의 잔여 배경 및 테두리 제거 */
+  html:not(.dark) [data-message-author-role="assistant"] .markdown > div:has(pre),
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="contain-inline-size"] {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* 2. 실제 둥근 모서리를 갖는 코드 쉘에 모서리 잘림(overflow: hidden) 및 깔끔한 테두리 지정 */
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) {
+    background-color: #fff1f5 !important;
+    border: 1px solid #f4d5e0 !important;
+    border-radius: 12px !important;
+    overflow: hidden !important; /* 모서리 밖으로 자식 요소가 삐져나가지 않도록 잘라냄 */
+    box-shadow: none !important;
+  }
+
+  /* 3. 코드 헤더 (CSS 라벨 + 복사 버튼 줄) 깔끔하게 정돈 */
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) > div:first-child:not(:has(pre)) {
+    background-color: #fce4ec !important;
+    border-bottom: 1px solid #f4d5e0 !important;
+    border-top-left-radius: 11px !important;
+    border-top-right-radius: 11px !important;
+  }
+
+  /* 4. 내부 pre 및 code 요소 중복 배경 투명화 */
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) pre,
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) code {
+    background-color: transparent !important;
+    border: none !important;
+  }
+
+  /* === 다크 모드 동일 패치 === */
+  html.dark [data-message-author-role="assistant"] .markdown > div:has(pre),
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="contain-inline-size"] {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) {
+    background-color: #1f0a12 !important;
+    border: 1px solid #3a1525 !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: none !important;
+  }
+
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) > div:first-child:not(:has(pre)) {
+    background-color: #2d0f1a !important;
+    border-bottom: 1px solid #3a1525 !important;
+    border-top-left-radius: 11px !important;
+    border-top-right-radius: 11px !important;
+  }
+
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) pre,
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) code {
+    background-color: transparent !important;
+    border: none !important;
   }
 }
