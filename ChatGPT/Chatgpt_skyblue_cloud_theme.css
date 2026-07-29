@@ -77,7 +77,7 @@
      Composer (중복 border 제거 및 단일 래퍼 적용)
      ========================================================= */
 
-  /* 자식/내부 래퍼 border & shadow 초기화 (이중 띠 현상 완벽 방지) */
+  /* 자식/내부 래퍼 border & shadow 초기화  */
   form:has(#prompt-textarea) div:has(> #prompt-textarea) {
     border: none !important;
     box-shadow: none !important;
