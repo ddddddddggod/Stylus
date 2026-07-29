@@ -1,0 +1,457 @@
+/* ==UserStyle==
+@name           Gemini Sakura Theme
+@namespace      https://gemini.google.com
+@version        1.2.1
+@description    Cherry blossom theme with beautiful sakura petals - soft pink light mode, moody burgundy dark mode with glows.
+@author         howaeri
+@homepageURL    https://gemini.google.com
+==/UserStyle== */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   1. SAKURA LIGHT MODE (All Gemini Pages)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@-moz-document domain("gemini.google.com") {
+
+	/* User Chat Bubbles */
+	.user-query-bubble-with-background {
+		background-color: #fce4ec !important;
+		border-radius: 16px !important;
+	}
+
+	.user-query-bubble-with-background:hover {
+		box-shadow: 0 4px 12px rgba(230, 124, 171, 0.15) !important;
+		transform: translateY(-1px) !important;
+	}
+
+	/* Sidebar - Pink gradient with sakura petals */
+	.sidenav-with-history-container {
+		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250' viewBox='0 0 250 250'%3E%3Cg opacity='0.08'%3E%3Cg transform='translate(30,30) scale(0.5)'%3E%3Cpath fill='%23c2185b' d='M52.5,48.7C67.9,69.5,90.6,65,97.5,58.8c0,0-3.4-3.9-12.1-8.5c5.8-3.1,13.3-8.8,13.3-8.8C91.9,36.3,67.9,32.4,52.5,48.7z'/%3E%3Cpath fill='%23c2185b' d='M65.5,13.6C65.8,7.9,63,1.3,62,0c-8.4,3.5-19.8,23-12,43.9c24.3-2,30.7-29.8,27.3-38C75.7,6.6,71.5,8.7,65.5,13.6z'/%3E%3Cpath fill='%23c2185b' d='M46.3,43.9C46.6,17.6,30.4,5.6,21.1,5.3c0,0-0.3,5.2,2.7,14.6c-5.7-3.8-15.7-3-15.7-3C9.4,25.3,23.8,44.8,46.3,43.9z'/%3E%3Cpath fill='%23c2185b' d='M14,63.5c-3.6,4.3-5.5,11.2-5.4,12.9c8.8,2.3,29.7-6.3,36.2-27.6C24.3,35.6,2.4,53.8,0,62.3C1.7,62.8,6.3,63.7,14,63.5z'/%3E%3Cpath fill='%23c2185b' d='M52.5,85.9c2.6,5,11.1,9.4,12.6,10c5.6-7.2,3.5-36.3-15.9-43.6C29,66,39,92.9,46,98.4C47,97,49.7,93.1,52.5,85.9z'/%3E%3Ccircle cx='49' cy='49' r='6' fill='%23f8bbd0'/%3E%3C/g%3E%3Cg transform='translate(160,140) scale(0.35) rotate(45)'%3E%3Cpath fill='%23c2185b' d='M52.5,48.7C67.9,69.5,90.6,65,97.5,58.8c0,0-3.4-3.9-12.1-8.5c5.8-3.1,13.3-8.8,13.3-8.8C91.9,36.3,67.9,32.4,52.5,48.7z'/%3E%3Cpath fill='%23c2185b' d='M65.5,13.6C65.8,7.9,63,1.3,62,0c-8.4,3.5-19.8,23-12,43.9c24.3-2,30.7-29.8,27.3-38C75.7,6.6,71.5,8.7,65.5,13.6z'/%3E%3Cpath fill='%23c2185b' d='M46.3,43.9C46.6,17.6,30.4,5.6,21.1,5.3c0,0-0.3,5.2,2.7,14.6c-5.7-3.8-15.7-3-15.7-3C9.4,25.3,23.8,44.8,46.3,43.9z'/%3E%3Cpath fill='%23c2185b' d='M14,63.5c-3.6,4.3-5.5,11.2-5.4,12.9c8.8,2.3,29.7-6.3,36.2-27.6C24.3,35.6,2.4,53.8,0,62.3C1.7,62.8,6.3,63.7,14,63.5z'/%3E%3Cpath fill='%23c2185b' d='M52.5,85.9c2.6,5,11.1,9.4,12.6,10c5.6-7.2,3.5-36.3-15.9-43.6C29,66,39,92.9,46,98.4C47,97,49.7,93.1,52.5,85.9z'/%3E%3Ccircle cx='49' cy='49' r='5' fill='%23f8bbd0'/%3E%3C/g%3E%3Cg transform='translate(180,30) scale(0.25) rotate(-20)'%3E%3Cpath fill='%23c2185b' d='M52.5,48.7C67.9,69.5,90.6,65,97.5,58.8c0,0-3.4-3.9-12.1-8.5c5.8-3.1,13.3-8.8,13.3-8.8C91.9,36.3,67.9,32.4,52.5,48.7z'/%3E%3Cpath fill='%23c2185b' d='M65.5,13.6C65.8,7.9,63,1.3,62,0c-8.4,3.5-19.8,23-12,43.9c24.3-2,30.7-29.8,27.3-38C75.7,6.6,71.5,8.7,65.5,13.6z'/%3E%3Cpath fill='%23c2185b' d='M46.3,43.9C46.6,17.6,30.4,5.6,21.1,5.3c0,0-0.3,5.2,2.7,14.6c-5.7-3.8-15.7-3-15.7-3C9.4,25.3,23.8,44.8,46.3,43.9z'/%3E%3Cpath fill='%23c2185b' d='M14,63.5c-3.6,4.3-5.5,11.2-5.4,12.9c8.8,2.3,29.7-6.3,36.2-27.6C24.3,35.6,2.4,53.8,0,62.3C1.7,62.8,6.3,63.7,14,63.5z'/%3E%3Cpath fill='%23c2185b' d='M52.5,85.9c2.6,5,11.1,9.4,12.6,10c5.6-7.2,3.5-36.3-15.9-43.6C29,66,39,92.9,46,98.4C47,97,49.7,93.1,52.5,85.9z'/%3E%3C/g%3E%3Cg transform='translate(60,200) scale(0.3) rotate(70)'%3E%3Cpath fill='%23c2185b' d='M52.5,48.7C67.9,69.5,90.6,65,97.5,58.8c0,0-3.4-3.9-12.1-8.5c5.8-3.1,13.3-8.8,13.3-8.8C91.9,36.3,67.9,32.4,52.5,48.7z'/%3E%3Cpath fill='%23c2185b' d='M65.5,13.6C65.8,7.9,63,1.3,62,0c-8.4,3.5-19.8,23-12,43.9c24.3-2,30.7-29.8,27.3-38C75.7,6.6,71.5,8.7,65.5,13.6z'/%3E%3Cpath fill='%23c2185b' d='M46.3,43.9C46.6,17.6,30.4,5.6,21.1,5.3c0,0-0.3,5.2,2.7,14.6c-5.7-3.8-15.7-3-15.7-3C9.4,25.3,23.8,44.8,46.3,43.9z'/%3E%3Cpath fill='%23c2185b' d='M14,63.5c-3.6,4.3-5.5,11.2-5.4,12.9c8.8,2.3,29.7-6.3,36.2-27.6C24.3,35.6,2.4,53.8,0,62.3C1.7,62.8,6.3,63.7,14,63.5z'/%3E%3Cpath fill='%23c2185b' d='M52.5,85.9c2.6,5,11.1,9.4,12.6,10c5.6-7.2,3.5-36.3-15.9-43.6C29,66,39,92.9,46,98.4C47,97,49.7,93.1,52.5,85.9z'/%3E%3Ccircle cx='49' cy='49' r='4' fill='%23f8bbd0'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+		linear-gradient(to bottom, #fce4ec 0%, #fde5ec 50%, #fce4ec 100%) !important;
+	}
+
+	/* Sidebar Hover Effect */
+	.side-nav-entry-button:hover,
+	.bot-item:hover {
+		background-color: rgba(240, 184, 212, 0.15) !important;
+		border-radius: 8px !important;
+	}
+
+	/* Hide Upgrade button in top header bar */
+	.buttons-container.adv-upsell {
+		display: none !important;
+	}
+
+	/* Hide "Get more from Gemini / Upgrade" section in the Pro mode picker menu */
+	.upgrade-container.tier1-upsell-container {
+		display: none !important;
+	}
+
+	/* Three-dot Menu Buttons */
+	.conversation-actions-menu-button {
+		background-color: transparent !important;
+		cursor: pointer !important;
+	}
+
+	.conversation-actions-menu-button:hover {
+		background-color: #F8BBD0 !important;
+	}
+
+	.conversation-actions-menu-button:hover mat-icon {
+		color: #ffffff !important;
+	}
+
+	/* Three-dot menu hover on selected conversation */
+	.conversation-items-container .selected .conversation-actions-menu-button:hover,
+	.conversation-items-container .selected .conversation-actions-menu-button:focus,
+	.conversation-actions-container.selected .conversation-actions-menu-button:hover,
+	.conversation-actions-container.selected .conversation-actions-menu-button:focus {
+		background-color: #e91e63 !important;
+	}
+
+	/* Hidden Preview Images */
+	.my-stuff-recents-preview {
+		display: none !important;
+	}
+
+	/* Hide gradient under chat bar */
+	.input-gradient::before {
+		display: none !important;
+	}
+
+	/* Transitions */
+	button,
+	a,
+	.conversation-actions-menu-button,
+	.user-query-bubble-with-background {
+		transition: all 0.15s ease !important;
+	}
+
+	/* Scrollbars (visible on hover) */
+	::-webkit-scrollbar {
+		width: 10px !important;
+	}
+
+	::-webkit-scrollbar-track {
+		background: transparent !important;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: transparent !important;
+		border-radius: 5px !important;
+	}
+
+	*:hover::-webkit-scrollbar-thumb,
+	*:active::-webkit-scrollbar-thumb {
+		background: #f5d1e0 !important;
+	}
+
+	*:hover::-webkit-scrollbar-thumb:hover {
+		background: #f0b8d4 !important;
+	}
+
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   2. LAYOUT OVERRIDES (Chat Pages with Conversations)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@-moz-document url-prefix("https://gemini.google.com/app/") {
+
+	/* Background */
+	body {
+		background-color: #fff !important;
+	}
+
+	/* Hide Avatar */
+	.avatar-gutter,
+	bard-avatar,
+	.response-container-header-avatar {
+		display: none !important;
+	}
+
+	/* Fix header title overlap */
+	.conversation-actions .conversation-actions-menu-button {
+		overflow: hidden !important;
+	}
+
+	.conversation-actions .conversation-title {
+		overflow: hidden !important;
+		text-overflow: ellipsis !important;
+		white-space: nowrap !important;
+	}
+
+	/* Layout Container */
+	.conversation-container {
+		max-width: 100% !important;
+		width: 100% !important;
+		padding-left: 20px !important;
+		padding-right: 20px !important;
+	}
+
+	/* User Query - Push to the far right */
+	user-query,
+	.user-query-container {
+		width: 100% !important;
+		max-width: 100% !important;
+		align-items: flex-end !important;
+		display: flex !important;
+		flex-direction: column !important;
+	}
+
+	.query-content {
+		width: 100% !important;
+		max-width: 100% !important;
+		justify-content: flex-end !important;
+		padding-right: 0 !important;
+		margin-right: 0 !important;
+	}
+
+	.user-query-bubble-with-background {
+		max-width: 85% !important;
+		width: fit-content !important;
+		margin-left: auto !important;
+		margin-right: 0 !important;
+	}
+
+	/* Model Response */
+	model-response {
+		display: block !important;
+		width: 100% !important;
+		max-width: 1100px !important;
+	}
+
+	.response-container-content {
+		margin-left: 0 !important;
+		padding-left: 0 !important;
+	}
+
+	.model-response-text {
+		width: 100% !important;
+		max-width: 100% !important;
+	}
+
+	/* Chat Input Bar */
+	.input-area-container {
+		bottom: 15px !important;
+		width: auto !important;
+		max-width: none !important;
+		left: 0 !important;
+		right: 0 !important;
+		position: absolute !important;
+		padding-left: 20px !important;
+		padding-right: 20px !important;
+	}
+
+	/* Prevent content from hiding under fixed input bar */
+	.conversation-container {
+		max-width: 100% !important;
+		width: 100% !important;
+		padding-left: 20px !important;
+		padding-right: 20px !important;
+		padding-bottom: 120px !important;
+	}
+
+	/* Selected Conversation */
+	.conversation.selected,
+	.conversation.selected:hover {
+		background-color: #f8bbd0 !important;
+	}
+
+	.conversation.selected .conversation-title {
+		color: #880e4f !important;
+		font-weight: 500 !important;
+	}
+
+	.conversation.selected .mat-icon {
+		color: #880e4f !important;
+	}
+
+	.conversation.selected .conversation-actions-menu-button mat-icon {
+		color: #880e4f !important;
+	}
+
+	.conversation-actions-container.selected mat-icon {
+		color: #000000 !important;
+	}
+
+	.conversation-actions-container.selected .conversation-actions-menu-button:hover mat-icon {
+		color: #ffffff !important;
+	}
+
+	.new-file-preview-file {
+		margin-right: 20px !important;
+	}
+
+	/* Hide sidebar gradients */
+	.top-gradient,
+	.bottom-gradient,
+	.top-gradient-container,
+	.bottom-gradient-container {
+		display: none !important;
+	}
+
+	/* Pink code blocks */
+	.code-block-decoration,
+	.formatted-code-block-internal-container {
+		background-color: rgba(255, 233, 240, .97) !important;
+	}
+
+	/* Fix corner bleed on sticky header */
+	.code-block-decoration {
+		box-shadow: 0 -20px 0 0 #ffffff, -15px -20px 0 0 #ffffff, 15px -20px 0 0 #ffffff !important;
+		z-index: 2 !important;
+	}
+
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   3. HOMEPAGE - New Chat input bar centred in viewport
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@-moz-document url-prefix("https://gemini.google.com/") {
+
+	/* Let Angular's own bottom:50vh + translateY(50%) do the centering.
+	   We just constrain the width and clear any conflicting overrides. */
+	.is-zero-state.input-area-container,
+	.is-zero-state .input-area-container {
+		width: 100% !important;
+		max-width: 784px !important;
+		margin: 0 auto !important;
+		position: absolute !important;
+		bottom: 50vh !important;
+		left: auto !important;
+		right: auto !important;
+		transform: translateY(50%) !important;
+		top: unset !important;
+	}
+
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   4. SAKURA DARK MODE - Moody cherry blossom with glows
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@-moz-document domain("gemini.google.com") {
+
+	@media (prefers-color-scheme: dark) {
+
+		/* Base - Deep burgundy */
+		body {
+			background-color: #1a0a10 !important;
+		}
+
+		/* Sidebar - Dark wine gradient with sakura petals */
+		.sidenav-with-history-container {
+			background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250' viewBox='0 0 250 250'%3E%3Cg opacity='0.12'%3E%3Cg transform='translate(30,30) scale(0.5)'%3E%3Cpath fill='%23ffb7c5' d='M52.5,48.7C67.9,69.5,90.6,65,97.5,58.8c0,0-3.4-3.9-12.1-8.5c5.8-3.1,13.3-8.8,13.3-8.8C91.9,36.3,67.9,32.4,52.5,48.7z'/%3E%3Cpath fill='%23ffb7c5' d='M65.5,13.6C65.8,7.9,63,1.3,62,0c-8.4,3.5-19.8,23-12,43.9c24.3-2,30.7-29.8,27.3-38C75.7,6.6,71.5,8.7,65.5,13.6z'/%3E%3Cpath fill='%23ffb7c5' d='M46.3,43.9C46.6,17.6,30.4,5.6,21.1,5.3c0,0-0.3,5.2,2.7,14.6c-5.7-3.8-15.7-3-15.7-3C9.4,25.3,23.8,44.8,46.3,43.9z'/%3E%3Cpath fill='%23ffb7c5' d='M14,63.5c-3.6,4.3-5.5,11.2-5.4,12.9c8.8,2.3,29.7-6.3,36.2-27.6C24.3,35.6,2.4,53.8,0,62.3C1.7,62.8,6.3,63.7,14,63.5z'/%3E%3Cpath fill='%23ffb7c5' d='M52.5,85.9c2.6,5,11.1,9.4,12.6,10c5.6-7.2,3.5-36.3-15.9-43.6C29,66,39,92.9,46,98.4C47,97,49.7,93.1,52.5,85.9z'/%3E%3Ccircle cx='49' cy='49' r='6' fill='%23ffd4dc' fill-opacity='0.3'/%3E%3C/g%3E%3Cg transform='translate(160,140) scale(0.35) rotate(45)'%3E%3Cpath fill='%23ffb7c5' d='M52.5,48.7C67.9,69.5,90.6,65,97.5,58.8c0,0-3.4-3.9-12.1-8.5c5.8-3.1,13.3-8.8,13.3-8.8C91.9,36.3,67.9,32.4,52.5,48.7z'/%3E%3Cpath fill='%23ffb7c5' d='M65.5,13.6C65.8,7.9,63,1.3,62,0c-8.4,3.5-19.8,23-12,43.9c24.3-2,30.7-29.8,27.3-38C75.7,6.6,71.5,8.7,65.5,13.6z'/%3E%3Cpath fill='%23ffb7c5' d='M46.3,43.9C46.6,17.6,30.4,5.6,21.1,5.3c0,0-0.3,5.2,2.7,14.6c-5.7-3.8-15.7-3-15.7-3C9.4,25.3,23.8,44.8,46.3,43.9z'/%3E%3Cpath fill='%23ffb7c5' d='M14,63.5c-3.6,4.3-5.5,11.2-5.4,12.9c8.8,2.3,29.7-6.3,36.2-27.6C24.3,35.6,2.4,53.8,0,62.3C1.7,62.8,6.3,63.7,14,63.5z'/%3E%3Cpath fill='%23ffb7c5' d='M52.5,85.9c2.6,5,11.1,9.4,12.6,10c5.6-7.2,3.5-36.3-15.9-43.6C29,66,39,92.9,46,98.4C47,97,49.7,93.1,52.5,85.9z'/%3E%3Ccircle cx='49' cy='49' r='5' fill='%23ffd4dc' fill-opacity='0.3'/%3E%3C/g%3E%3Cg transform='translate(180,30) scale(0.25) rotate(-20)'%3E%3Cpath fill='%23ffb7c5' d='M52.5,48.7C67.9,69.5,90.6,65,97.5,58.8c0,0-3.4-3.9-12.1-8.5c5.8-3.1,13.3-8.8,13.3-8.8C91.9,36.3,67.9,32.4,52.5,48.7z'/%3E%3Cpath fill='%23ffb7c5' d='M65.5,13.6C65.8,7.9,63,1.3,62,0c-8.4,3.5-19.8,23-12,43.9c24.3-2,30.7-29.8,27.3-38C75.7,6.6,71.5,8.7,65.5,13.6z'/%3E%3Cpath fill='%23ffb7c5' d='M46.3,43.9C46.6,17.6,30.4,5.6,21.1,5.3c0,0-0.3,5.2,2.7,14.6c-5.7-3.8-15.7-3-15.7-3C9.4,25.3,23.8,44.8,46.3,43.9z'/%3E%3Cpath fill='%23ffb7c5' d='M14,63.5c-3.6,4.3-5.5,11.2-5.4,12.9c8.8,2.3,29.7-6.3,36.2-27.6C24.3,35.6,2.4,53.8,0,62.3C1.7,62.8,6.3,63.7,14,63.5z'/%3E%3Cpath fill='%23ffb7c5' d='M52.5,85.9c2.6,5,11.1,9.4,12.6,10c5.6-7.2,3.5-36.3-15.9-43.6C29,66,39,92.9,46,98.4C47,97,49.7,93.1,52.5,85.9z'/%3E%3C/g%3E%3Cg transform='translate(60,200) scale(0.3) rotate(70)'%3E%3Cpath fill='%23ffb7c5' d='M52.5,48.7C67.9,69.5,90.6,65,97.5,58.8c0,0-3.4-3.9-12.1-8.5c5.8-3.1,13.3-8.8,13.3-8.8C91.9,36.3,67.9,32.4,52.5,48.7z'/%3E%3Cpath fill='%23ffb7c5' d='M65.5,13.6C65.8,7.9,63,1.3,62,0c-8.4,3.5-19.8,23-12,43.9c24.3-2,30.7-29.8,27.3-38C75.7,6.6,71.5,8.7,65.5,13.6z'/%3E%3Cpath fill='%23ffb7c5' d='M46.3,43.9C46.6,17.6,30.4,5.6,21.1,5.3c0,0-0.3,5.2,2.7,14.6c-5.7-3.8-15.7-3-15.7-3C9.4,25.3,23.8,44.8,46.3,43.9z'/%3E%3Cpath fill='%23ffb7c5' d='M14,63.5c-3.6,4.3-5.5,11.2-5.4,12.9c8.8,2.3,29.7-6.3,36.2-27.6C24.3,35.6,2.4,53.8,0,62.3C1.7,62.8,6.3,63.7,14,63.5z'/%3E%3Cpath fill='%23ffb7c5' d='M52.5,85.9c2.6,5,11.1,9.4,12.6,10c5.6-7.2,3.5-36.3-15.9-43.6C29,66,39,92.9,46,98.4C47,97,49.7,93.1,52.5,85.9z'/%3E%3Ccircle cx='49' cy='49' r='4' fill='%23ffd4dc' fill-opacity='0.3'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+			linear-gradient(to bottom, #2d0f1a 0%, #1f0a12 50%, #2d0f1a 100%) !important;
+			border-right: 1px solid #4a1a2a !important;
+		}
+
+		.side-nav-entry-button:hover,
+		.bot-item:hover {
+			background-color: rgba(255, 183, 197, 0.1) !important;
+		}
+
+		/* Selected conversation - Glowing sakura */
+		.conversation.selected,
+		.conversation.selected:hover {
+			background-color: #5a1a30 !important;
+			box-shadow: inset 0 0 15px rgba(255, 183, 197, 0.2), 0 0 10px rgba(255, 128, 171, 0.15) !important;
+		}
+
+		.conversation.selected .conversation-title,
+		.conversation.selected .mat-icon,
+		.conversation-actions-container.selected mat-icon {
+			color: #ffcdd6 !important;
+		}
+
+		/* Three-dot menu hover - With glow */
+		.conversation-actions-menu-button:hover {
+			background-color: #6a2040 !important;
+			box-shadow: 0 0 10px rgba(255, 183, 197, 0.3) !important;
+		}
+
+		.conversation-actions-menu-button:hover mat-icon {
+			color: #fff !important;
+		}
+
+		.conversation-items-container .selected .conversation-actions-menu-button:hover,
+		.conversation-items-container .selected .conversation-actions-menu-button:focus {
+			background-color: #8a2050 !important;
+			box-shadow: 0 0 15px rgba(255, 183, 197, 0.4) !important;
+		}
+
+		/* Chat Input Bar - responsive, no hardcoded sidebar width */
+		.input-area-container {
+			background-color: transparent !important;
+			border: none !important;
+			bottom: 15px !important;
+			width: auto !important;
+			max-width: none !important;
+			left: 20px !important;
+			right: 20px !important;
+			position: absolute !important;
+			z-index: 100 !important;
+		}
+
+		.input-area {
+			background-color: #2a1018 !important;
+			border: 1px solid #4a1a2a !important;
+			border-radius: 24px !important;
+			transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+		}
+
+		.input-area:focus-within {
+			border-color: #ff80ab !important;
+			box-shadow: 0 0 20px rgba(255, 128, 171, 0.3), inset 0 0 10px rgba(255, 128, 171, 0.1) !important;
+		}
+
+		/* Quill editor */
+		.ql-editor {
+			background-color: transparent !important;
+			color: #ffeef2 !important;
+			font-size: 16px !important;
+			line-height: 1.5 !important;
+		}
+
+		.ql-editor.ql-blank::before {
+			color: #8a5060 !important;
+			font-style: normal !important;
+		}
+
+		/* Chat Bubbles - Deep rose with glow */
+		.user-query-bubble-with-background {
+			background-color: #4a1a2a !important;
+			color: #ffeef2 !important;
+			box-shadow: 0 2px 10px rgba(255, 128, 171, 0.15) !important;
+		}
+
+		.user-query-bubble-with-background:hover {
+			box-shadow: 0 4px 25px rgba(255, 183, 197, 0.25) !important;
+		}
+
+		/* Model response text */
+		.model-response-text {
+			color: #f5e6ea !important;
+		}
+
+		/* Code blocks */
+		.code-block,
+		pre,
+		code {
+			background-color: #150810 !important;
+			border: 1px solid #3a1525 !important;
+		}
+
+		/* Scrollbars - With glow on hover */
+		::-webkit-scrollbar {
+			width: 8px !important;
+			height: 8px !important;
+		}
+
+		::-webkit-scrollbar-track {
+			background: transparent !important;
+		}
+
+		::-webkit-scrollbar-thumb {
+			background: transparent !important;
+			border-radius: 4px !important;
+		}
+
+		*:hover::-webkit-scrollbar-thumb,
+		*:active::-webkit-scrollbar-thumb {
+			background: #6a2040 !important;
+			box-shadow: 0 0 8px rgba(255, 183, 197, 0.3) !important;
+		}
+
+		*:hover::-webkit-scrollbar-thumb:hover {
+			background: #8a2050 !important;
+			box-shadow: 0 0 12px rgba(255, 183, 197, 0.5) !important;
+		}
+
+		/* Pink code blocks */
+		.code-block-decoration,
+		.formatted-code-block-internal-container {
+			background-color: #2A1018 !important;
+		}
+
+		.code-block {
+			background-color: #2A1018 !important;
+			border-color: #3A1525 !important;
+		}
+
+		.code-container {
+			background-color: #2A1018 !important;
+			border-color: #3A1525 !important;
+		}
+
+		/* Fix corner bleed on sticky header */
+		.code-block-decoration {
+			box-shadow: 0 0 #1A0A10, -15px -20px 0 0 #1A0A10, 15px -20px 0 0 #1A0A10 !important;
+			z-index: 2 !important;
+		}
+
+	}
+
+}
