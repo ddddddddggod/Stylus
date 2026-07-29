@@ -38,4 +38,4 @@ Under development
   
 | Theme | Graph |
 |-------|------|
-| <img src="./images/green-light.png" width="400"> | <img src="./images/green-dark.png" width="400"> |
+| <img src="pic/github_home.png" width="400"> | <img src="pic/github_graph.png" width="400"> |
