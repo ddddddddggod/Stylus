@@ -6,3 +6,5 @@
     - skyblue cloud
     - purple heart
     - green sprig
+- Github
+  : Updated the Catppuccin theme to replace the GitHub activity graph (contribution grid) with a cherry blossom-shaped design.
