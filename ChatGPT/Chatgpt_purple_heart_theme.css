@@ -36,6 +36,13 @@
     border-right-color: var(--sakura-light-border) !important;
   }
 
+/*cursor*/
+body, html, *, 
+button, a, [role="button"], 
+input, textarea, [contenteditable="true"] {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><text x="0" y="24" font-size="24">💜</text></svg>') 12 12, auto !important;
+}
+
   /* Sidebar history items */
   #stage-slideover-sidebar a,
   #stage-slideover-sidebar button,
@@ -77,7 +84,7 @@
      Composer (중복 border 제거 및 단일 래퍼 적용)
      ========================================================= */
 
-  /* 자식/내부 래퍼 border & shadow 초기화 */
+  /* 자식/내부 래퍼 border & shadow 초기화 (이중 띠 현상 완벽 방지) */
   form:has(#prompt-textarea) div:has(> #prompt-textarea) {
     border: none !important;
     box-shadow: none !important;
