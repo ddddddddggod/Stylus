@@ -1,8 +1,8 @@
 /* ==UserStyle==
-@name           Gemini Sky Cloud Theme
+@name           Gemini Sky Cloud Theme (Default Syntax Color Restored)
 @namespace      https://gemini.google.com
-@version        1.4.5
-@description    Sky-blue cloud theme for Google Gemini - soft pastel blue light mode and deep navy blue dark mode with cloud accents.
+@version        1.5.8
+@description    Sky-blue cloud theme for Google Gemini with clean default light & dark mode syntax highlighting.
 @author         M.R. Lee
 @homepageURL    https://gemini.google.com
 ==/UserStyle== */
@@ -213,18 +213,24 @@
 		display: none !important;
 	}
 
-	/* Sky Blue Code Blocks */
+	/* Sky Blue Code Blocks (Light Mode 디폴트 고대비) */
 	code-block,
 	pre,
-	.code-block-decoration,
 	.formatted-code-block-internal-container {
 		background-color: #f1f9ff !important;
-		border-color: #d4edf9 !important;
+		border: 1px solid #d4edf9 !important;
+		border-radius: 12px !important;
 	}
 
+	/* 라이트 모드 코드 헤더 */
 	.code-block-decoration {
-		box-shadow: 0 -20px 0 0 #ffffff, -15px -20px 0 0 #ffffff, 15px -20px 0 0 #ffffff !important;
-		z-index: 2 !important;
+		background-color: #e3f3ff !important;
+		border-bottom: 1px solid #d4edf9 !important;
+		color: #17384d !important;
+	}
+
+	.code-block-decoration * {
+		color: #17384d !important;
 	}
 }
 
@@ -301,20 +307,34 @@
 			color: #ffffff !important;
 		}
 
-		/* Chat Input Bar */
+		/* =========================================================
+		   Gemini Input Bar (ChatGPT 스타일 단일 래퍼)
+		   ========================================================= */
+
 		.input-area,
-		body.dark-theme .input-area,
-		body.dark-theme div:has(> rich-textarea) {
-			background-color: #102634 !important;
-			border: 1px solid #163b52 !important;
-			border-radius: 24px !important;
-			transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+		.input-area *,
+		rich-textarea,
+		rich-textarea *,
+		.ql-editor,
+		div:has(> rich-textarea) {
+			border: none !important;
+			border-color: transparent !important;
+			box-shadow: none !important;
+			outline: none !important;
+			background: transparent !important;
 		}
 
-		.input-area:focus-within,
-		body.dark-theme div:has(> rich-textarea):focus-within {
-			border-color: #67c7f5 !important;
-			box-shadow: 0 0 20px rgba(103, 199, 245, 0.28), inset 0 0 10px rgba(103, 199, 245, 0.09) !important;
+		.input-area-container,
+		body.dark-theme .input-area-container {
+			background-color: #102634 !important;
+			border: 1px solid #163b52 !important;
+			border-radius: 28px !important;
+			transition: border-color 0.25s ease, box-shadow 0.25s ease !important;
+		}
+
+		.input-area-container:focus-within {
+			border-color: #00d2ff !important;
+			box-shadow: 0 0 8px #00d2ff, 0 0 22px rgba(0, 210, 255, 0.48), inset 0 0 10px rgba(0, 210, 255, 0.15) !important;
 		}
 
 		/* Editor Input Text */
@@ -341,19 +361,34 @@
 			color: #e6f5fc !important;
 		}
 
-		/* Code Blocks */
+		/* =========================================================
+		   Code Blocks (다크 모드 전용 디폴트 구문 강조)
+		   ========================================================= */
 		code-block,
 		pre,
 		code,
-		.code-block-decoration,
 		.formatted-code-block-internal-container {
 			background-color: #06121a !important;
 			border: 1px solid #123246 !important;
+			border-radius: 12px !important;
 		}
 
+		/* 다크 모드 전용 코드 헤더 */
 		.code-block-decoration {
-			box-shadow: 0 0 #081722, -15px -20px 0 0 #081722, 15px -20px 0 0 #081722 !important;
-			z-index: 2 !important;
+			display: block !important;
+			background-color: #0e202d !important;
+			border-bottom: 1px solid #123246 !important;
+			box-shadow: none !important;
+			color: #eef9ff !important;
+		}
+
+		.code-block-decoration * {
+			color: #eef9ff !important;
+		}
+
+		.code-block-decoration::before,
+		.code-block-decoration::after {
+			display: none !important;
 		}
 
 		/* Scrollbars - Sky Glow */
