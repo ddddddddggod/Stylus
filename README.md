@@ -2,6 +2,7 @@
 ---
 ### Chat GPT
   : Created 4 GitHub-themed variations inspired by Gemini's Sakura theme.
+  
   *if you want normal cursor just delete the cursor block
   - 🌸 Pink Sakura
     
