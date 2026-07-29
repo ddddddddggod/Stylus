@@ -6,7 +6,7 @@
     
 | Light | Dark |
 |-------|------|
-| <img src="pic/chatgpt_pink_light.png" width="400"> | <img src="pic/chatgpt_pinks_dark.png" width="400"> |
+| <img src="pic/chatgpt_pink_light.png" width="400"> | <img src="pic/chatgpt_pink_dark.png" width="400"> |
 
   - ☁️ Skyblue Cloud
     
