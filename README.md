@@ -31,7 +31,7 @@
 Dark mode is under development.
 
 ### Claude
-Development is in progress
+Under development
 
 ### Github
   : Updated the Catppuccin theme to replace the GitHub activity graph (contribution grid) with a cherry blossom-shaped design.
