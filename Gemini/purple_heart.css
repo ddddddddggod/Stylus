@@ -1,0 +1,375 @@
+/* ==UserStyle==
+@name           Gemini Purple Heart Theme
+@namespace      https://gemini.google.com
+@version        1.4.2
+@description    Purple heart theme for Google Gemini - soft lavender light mode and deep violet dark mode with heart accents.
+@author         M.R. Lee
+@homepageURL    https://gemini.google.com
+==/UserStyle== */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   1. PURPLE HEART LIGHT MODE (All Gemini Pages)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@-moz-document domain("gemini.google.com") {
+
+	:root {
+		--purple-pink-50: #fbf7ff;
+		--purple-pink-100: #efe3ff;
+		--purple-pink-200: #d9b8ff;
+		--purple-pink-300: #cfa8f7;
+		--purple-pink-500: #9b5de5;
+		--purple-wine: #6f3bb3;
+		--purple-light-border: #dfc9f7;
+	}
+
+	/* User Chat Bubbles */
+	.user-query-bubble-with-background,
+	.query-content .user-query-bubble-with-background {
+		background-color: var(--purple-pink-100) !important;
+		color: #3f2857 !important;
+		border: 1px solid rgba(155, 93, 229, 0.20) !important;
+		border-radius: 16px !important;
+	}
+
+	.user-query-bubble-with-background:hover {
+		box-shadow: 0 4px 12px rgba(169, 112, 235, 0.20) !important;
+		transform: translateY(-1px) !important;
+	}
+
+	/* Sidebar - Soft heart artwork */
+	.sidenav-with-history-container,
+	mat-sidenav,
+	.side-nav-container,
+	[data-test-id="side-nav"] {
+		background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='220' viewBox='0 0 280 220'%3E%3Cg fill='%23ffffff' fill-opacity='0.50'%3E%3Cpath d='M62 67 C34 46 18 24 32 11 C45 -1 58 9 62 19 C66 9 79 -1 92 11 C106 24 90 46 62 67 Z'/%3E%3Cpath d='M206 165 C186 150 175 134 185 124 C194 116 203 122 206 130 C209 122 218 116 227 124 C237 134 226 150 206 165 Z'/%3E%3Cpath d='M224 48 C211 38 204 28 211 21 C217 15 223 19 225 24 C227 19 233 15 239 21 C246 28 239 38 224 48 Z' fill-opacity='.35'/%3E%3C/g%3E%3C/svg%3E"),
+			linear-gradient(to bottom, #eee0ff 0%, #f6efff 50%, #e8d8ff 100%) !important;
+		border-right: 1px solid var(--purple-light-border) !important;
+	}
+
+	/* Sidebar Hover Effect */
+	.side-nav-entry-button:hover,
+	.bot-item:hover,
+	.conversation-item:hover {
+		background-color: rgba(207, 168, 247, 0.35) !important;
+		border-radius: 8px !important;
+	}
+
+	/* Hide Upgrade buttons */
+	.buttons-container.adv-upsell,
+	.upgrade-container.tier1-upsell-container {
+		display: none !important;
+	}
+
+	/* Three-dot Menu Buttons */
+	.conversation-actions-menu-button {
+		background-color: transparent !important;
+		cursor: pointer !important;
+	}
+
+	.conversation-actions-menu-button:hover {
+		background-color: var(--purple-pink-300) !important;
+	}
+
+	.conversation-actions-menu-button:hover mat-icon {
+		color: #3f2857 !important;
+	}
+
+	/* Three-dot menu hover on selected conversation */
+	.conversation-items-container .selected .conversation-actions-menu-button:hover,
+	.conversation-items-container .selected .conversation-actions-menu-button:focus,
+	.conversation-actions-container.selected .conversation-actions-menu-button:hover,
+	.conversation-actions-container.selected .conversation-actions-menu-button:focus {
+		background-color: var(--purple-pink-500) !important;
+	}
+
+	/* Hidden Preview Images & Gradients */
+	.my-stuff-recents-preview,
+	.input-gradient::before {
+		display: none !important;
+	}
+
+	/* Transitions */
+	button,
+	a,
+	.conversation-actions-menu-button,
+	.user-query-bubble-with-background {
+		transition: all 0.15s ease !important;
+	}
+
+	/* Scrollbars */
+	::-webkit-scrollbar {
+		width: 10px !important;
+	}
+	::-webkit-scrollbar-track {
+		background: transparent !important;
+	}
+	::-webkit-scrollbar-thumb {
+		background: transparent !important;
+		border-radius: 5px !important;
+	}
+	*:hover::-webkit-scrollbar-thumb,
+	*:active::-webkit-scrollbar-thumb {
+		background: #e0c8f7 !important;
+	}
+	*:hover::-webkit-scrollbar-thumb:hover {
+		background: #cfa8f7 !important;
+	}
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   2. LAYOUT OVERRIDES (Chat Pages with Conversations)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@-moz-document url-prefix("https://gemini.google.com/app/") {
+
+	body {
+		background-color: #ffffff !important;
+	}
+
+	/* Hide Avatar */
+	.avatar-gutter,
+	bard-avatar,
+	.response-container-header-avatar {
+		display: none !important;
+	}
+
+	/* Fix header title overlap */
+	.conversation-actions .conversation-actions-menu-button,
+	.conversation-actions .conversation-title {
+		overflow: hidden !important;
+		text-overflow: ellipsis !important;
+		white-space: nowrap !important;
+	}
+
+	/* Layout Container */
+	.conversation-container {
+		max-width: 100% !important;
+		width: 100% !important;
+		padding-left: 20px !important;
+		padding-right: 20px !important;
+		padding-bottom: 120px !important;
+	}
+
+	/* User Query - Align Right */
+	user-query,
+	.user-query-container {
+		width: 100% !important;
+		max-width: 100% !important;
+		align-items: flex-end !important;
+		display: flex !important;
+		flex-direction: column !important;
+	}
+
+	.query-content {
+		width: 100% !important;
+		max-width: 100% !important;
+		justify-content: flex-end !important;
+		padding-right: 0 !important;
+		margin-right: 0 !important;
+	}
+
+	.user-query-bubble-with-background {
+		max-width: 85% !important;
+		width: fit-content !important;
+		margin-left: auto !important;
+		margin-right: 0 !important;
+	}
+
+	/* Model Response */
+	model-response {
+		display: block !important;
+		width: 100% !important;
+		max-width: 1100px !important;
+	}
+
+	.response-container-content {
+		margin-left: 0 !important;
+		padding-left: 0 !important;
+	}
+
+	/* Selected Conversation */
+	.conversation.selected,
+	.conversation.selected:hover {
+		background-color: var(--purple-pink-200) !important;
+	}
+
+	.conversation.selected .conversation-title,
+	.conversation.selected .mat-icon,
+	.conversation-actions-container.selected mat-icon {
+		color: var(--purple-wine) !important;
+		font-weight: 500 !important;
+	}
+
+	.conversation-actions-container.selected .conversation-actions-menu-button:hover mat-icon {
+		color: #ffffff !important;
+	}
+
+	/* Hide sidebar gradients */
+	.top-gradient,
+	.bottom-gradient,
+	.top-gradient-container,
+	.bottom-gradient-container {
+		display: none !important;
+	}
+
+	/* Purple Code Blocks */
+	code-block,
+	pre,
+	.code-block-decoration,
+	.formatted-code-block-internal-container {
+		background-color: #f8f1ff !important;
+		border-color: #ead4f9 !important;
+	}
+
+	.code-block-decoration {
+		box-shadow: 0 -20px 0 0 #ffffff, -15px -20px 0 0 #ffffff, 15px -20px 0 0 #ffffff !important;
+		z-index: 2 !important;
+	}
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   3. HOMEPAGE - New Chat input bar centred in viewport
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@-moz-document url-prefix("https://gemini.google.com/") {
+
+	.is-zero-state.input-area-container,
+	.is-zero-state .input-area-container {
+		width: 100% !important;
+		max-width: 784px !important;
+		margin: 0 auto !important;
+		position: absolute !important;
+		bottom: 50vh !important;
+		left: auto !important;
+		right: auto !important;
+		transform: translateY(50%) !important;
+		top: unset !important;
+	}
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   4. PURPLE HEART DARK MODE - Deep Violet with Glows
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@-moz-document domain("gemini.google.com") {
+
+	@media (prefers-color-scheme: dark) {
+
+		/* Base - Deep Violet */
+		body,
+		body.dark-theme {
+			background-color: #160d22 !important;
+		}
+
+		/* Sidebar - Deep Violet Gradient with Heart Pattern */
+		.sidenav-with-history-container,
+		body.dark-theme mat-sidenav,
+		body.dark-theme .side-nav-container,
+		body.dark-theme [data-test-id="side-nav"] {
+			background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='220' viewBox='0 0 280 220'%3E%3Cg fill='%23d9a8ff' fill-opacity='0.25'%3E%3Cpath d='M62 67 C34 46 18 24 32 11 C45 -1 58 9 62 19 C66 9 79 -1 92 11 C106 24 90 46 62 67 Z'/%3E%3Cpath d='M206 165 C186 150 175 134 185 124 C194 116 203 122 206 130 C209 122 218 116 227 124 C237 134 226 150 206 165 Z'/%3E%3Cpath d='M224 48 C211 38 204 28 211 21 C217 15 223 19 225 24 C227 19 233 15 239 21 C246 28 239 38 224 48 Z' fill-opacity='.18'/%3E%3C/g%3E%3C/svg%3E"),
+				linear-gradient(to bottom, #2b163e 0%, #1d102b 50%, #2b163e 100%) !important;
+			border-right: 1px solid #3a2152 !important;
+		}
+
+		.side-nav-entry-button:hover,
+		.bot-item:hover,
+		body.dark-theme .conversation-item:hover {
+			background-color: rgba(201, 151, 247, 0.12) !important;
+		}
+
+		/* Selected Conversation - Violet Glow */
+		.conversation.selected,
+		.conversation.selected:hover {
+			background-color: #31184a !important;
+			box-shadow: inset 0 0 15px rgba(201, 151, 247, 0.2), 0 0 10px rgba(183, 103, 245, 0.15) !important;
+		}
+
+		.conversation.selected .conversation-title,
+		.conversation.selected .mat-icon,
+		.conversation-actions-container.selected mat-icon {
+			color: #d9b8ff !important;
+		}
+
+		/* Three-dot menu hover - Glow */
+		.conversation-actions-menu-button:hover {
+			background-color: #3a2152 !important;
+			box-shadow: 0 0 10px rgba(201, 151, 247, 0.3) !important;
+		}
+
+		.conversation-actions-menu-button:hover mat-icon {
+			color: #ffffff !important;
+		}
+
+		/* Chat Input Bar */
+		.input-area,
+		body.dark-theme .input-area,
+		body.dark-theme div:has(> rich-textarea) {
+			background-color: #241534 !important;
+			border: 1px solid #3a2152 !important;
+			border-radius: 24px !important;
+			transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+		}
+
+		.input-area:focus-within,
+		body.dark-theme div:has(> rich-textarea):focus-within {
+			border-color: #b767f5 !important;
+			box-shadow: 0 0 20px rgba(183, 103, 245, 0.28), inset 0 0 10px rgba(183, 103, 245, 0.09) !important;
+		}
+
+		/* Editor Input Text */
+		.ql-editor,
+		rich-textarea {
+			color: #faf2ff !important;
+		}
+
+		/* User Bubbles - Deep Violet */
+		.user-query-bubble-with-background,
+		body.dark-theme .user-query-container {
+			background-color: #3a2152 !important;
+			color: #faf2ff !important;
+			box-shadow: 0 2px 12px rgba(177, 112, 235, 0.16) !important;
+		}
+
+		.user-query-bubble-with-background:hover {
+			box-shadow: 0 5px 26px rgba(201, 151, 247, 0.25) !important;
+		}
+
+		/* Model response text */
+		message-content,
+		.model-response-text {
+			color: #f3e8fc !important;
+		}
+
+		/* Code Blocks */
+		code-block,
+		pre,
+		code,
+		.code-block-decoration,
+		.formatted-code-block-internal-container {
+			background-color: #12091a !important;
+			border: 1px solid #2f1946 !important;
+		}
+
+		.code-block-decoration {
+			box-shadow: 0 0 #160d22, -15px -20px 0 0 #160d22, 15px -20px 0 0 #160d22 !important;
+			z-index: 2 !important;
+		}
+
+		/* Scrollbars - Violet Glow */
+		::-webkit-scrollbar-thumb {
+			background: transparent !important;
+		}
+
+		*:hover::-webkit-scrollbar-thumb,
+		*:active::-webkit-scrollbar-thumb {
+			background: #5f377f !important;
+			box-shadow: 0 0 8px rgba(201, 151, 247, 0.26) !important;
+		}
+
+		*:hover::-webkit-scrollbar-thumb:hover {
+			background: #7b42ad !important;
+			box-shadow: 0 0 12px rgba(201, 151, 247, 0.40) !important;
+		}
+	}
+}
