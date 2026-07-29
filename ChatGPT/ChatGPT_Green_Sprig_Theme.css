@@ -1,8 +1,8 @@
 /* ==UserStyle==
-@name            ChatGPT Green Sprig Theme
+@name           ChatGPT Green Sprig Theme (Single Border & Neon Fix)
 @namespace      https://chatgpt.com
-@version         1.4.3
-@description    Green leafy sprig theme for ChatGPT - soft mint light mode and deep forest dark mode.
+@version        1.5.1
+@description    Green leafy sprig theme for ChatGPT with single rounded border & neon focus mode.
 @author         M.R. Lee
 @homepageURL    https://chatgpt.com
 ==/UserStyle== */
@@ -24,7 +24,7 @@
     background: #fff !important;
   }
 
-  /* Sidebar: 기존 배경 + 배경보다 살짝 더 진한 은은한 초록 나뭇잎(#4a8c62) */
+  /* Sidebar */
   html:not(.dark) #stage-slideover-sidebar,
   html:not(.dark) #stage-slideover-sidebar > div,
   html:not(.dark) [data-testid="sidebar"],
@@ -73,16 +73,28 @@
     transform: translateY(-1px) !important;
   }
 
-  /* Composer */
-  html:not(.dark) form:has(#prompt-textarea) > div,
-  html:not(.dark) div:has(> #prompt-textarea) {
-    border-color: #cfe5d5 !important;
+  /* =========================================================
+     Composer (중복 border 제거 및 단일 래퍼 적용)
+     ========================================================= */
+  
+  /* 자식/내부 래퍼 border & shadow 초기화 (이중 띠 현상 완벽 방지) */
+  form:has(#prompt-textarea) div:has(> #prompt-textarea) {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
   }
 
-  html:not(.dark) form:has(#prompt-textarea) > div:focus-within,
-  html:not(.dark) div:has(> #prompt-textarea):focus-within {
+  /* 라이트 모드 외곽 단일 래퍼 */
+  html:not(.dark) form:has(#prompt-textarea) > div {
+    border: 1px solid #cfe5d5 !important;
+    border-radius: 28px !important;
+    box-shadow: 0 2px 10px rgba(83,173,118,.05) !important;
+    transition: border-color .2s ease, box-shadow .2s ease !important;
+  }
+
+  html:not(.dark) form:has(#prompt-textarea) > div:focus-within {
     border-color: #76c591 !important;
-    box-shadow: 0 0 0 1px rgba(83,173,118,.10), 0 8px 24px rgba(83,173,118,.10) !important;
+    box-shadow: 0 0 0 2px rgba(83,173,118,.20), 0 8px 24px rgba(83,173,118,.12) !important;
   }
 
   /* Code blocks base */
@@ -215,7 +227,7 @@
     background: #0f1712 !important;
   }
 
-  /* Dark mode: 사이드바 배경 + 다크 모드용 연한 에메랄드 나뭇잎(#8edcb0) */
+  /* Dark mode sidebar */
   html.dark #stage-slideover-sidebar,
   html.dark #stage-slideover-sidebar > div,
   html.dark [data-testid="sidebar"],
@@ -256,17 +268,18 @@
     color: #e8f7ec !important;
   }
 
-  html.dark form:has(#prompt-textarea) > div,
-  html.dark div:has(> #prompt-textarea) {
+  /* Dark mode Composer 단일 네온 래퍼 */
+  html.dark form:has(#prompt-textarea) > div {
     background-color: #16271c !important;
-    border-color: #21432e !important;
-    transition: border-color .2s ease, box-shadow .2s ease !important;
+    border: 1px solid #21432e !important;
+    border-radius: 28px !important;
+    transition: border-color .2s ease, box-shadow .25s ease !important;
   }
 
-  html.dark form:has(#prompt-textarea) > div:focus-within,
-  html.dark div:has(> #prompt-textarea):focus-within {
-    border-color: #69c487 !important;
-    box-shadow: 0 0 20px rgba(97,196,131,.28), inset 0 0 10px rgba(97,196,131,.09) !important;
+  /* 다크모드 입력창 네온 글로우 */
+  html.dark form:has(#prompt-textarea) > div:focus-within {
+    border-color: #39ff14 !important;
+    box-shadow: 0 0 8px #39ff14, 0 0 22px rgba(57, 255, 20, 0.45), inset 0 0 10px rgba(57, 255, 20, 0.15) !important;
   }
 
   html.dark #prompt-textarea {
