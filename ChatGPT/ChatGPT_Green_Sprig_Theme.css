@@ -1,7 +1,7 @@
 /* ==UserStyle==
-@name           ChatGPT Green Sprig Theme
+@name            ChatGPT Green Sprig Theme
 @namespace      https://chatgpt.com
-@version        1.4.0
+@version         1.4.3
 @description    Green leafy sprig theme for ChatGPT - soft mint light mode and deep forest dark mode.
 @author         adapted for ChatGPT
 @homepageURL    https://chatgpt.com
@@ -24,14 +24,14 @@
     background: #fff !important;
   }
 
-  /* Sidebar: soft leaf artwork */
+  /* Sidebar: 기존 배경 + 배경보다 살짝 더 진한 은은한 초록 나뭇잎(#4a8c62) */
   html:not(.dark) #stage-slideover-sidebar,
   html:not(.dark) #stage-slideover-sidebar > div,
   html:not(.dark) [data-testid="sidebar"],
   html:not(.dark) [data-testid="sidebar"] > div,
   html:not(.dark) aside,
   html:not(.dark) aside > div {
-    background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27280%27%20height%3D%27220%27%20viewBox%3D%270%200%20280%20220%27%3E%0A%20%20%3Cg%20fill%3D%27%23ffffff%27%20stroke%3D%27%23ffffff%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cg%20transform%3D%27translate%2828%2022%29%20rotate%28-8%29%27%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M28%2092%20C48%2072%2069%2051%2091%2024%27%20fill%3D%27none%27%20stroke-opacity%3D%270.34%27%20stroke-width%3D%272.3%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M37%2081%20C25%2074%2023%2063%2027%2056%20C38%2057%2045%2065%2045%2075%20C43%2078%2041%2080%2037%2081%20Z%27%20fill-opacity%3D%270.38%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M47%2071%20C58%2062%2069%2062%2076%2067%20C73%2078%2064%2083%2054%2081%20C50%2078%2048%2075%2047%2071%20Z%27%20fill-opacity%3D%270.38%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M56%2061%20C45%2054%2043%2044%2047%2037%20C58%2038%2065%2046%2065%2056%20C62%2058%2060%2060%2056%2061%20Z%27%20fill-opacity%3D%270.38%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M66%2051%20C77%2042%2088%2042%2095%2047%20C92%2058%2083%2063%2073%2061%20C69%2058%2067%2055%2066%2051%20Z%27%20fill-opacity%3D%270.38%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M75%2040%20C65%2034%2064%2024%2068%2018%20C78%2019%2085%2026%2084%2035%20C82%2037%2079%2039%2075%2040%20Z%27%20fill-opacity%3D%270.38%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M87%2030%20C96%2022%20106%2022%20112%2027%20C109%2036%20101%2041%2092%2039%20C89%2036%2088%2033%2087%2030%20Z%27%20fill-opacity%3D%270.38%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%0A%20%20%20%20%3Cg%20transform%3D%27translate%28164%20118%29%20rotate%2810%29%20scale%28.82%29%27%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M28%2092%20C48%2072%2069%2051%2091%2024%27%20fill%3D%27none%27%20stroke-opacity%3D%270.26%27%20stroke-width%3D%272.1%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M37%2081%20C25%2074%2023%2063%2027%2056%20C38%2057%2045%2065%2045%2075%20C43%2078%2041%2080%2037%2081%20Z%27%20fill-opacity%3D%270.31%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M47%2071%20C58%2062%2069%2062%2076%2067%20C73%2078%2064%2083%2054%2081%20C50%2078%2048%2075%2047%2071%20Z%27%20fill-opacity%3D%270.31%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M56%2061%20C45%2054%2043%2044%2047%2037%20C58%2038%2065%2046%2065%2056%20C62%2058%2060%2060%2056%2061%20Z%27%20fill-opacity%3D%270.31%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M66%2051%20C77%2042%2088%2042%2095%2047%20C92%2058%2083%2063%2073%2061%20C69%2058%2067%2055%2066%2051%20Z%27%20fill-opacity%3D%270.31%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M75%2040%20C65%2034%2064%2024%2068%2018%20C78%2019%2085%2026%2084%2035%20C82%2037%2079%2039%2075%2040%20Z%27%20fill-opacity%3D%270.31%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M87%2030%20C96%2022%20106%2022%20112%2027%20C109%2036%20101%2041%2092%2039%20C89%2036%2088%2033%2087%2030%20Z%27%20fill-opacity%3D%270.31%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%0A%20%20%20%20%3Cg%20transform%3D%27translate%28188%2022%29%20rotate%28-3%29%20scale%28.52%29%27%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M28%2092%20C48%2072%2069%2051%2091%2024%27%20fill%3D%27none%27%20stroke-opacity%3D%270.20%27%20stroke-width%3D%272%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M37%2081%20C25%2074%2023%2063%2027%2056%20C38%2057%2045%2065%2045%2075%20C43%2078%2041%2080%2037%2081%20Z%27%20fill-opacity%3D%270.23%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M47%2071%20C58%2062%2069%2062%2076%2067%20C73%2078%2064%2083%2054%2081%20C50%2078%2048%2075%2047%2071%20Z%27%20fill-opacity%3D%270.23%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M56%2061%20C45%2054%2043%2044%2047%2037%20C58%2038%2065%2046%2065%2056%20C62%2058%2060%2060%2056%2061%20Z%27%20fill-opacity%3D%270.23%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M66%2051%20C77%2042%2088%2042%2095%2047%20C92%2058%2083%2063%2073%2061%20C69%2058%2067%2055%2066%2051%20Z%27%20fill-opacity%3D%270.23%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M75%2040%20C65%2034%2064%2024%2068%2018%20C78%2019%2085%2026%2084%2035%20C82%2037%2079%2039%2075%2040%20Z%27%20fill-opacity%3D%270.23%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E"),
+    background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27280%27%20height%3D%27220%27%20viewBox%3D%270%200%20280%20220%27%3E%0A%20%20%3Cg%20fill%3D%27%234a8c62%27%20stroke%3D%27%234a8c62%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cg%20transform%3D%27translate%2828%2022%29%20rotate%28-8%29%27%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M28%2092%20C48%2072%2069%2051%2091%2024%27%20fill%3D%27none%27%20stroke-opacity%3D%270.22%27%20stroke-width%3D%272.3%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M37%2081%20C25%2074%2023%2063%2027%2056%20C38%2057%2045%2065%2045%2075%20C43%2078%2041%2080%2037%2081%20Z%27%20fill-opacity%3D%270.25%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M47%2071%20C58%2062%2069%2062%2076%2067%20C73%2078%2064%2083%2054%2081%20C50%2078%2048%2075%2047%2071%20Z%27%20fill-opacity%3D%270.25%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M56%2061%20C45%2054%2043%2044%2047%2037%20C58%2038%2065%2046%2065%2056%20C62%2058%2060%2060%2056%2061%20Z%27%20fill-opacity%3D%270.25%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M66%2051%20C77%2042%2088%2042%2095%2047%20C92%2058%2083%2063%2073%2061%20C69%2058%2067%2055%2066%2051%20Z%27%20fill-opacity%3D%270.25%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M75%2040%20C65%2034%2064%2024%2068%2018%20C78%2019%2085%2026%2084%2035%20C82%2037%2079%2039%2075%2040%20Z%27%20fill-opacity%3D%270.25%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M87%2030%20C96%2022%20106%2022%20112%2027%20C109%2036%20101%2041%2092%2039%20C89%2036%2088%2033%2087%2030%20Z%27%20fill-opacity%3D%270.25%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%0A%20%20%20%20%3Cg%20transform%3D%27translate%28164%20118%29%20rotate%2810%29%20scale%28.82%29%27%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M28%2092%20C48%2072%2069%2051%2091%2024%27%20fill%3D%27none%27%20stroke-opacity%3D%270.18%27%20stroke-width%3D%272.1%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M37%2081%20C25%2074%2023%2063%2027%2056%20C38%2057%2045%2065%2045%2075%20C43%2078%2041%2080%2037%2081%20Z%27%20fill-opacity%3D%270.20%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M47%2071%20C58%2062%2069%2062%2076%2067%20C73%2078%2064%2083%2054%2081%20C50%2078%2048%2075%2047%2071%20Z%27%20fill-opacity%3D%270.20%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M56%2061%20C45%2054%2043%2044%2047%2037%20C58%2038%2065%2046%2065%2056%20C62%2058%2060%2060%2056%2061%20Z%27%20fill-opacity%3D%270.20%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M66%2051%20C77%2042%2088%2042%2095%2047%20C92%2058%2083%2063%2073%2061%20C69%2058%2067%2055%2066%2051%20Z%27%20fill-opacity%3D%270.20%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M75%2040%20C65%2034%2064%2024%2068%2018%20C78%2019%2085%2026%2084%2035%20C82%2037%2079%2039%2075%2040%20Z%27%20fill-opacity%3D%270.20%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M87%2030%20C96%2022%20106%2022%20112%2027%20C109%2036%20101%2041%2092%2039%20C89%2036%2088%2033%2087%2030%20Z%27%20fill-opacity%3D%270.20%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%0A%20%20%20%20%3Cg%20transform%3D%27translate%28188%2022%29%20rotate%28-3%29%20scale%28.52%29%27%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M28%2092%20C48%2072%2069%2051%2091%2024%27%20fill%3D%27none%27%20stroke-opacity%3D%270.15%27%20stroke-width%3D%272%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M37%2081%20C25%2074%2023%2063%2027%2056%20C38%2057%2045%2065%2045%2075%20C43%2078%2041%2080%2037%2081%20Z%27%20fill-opacity%3D%270.16%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M47%2071%20C58%2062%2069%2062%2076%2067%20C73%2078%2064%2083%2054%2081%20C50%2078%2048%2075%2047%2071%20Z%27%20fill-opacity%3D%270.16%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M56%2061%20C45%2054%2043%2044%2047%2037%20C58%2038%2065%2046%2065%2056%20C62%2058%2060%2060%2056%2061%20Z%27%20fill-opacity%3D%270.16%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M66%2051%20C77%2042%2088%2042%2095%2047%20C92%2058%2083%2063%2073%2061%20C69%2058%2067%2055%2066%2051%20Z%27%20fill-opacity%3D%270.16%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M75%2040%20C65%2034%2064%2024%2068%2018%20C78%2019%2085%2026%2084%2035%20C82%2037%2079%2039%2075%2040%20Z%27%20fill-opacity%3D%270.16%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E"),
       linear-gradient(to bottom, #e6f5e9 0%, #edf8ef 50%, #e0f0e4 100%) !important;
     border-right-color: var(--sakura-light-border) !important;
   }
@@ -85,7 +85,7 @@
     box-shadow: 0 0 0 1px rgba(83,173,118,.10), 0 8px 24px rgba(83,173,118,.10) !important;
   }
 
-  /* Code blocks - warm pink */
+  /* Code blocks base */
   html:not(.dark) [data-message-author-role="assistant"] pre,
   html:not(.dark) [data-message-author-role="assistant"] code[class*="language-"] {
     background-color: #f3fbf5 !important;
@@ -105,34 +105,19 @@
   *:hover::-webkit-scrollbar-thumb { background: #d7eadc !important; }
   *:hover::-webkit-scrollbar-thumb:hover { background: #b2dcbb !important; }
 
-  /* Wider conversation area, close to the original Gemini layout tweak */
+  /* Wider conversation area */
   [data-testid^="conversation-turn-"] > div,
   [data-turn] > div {
     max-width: 1100px !important;
   }
 
-  /* Expanded sidebar fallback: keep inner wrappers transparent so the leaf background stays visible */
-  html:not(.dark) #stage-slideover-sidebar > div,
-  html:not(.dark) [data-testid="sidebar"] > div,
-  html:not(.dark) aside > div {
-    background-color: transparent !important;
-  }
-
-
-  /* =========================================================
-     ChatGPT expanded sidebar hardening
-     The expanded sidebar creates several opaque token-background wrappers.
-     Keep those wrappers transparent so the leaf artwork on the sidebar
-     itself remains visible.
-     ========================================================= */
-
+  /* Sidebar layout wrappers transparency */
   #stage-slideover-sidebar,
   [data-testid="sidebar"],
   aside {
     isolation: isolate !important;
   }
 
-  /* ChatGPT sidebar surface wrappers */
   #stage-slideover-sidebar [class*="bg-token-sidebar"],
   #stage-slideover-sidebar [class*="bg-token-main-surface"],
   [data-testid="sidebar"] [class*="bg-token-sidebar"],
@@ -143,7 +128,6 @@
     background-image: none !important;
   }
 
-  /* Catch deeply nested full-height/full-width wrappers used only as surfaces. */
   #stage-slideover-sidebar > div > div,
   #stage-slideover-sidebar > div > div > div,
   [data-testid="sidebar"] > div > div,
@@ -151,7 +135,6 @@
     background-color: transparent !important;
   }
 
-  /* Newer ChatGPT builds may expose the expanded navigation as nav. */
   html:not(.dark) nav[class*="sidebar"],
   html:not(.dark) nav:has(a[href="/"]) {
     background-color: transparent !important;
@@ -162,15 +145,6 @@
     background-color: transparent !important;
   }
 
-
-  /* =========================================================
-     Expanded sidebar TOP / ChatGPT Plus area
-     Keep the top section inside the opened sidebar on the SAME
-     leaf surface as the rest of the sidebar.
-     ========================================================= */
-
-  /* Important: target headers ONLY when they live inside the sidebar.
-     Do not theme the main page header. */
   #stage-slideover-sidebar header,
   [data-testid="sidebar"] header,
   aside header,
@@ -182,9 +156,6 @@
     box-shadow: none !important;
   }
 
-  /* ChatGPT Plus / workspace button and its immediate wrappers can have
-     their own opaque token surfaces. Make only those sidebar descendants
-     transparent so the leaf artwork behind them remains visible. */
   #stage-slideover-sidebar header > div,
   #stage-slideover-sidebar header > div > div,
   [data-testid="sidebar"] header > div,
@@ -198,9 +169,6 @@
     background-image: none !important;
   }
 
-  /* Newer ChatGPT builds sometimes put the model/account title row in a
-     nav-like first section rather than a semantic header. Limit this to
-     the FIRST sidebar section so the main app header is untouched. */
   #stage-slideover-sidebar > div > div:first-child,
   [data-testid="sidebar"] > div > div:first-child,
   aside > div > div:first-child {
@@ -208,7 +176,6 @@
     background-image: none !important;
   }
 
-  /* Remove opaque token surfaces specifically inside the sidebar top area. */
   #stage-slideover-sidebar header [class*="bg-token-"],
   [data-testid="sidebar"] header [class*="bg-token-"],
   aside header [class*="bg-token-"],
@@ -219,7 +186,6 @@
     background-image: none !important;
   }
 
-  /* Keep hover feedback on the ChatGPT Plus row without covering leafs. */
   html:not(.dark) #stage-slideover-sidebar header button:hover,
   html:not(.dark) [data-testid="sidebar"] header button:hover,
   html:not(.dark) aside header button:hover,
@@ -249,13 +215,14 @@
     background: #0f1712 !important;
   }
 
+  /* Dark mode: 사이드바 배경 + 다크 모드용 연한 에메랄드 나뭇잎(#8edcb0) */
   html.dark #stage-slideover-sidebar,
   html.dark #stage-slideover-sidebar > div,
   html.dark [data-testid="sidebar"],
   html.dark [data-testid="sidebar"] > div,
   html.dark aside,
   html.dark aside > div {
-    background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27280%27%20height%3D%27220%27%20viewBox%3D%270%200%20280%20220%27%3E%0A%20%20%3Cg%20fill%3D%27%23a9e5ba%27%20stroke%3D%27%23a9e5ba%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cg%20transform%3D%27translate%2828%2022%29%20rotate%28-8%29%27%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M28%2092%20C48%2072%2069%2051%2091%2024%27%20fill%3D%27none%27%20stroke-opacity%3D%270.24%27%20stroke-width%3D%272.3%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M37%2081%20C25%2074%2023%2063%2027%2056%20C38%2057%2045%2065%2045%2075%20C43%2078%2041%2080%2037%2081%20Z%27%20fill-opacity%3D%270.22%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M47%2071%20C58%2062%2069%2062%2076%2067%20C73%2078%2064%2083%2054%2081%20C50%2078%2048%2075%2047%2071%20Z%27%20fill-opacity%3D%270.22%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M56%2061%20C45%2054%2043%2044%2047%2037%20C58%2038%2065%2046%2065%2056%20C62%2058%2060%2060%2056%2061%20Z%27%20fill-opacity%3D%270.22%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M66%2051%20C77%2042%2088%2042%2095%2047%20C92%2058%2083%2063%2073%2061%20C69%2058%2067%2055%2066%2051%20Z%27%20fill-opacity%3D%270.22%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M75%2040%20C65%2034%2064%2024%2068%2018%20C78%2019%2085%2026%2084%2035%20C82%2037%2079%2039%2075%2040%20Z%27%20fill-opacity%3D%270.22%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M87%2030%20C96%2022%20106%2022%20112%2027%20C109%2036%20101%2041%2092%2039%20C89%2036%2088%2033%2087%2030%20Z%27%20fill-opacity%3D%270.22%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%0A%20%20%20%20%3Cg%20transform%3D%27translate%28164%20118%29%20rotate%2810%29%20scale%28.82%29%27%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M28%2092%20C48%2072%2069%2051%2091%2024%27%20fill%3D%27none%27%20stroke-opacity%3D%270.18%27%20stroke-width%3D%272.1%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M37%2081%20C25%2074%2023%2063%2027%2056%20C38%2057%2045%2065%2045%2075%20C43%2078%2041%2080%2037%2081%20Z%27%20fill-opacity%3D%270.17%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M47%2071%20C58%2062%2069%2062%2076%2067%20C73%2078%2064%2083%2054%2081%20C50%2078%2048%2075%2047%2071%20Z%27%20fill-opacity%3D%270.17%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M56%2061%20C45%2054%2043%2044%2047%2037%20C58%2038%2065%2046%2065%2056%20C62%2058%2060%2060%2056%2061%20Z%27%20fill-opacity%3D%270.17%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M66%2051%20C77%2042%2088%2042%2095%2047%20C92%2058%2083%2063%2073%2061%20C69%2058%2067%2055%2066%2051%20Z%27%20fill-opacity%3D%270.17%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M75%2040%20C65%2034%2064%2024%2068%2018%20C78%2019%2085%2026%2084%2035%20C82%2037%2079%2039%2075%2040%20Z%27%20fill-opacity%3D%270.17%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M87%2030%20C96%2022%20106%2022%20112%2027%20C109%2036%20101%2041%2092%2039%20C89%2036%2088%2033%2087%2030%20Z%27%20fill-opacity%3D%270.17%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E"),
+    background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27280%27%20height%3D%27220%27%20viewBox%3D%270%200%20280%20220%27%3E%0A%20%20%3Cg%20fill%3D%27%238edcb0%27%20stroke%3D%27%238edcb0%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cg%20transform%3D%27translate%2828%2022%29%20rotate%28-8%29%27%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M28%2092%20C48%2072%2069%2051%2091%2024%27%20fill%3D%27none%27%20stroke-opacity%3D%270.20%27%20stroke-width%3D%272.3%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M37%2081%20C25%2074%2023%2063%2027%2056%20C38%2057%2045%2065%2045%2075%20C43%2078%2041%2080%2037%2081%20Z%27%20fill-opacity%3D%270.22%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M47%2071%20C58%2062%2069%2062%2076%2067%20C73%2078%2064%2083%2054%2081%20C50%2078%2048%2075%2047%2071%20Z%27%20fill-opacity%3D%270.22%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M56%2061%20C45%2054%2043%2044%2047%2037%20C58%2038%2065%2046%2065%2056%20C62%2058%2060%2060%2056%2061%20Z%27%20fill-opacity%3D%270.22%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M66%2051%20C77%2042%2088%2042%2095%2047%20C92%2058%2083%2063%2073%2061%20C69%2058%2067%2055%2066%2051%20Z%27%20fill-opacity%3D%270.22%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M75%2040%20C65%2034%2064%2024%2068%2018%20C78%2019%2085%2026%2084%2035%20C82%2037%2079%2039%2075%2040%20Z%27%20fill-opacity%3D%270.22%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M87%2030%20C96%2022%20106%2022%20112%2027%20C109%2036%20101%2041%2092%2039%20C89%2036%2088%2033%2087%2030%20Z%27%20fill-opacity%3D%270.22%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%0A%20%20%20%20%3Cg%20transform%3D%27translate%28164%20118%29%20rotate%2810%29%20scale%28.82%29%27%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M28%2092%20C48%2072%2069%2051%2091%2024%27%20fill%3D%27none%27%20stroke-opacity%3D%270.15%27%20stroke-width%3D%272.1%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M37%2081%20C25%2074%2023%2063%2027%2056%20C38%2057%2045%2065%2045%2075%20C43%2078%2041%2080%2037%2081%20Z%27%20fill-opacity%3D%270.17%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M47%2071%20C58%2062%2069%2062%2076%2067%20C73%2078%2064%2083%2054%2081%20C50%2078%2048%2075%2047%2071%20Z%27%20fill-opacity%3D%270.17%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M56%2061%20C45%2054%2043%2044%2047%2037%20C58%2038%2065%2046%2065%2056%20C62%2058%2060%2060%2056%2061%20Z%27%20fill-opacity%3D%270.17%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M66%2051%20C77%2042%2088%2042%2095%2047%20C92%2058%2083%2063%2073%2061%20C69%2058%2067%2055%2066%2051%20Z%27%20fill-opacity%3D%270.17%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M75%2040%20C65%2034%2064%2024%2068%2018%20C78%2019%2085%2026%2084%2035%20C82%2037%2079%2039%2075%2040%20Z%27%20fill-opacity%3D%270.17%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M87%2030%20C96%2022%20106%2022%20112%2027%20C109%2036%20101%2041%2092%2039%20C89%2036%2088%2033%2087%2030%20Z%27%20fill-opacity%3D%270.17%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%0A%20%20%20%20%3Cg%20transform%3D%27translate%28188%2022%29%20rotate%28-3%29%20scale%28.52%29%27%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M28%2092%20C48%2072%2069%2051%2091%2024%27%20fill%3D%27none%27%20stroke-opacity%3D%270.12%27%20stroke-width%3D%272%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M37%2081%20C25%2074%2023%2063%2027%2056%20C38%2057%2045%2065%2045%2075%20C43%2078%2041%2080%2037%2081%20Z%27%20fill-opacity%3D%270.14%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M47%2071%20C58%2062%2069%2062%2076%2067%20C73%2078%2064%2083%2054%2081%20C50%2078%2048%2075%2047%2071%20Z%27%20fill-opacity%3D%270.14%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M56%2061%20C45%2054%2043%2044%2047%2037%20C58%2038%2065%2046%2065%2056%20C62%2058%2060%2060%2056%2061%20Z%27%20fill-opacity%3D%270.14%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M66%2051%20C77%2042%2088%2042%2095%2047%20C92%2058%2083%2063%2073%2061%20C69%2058%2067%2055%2066%2051%20Z%27%20fill-opacity%3D%270.14%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M75%2040%20C65%2034%2064%2024%2068%2018%20C78%2019%2085%2026%2084%2035%20C82%2037%2079%2039%2075%2040%20Z%27%20fill-opacity%3D%270.14%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E"),
       linear-gradient(to bottom, #173120 0%, #102117 50%, #173120 100%) !important;
     border-right: 1px solid #21432e !important;
   }
@@ -335,15 +302,82 @@
     box-shadow: 0 0 12px rgba(165,219,179,.40) !important;
   }
 
-  /* Expanded sidebar fallback for dark mode */
   html.dark #stage-slideover-sidebar > div,
   html.dark [data-testid="sidebar"] > div,
   html.dark aside > div {
     background-color: transparent !important;
   }
 
-  /* Also respect OS dark mode if ChatGPT does not expose html.dark */
   @media (prefers-color-scheme: dark) {
     html:not(.light) body { background: #0f1712 !important; }
+  }
+}
+
+/* =========================================================
+   Code block edge-bleed & double-layer fix (Green Theme 적용)
+   ========================================================= */
+@-moz-document domain("chatgpt.com"), domain("chat.openai.com") {
+
+  /* 1. 최외각 컨테이너의 잔여 배경 및 테두리 제거 */
+  html:not(.dark) [data-message-author-role="assistant"] .markdown > div:has(pre),
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="contain-inline-size"] {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* 2. 코드 블록 전체 쉘 */
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) {
+    background-color: #f3fbf5 !important;
+    border: 1px solid #deefe2 !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: none !important;
+  }
+
+  /* 3. 코드 헤더 (언어 라벨 + 복사 버튼 줄) */
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) > div:first-child:not(:has(pre)) {
+    background-color: #e5f6e9 !important;
+    border-bottom: 1px solid #deefe2 !important;
+    border-top-left-radius: 11px !important;
+    border-top-right-radius: 11px !important;
+  }
+
+  /* 4. 내부 pre 및 code 요소 중복 배경 투명화 */
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) pre,
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) code {
+    background-color: transparent !important;
+    border: none !important;
+  }
+
+  /* === 다크 모드 코드 블록 패치 === */
+  html.dark [data-message-author-role="assistant"] .markdown > div:has(pre),
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="contain-inline-size"] {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) {
+    background-color: #0f1d14 !important;
+    border: 1px solid #1f3d2b !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: none !important;
+  }
+
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) > div:first-child:not(:has(pre)) {
+    background-color: #172c1f !important;
+    border-bottom: 1px solid #1f3d2b !important;
+    border-top-left-radius: 11px !important;
+    border-top-right-radius: 11px !important;
+  }
+
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) pre,
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) code {
+    background-color: transparent !important;
+    border: none !important;
   }
 }
