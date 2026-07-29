@@ -1,7 +1,7 @@
 /* ==UserStyle==
-@name           ChatGPT Purple Heart Theme
+@name            ChatGPT Purple Heart Theme
 @namespace      https://chatgpt.com
-@version        1.4.0
+@version         1.4.2
 @description    Purple heart theme for ChatGPT - soft lavender light mode and deep violet dark mode.
 @author         adapted for ChatGPT
 @homepageURL    https://chatgpt.com
@@ -24,14 +24,14 @@
     background: #fff !important;
   }
 
-  /* Sidebar: soft heart artwork */
+  /* Sidebar: soft heart artwork (하트 투명도 선명하게 조정) */
   html:not(.dark) #stage-slideover-sidebar,
   html:not(.dark) #stage-slideover-sidebar > div,
   html:not(.dark) [data-testid="sidebar"],
   html:not(.dark) [data-testid="sidebar"] > div,
   html:not(.dark) aside,
   html:not(.dark) aside > div {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='220' viewBox='0 0 280 220'%3E%3Cg fill='%23ffffff' fill-opacity='0.30'%3E%3Cpath d='M62 67 C34 46 18 24 32 11 C45 -1 58 9 62 19 C66 9 79 -1 92 11 C106 24 90 46 62 67 Z'/%3E%3Cpath d='M206 165 C186 150 175 134 185 124 C194 116 203 122 206 130 C209 122 218 116 227 124 C237 134 226 150 206 165 Z'/%3E%3Cpath d='M224 48 C211 38 204 28 211 21 C217 15 223 19 225 24 C227 19 233 15 239 21 C246 28 239 38 224 48 Z' fill-opacity='.20'/%3E%3C/g%3E%3C/svg%3E"),
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='220' viewBox='0 0 280 220'%3E%3Cg fill='%23ffffff' fill-opacity='0.50'%3E%3Cpath d='M62 67 C34 46 18 24 32 11 C45 -1 58 9 62 19 C66 9 79 -1 92 11 C106 24 90 46 62 67 Z'/%3E%3Cpath d='M206 165 C186 150 175 134 185 124 C194 116 203 122 206 130 C209 122 218 116 227 124 C237 134 226 150 206 165 Z'/%3E%3Cpath d='M224 48 C211 38 204 28 211 21 C217 15 223 19 225 24 C227 19 233 15 239 21 C246 28 239 38 224 48 Z' fill-opacity='.35'/%3E%3C/g%3E%3C/svg%3E"),
       linear-gradient(to bottom, #eee0ff 0%, #f6efff 50%, #e8d8ff 100%) !important;
     border-right-color: var(--sakura-light-border) !important;
   }
@@ -85,7 +85,7 @@
     box-shadow: 0 0 0 1px rgba(155,93,229,.10), 0 8px 24px rgba(155,93,229,.10) !important;
   }
 
-  /* Code blocks - warm pink */
+  /* Code blocks base */
   html:not(.dark) [data-message-author-role="assistant"] pre,
   html:not(.dark) [data-message-author-role="assistant"] code[class*="language-"] {
     background-color: #f8f1ff !important;
@@ -105,26 +105,18 @@
   *:hover::-webkit-scrollbar-thumb { background: #e0c8f7 !important; }
   *:hover::-webkit-scrollbar-thumb:hover { background: #cfa8f7 !important; }
 
-  /* Wider conversation area, close to the original Gemini layout tweak */
+  /* Wider conversation area */
   [data-testid^="conversation-turn-"] > div,
   [data-turn] > div {
     max-width: 1100px !important;
   }
 
-  /* Expanded sidebar fallback: keep inner wrappers transparent so the heart background stays visible */
+  /* Expanded sidebar fallback */
   html:not(.dark) #stage-slideover-sidebar > div,
   html:not(.dark) [data-testid="sidebar"] > div,
   html:not(.dark) aside > div {
     background-color: transparent !important;
   }
-
-
-  /* =========================================================
-     ChatGPT expanded sidebar hardening
-     The expanded sidebar creates several opaque token-background wrappers.
-     Keep those wrappers transparent so the heart artwork on the sidebar
-     itself remains visible.
-     ========================================================= */
 
   #stage-slideover-sidebar,
   [data-testid="sidebar"],
@@ -132,7 +124,6 @@
     isolation: isolate !important;
   }
 
-  /* ChatGPT sidebar surface wrappers */
   #stage-slideover-sidebar [class*="bg-token-sidebar"],
   #stage-slideover-sidebar [class*="bg-token-main-surface"],
   [data-testid="sidebar"] [class*="bg-token-sidebar"],
@@ -143,7 +134,6 @@
     background-image: none !important;
   }
 
-  /* Catch deeply nested full-height/full-width wrappers used only as surfaces. */
   #stage-slideover-sidebar > div > div,
   #stage-slideover-sidebar > div > div > div,
   [data-testid="sidebar"] > div > div,
@@ -151,7 +141,6 @@
     background-color: transparent !important;
   }
 
-  /* Newer ChatGPT builds may expose the expanded navigation as nav. */
   html:not(.dark) nav[class*="sidebar"],
   html:not(.dark) nav:has(a[href="/"]) {
     background-color: transparent !important;
@@ -162,15 +151,6 @@
     background-color: transparent !important;
   }
 
-
-  /* =========================================================
-     Expanded sidebar TOP / ChatGPT Plus area
-     Keep the top section inside the opened sidebar on the SAME
-     heart surface as the rest of the sidebar.
-     ========================================================= */
-
-  /* Important: target headers ONLY when they live inside the sidebar.
-     Do not theme the main page header. */
   #stage-slideover-sidebar header,
   [data-testid="sidebar"] header,
   aside header,
@@ -182,9 +162,6 @@
     box-shadow: none !important;
   }
 
-  /* ChatGPT Plus / workspace button and its immediate wrappers can have
-     their own opaque token surfaces. Make only those sidebar descendants
-     transparent so the heart artwork behind them remains visible. */
   #stage-slideover-sidebar header > div,
   #stage-slideover-sidebar header > div > div,
   [data-testid="sidebar"] header > div,
@@ -198,9 +175,6 @@
     background-image: none !important;
   }
 
-  /* Newer ChatGPT builds sometimes put the model/account title row in a
-     nav-like first section rather than a semantic header. Limit this to
-     the FIRST sidebar section so the main app header is untouched. */
   #stage-slideover-sidebar > div > div:first-child,
   [data-testid="sidebar"] > div > div:first-child,
   aside > div > div:first-child {
@@ -208,7 +182,6 @@
     background-image: none !important;
   }
 
-  /* Remove opaque token surfaces specifically inside the sidebar top area. */
   #stage-slideover-sidebar header [class*="bg-token-"],
   [data-testid="sidebar"] header [class*="bg-token-"],
   aside header [class*="bg-token-"],
@@ -219,7 +192,6 @@
     background-image: none !important;
   }
 
-  /* Keep hover feedback on the ChatGPT Plus row without covering hearts. */
   html:not(.dark) #stage-slideover-sidebar header button:hover,
   html:not(.dark) [data-testid="sidebar"] header button:hover,
   html:not(.dark) aside header button:hover,
@@ -249,13 +221,14 @@
     background: #160d22 !important;
   }
 
+  /* 다크 모드 하트 선명도 조정 */
   html.dark #stage-slideover-sidebar,
   html.dark #stage-slideover-sidebar > div,
   html.dark [data-testid="sidebar"],
   html.dark [data-testid="sidebar"] > div,
   html.dark aside,
   html.dark aside > div {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='220' viewBox='0 0 280 220'%3E%3Cg fill='%23d9a8ff' fill-opacity='0.10'%3E%3Cpath d='M62 67 C34 46 18 24 32 11 C45 -1 58 9 62 19 C66 9 79 -1 92 11 C106 24 90 46 62 67 Z'/%3E%3Cpath d='M206 165 C186 150 175 134 185 124 C194 116 203 122 206 130 C209 122 218 116 227 124 C237 134 226 150 206 165 Z'/%3E%3Cpath d='M224 48 C211 38 204 28 211 21 C217 15 223 19 225 24 C227 19 233 15 239 21 C246 28 239 38 224 48 Z' fill-opacity='.07'/%3E%3C/g%3E%3C/svg%3E"),
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='220' viewBox='0 0 280 220'%3E%3Cg fill='%23d9a8ff' fill-opacity='0.25'%3E%3Cpath d='M62 67 C34 46 18 24 32 11 C45 -1 58 9 62 19 C66 9 79 -1 92 11 C106 24 90 46 62 67 Z'/%3E%3Cpath d='M206 165 C186 150 175 134 185 124 C194 116 203 122 206 130 C209 122 218 116 227 124 C237 134 226 150 206 165 Z'/%3E%3Cpath d='M224 48 C211 38 204 28 211 21 C217 15 223 19 225 24 C227 19 233 15 239 21 C246 28 239 38 224 48 Z' fill-opacity='.18'/%3E%3C/g%3E%3C/svg%3E"),
       linear-gradient(to bottom, #2b163e 0%, #1d102b 50%, #2b163e 100%) !important;
     border-right: 1px solid #3a2152 !important;
   }
@@ -335,15 +308,82 @@
     box-shadow: 0 0 12px rgba(201,151,247,.40) !important;
   }
 
-  /* Expanded sidebar fallback for dark mode */
   html.dark #stage-slideover-sidebar > div,
   html.dark [data-testid="sidebar"] > div,
   html.dark aside > div {
     background-color: transparent !important;
   }
 
-  /* Also respect OS dark mode if ChatGPT does not expose html.dark */
   @media (prefers-color-scheme: dark) {
     html:not(.light) body { background: #160d22 !important; }
+  }
+}
+
+/* =========================================================
+   Code block edge-bleed & double-layer fix (Purple Theme 적용)
+   ========================================================= */
+@-moz-document domain("chatgpt.com"), domain("chat.openai.com") {
+
+  /* 1. 최외각 컨테이너 잔여 배경 및 테두리 제거 */
+  html:not(.dark) [data-message-author-role="assistant"] .markdown > div:has(pre),
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="contain-inline-size"] {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* 2. 실제 코드 블록 쉘 */
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) {
+    background-color: #f8f1ff !important;
+    border: 1px solid #ead4f9 !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: none !important;
+  }
+
+  /* 3. 코드 헤더 (언어 라벨 + 복사 버튼 줄) */
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) > div:first-child:not(:has(pre)) {
+    background-color: #efe3ff !important;
+    border-bottom: 1px solid #ead4f9 !important;
+    border-top-left-radius: 11px !important;
+    border-top-right-radius: 11px !important;
+  }
+
+  /* 4. 내부 pre 및 code 요소 중복 배경 투명화 */
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) pre,
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) code {
+    background-color: transparent !important;
+    border: none !important;
+  }
+
+  /* === 다크 모드 코드 블록 패치 === */
+  html.dark [data-message-author-role="assistant"] .markdown > div:has(pre),
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="contain-inline-size"] {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) {
+    background-color: #1a0e28 !important;
+    border: 1px solid #3a2152 !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: none !important;
+  }
+
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) > div:first-child:not(:has(pre)) {
+    background-color: #2b163e !important;
+    border-bottom: 1px solid #3a2152 !important;
+    border-top-left-radius: 11px !important;
+    border-top-right-radius: 11px !important;
+  }
+
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) pre,
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) code {
+    background-color: transparent !important;
+    border: none !important;
   }
 }
