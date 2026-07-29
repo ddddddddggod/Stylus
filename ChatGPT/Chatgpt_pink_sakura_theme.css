@@ -1,8 +1,8 @@
 /* ==UserStyle==
-@name           ChatGPT Sakura Theme
+@name           ChatGPT Sakura Theme (Single Border & Neon Glow)
 @namespace      https://chatgpt.com
-@version        1.3.9
-@description    Cherry blossom theme for ChatGPT - soft sakura light mode and deep burgundy dark mode.
+@version        1.4.0
+@description    Cherry blossom theme for ChatGPT - single rounded border & neon pink focus mode.
 @author         M.R. Lee
 @homepageURL    https://chatgpt.com
 ==/UserStyle== */
@@ -24,7 +24,7 @@
     background: #fff !important;
   }
 
-  /* Sidebar: preserve the sakura artwork from the Gemini theme */
+  /* Sidebar */
   html:not(.dark) #stage-slideover-sidebar,
   html:not(.dark) #stage-slideover-sidebar > div,
   html:not(.dark) [data-testid="sidebar"],
@@ -73,19 +73,31 @@
     transform: translateY(-1px) !important;
   }
 
-  /* Composer */
-  html:not(.dark) form:has(#prompt-textarea) > div,
-  html:not(.dark) div:has(> #prompt-textarea) {
-    border-color: #f1cad9 !important;
+  /* =========================================================
+     Composer (중복 border 제거 및 단일 래퍼 적용)
+     ========================================================= */
+
+  /* 자식/내부 래퍼 border & shadow 초기화 (이중 띠 현상 완벽 방지) */
+  form:has(#prompt-textarea) div:has(> #prompt-textarea) {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
   }
 
-  html:not(.dark) form:has(#prompt-textarea) > div:focus-within,
-  html:not(.dark) div:has(> #prompt-textarea):focus-within {
+  /* 라이트 모드 외곽 단일 래퍼 */
+  html:not(.dark) form:has(#prompt-textarea) > div {
+    border: 1px solid #f1cad9 !important;
+    border-radius: 28px !important;
+    box-shadow: 0 2px 10px rgba(233,30,99,.05) !important;
+    transition: border-color .2s ease, box-shadow .2s ease !important;
+  }
+
+  html:not(.dark) form:has(#prompt-textarea) > div:focus-within {
     border-color: #e98aae !important;
-    box-shadow: 0 0 0 1px rgba(233,30,99,.08), 0 8px 24px rgba(233,30,99,.08) !important;
+    box-shadow: 0 0 0 2px rgba(233,30,99,.15), 0 8px 24px rgba(233,30,99,.10) !important;
   }
 
-  /* Code blocks - warm pink */
+  /* Code blocks base */
   html:not(.dark) [data-message-author-role="assistant"] pre,
   html:not(.dark) [data-message-author-role="assistant"] code[class*="language-"] {
     background-color: #fff1f5 !important;
@@ -105,19 +117,13 @@
   *:hover::-webkit-scrollbar-thumb { background: #f5d1e0 !important; }
   *:hover::-webkit-scrollbar-thumb:hover { background: #f0b8d4 !important; }
 
-  /* Wider conversation area, close to the original Gemini layout tweak */
+  /* Wider conversation area */
   [data-testid^="conversation-turn-"] > div,
   [data-turn] > div {
     max-width: 1100px !important;
   }
 
-  /* Expanded sidebar fallback */
-  html:not(.dark) #stage-slideover-sidebar > div,
-  html:not(.dark) [data-testid="sidebar"] > div,
-  html:not(.dark) aside > div {
-    background-color: transparent !important;
-  }
-
+  /* Sidebar layout wrappers transparency */
   #stage-slideover-sidebar,
   [data-testid="sidebar"],
   aside {
@@ -221,6 +227,7 @@
     background: #1a0a10 !important;
   }
 
+  /* Dark mode sidebar */
   html.dark #stage-slideover-sidebar,
   html.dark #stage-slideover-sidebar > div,
   html.dark [data-testid="sidebar"],
@@ -261,17 +268,18 @@
     color: #f5e6ea !important;
   }
 
-  html.dark form:has(#prompt-textarea) > div,
-  html.dark div:has(> #prompt-textarea) {
+  /* Dark mode Composer 단일 네온 핑크 래퍼 */
+  html.dark form:has(#prompt-textarea) > div {
     background-color: #2a1018 !important;
-    border-color: #4a1a2a !important;
-    transition: border-color .2s ease, box-shadow .2s ease !important;
+    border: 1px solid #4a1a2a !important;
+    border-radius: 28px !important;
+    transition: border-color .2s ease, box-shadow .25s ease !important;
   }
 
-  html.dark form:has(#prompt-textarea) > div:focus-within,
-  html.dark div:has(> #prompt-textarea):focus-within {
-    border-color: #ff80ab !important;
-    box-shadow: 0 0 20px rgba(255,128,171,.28), inset 0 0 10px rgba(255,128,171,.08) !important;
+  /* 다크모드 입력창 네온 핑크 글로우 */
+  html.dark form:has(#prompt-textarea) > div:focus-within {
+    border-color: #ff4081 !important;
+    box-shadow: 0 0 8px #ff4081, 0 0 22px rgba(255, 64, 129, 0.48), inset 0 0 10px rgba(255, 64, 129, 0.15) !important;
   }
 
   html.dark #prompt-textarea {
@@ -319,7 +327,7 @@
 }
 
 /* =========================================================
-   v1.3.9 - Code block edge-bleed & double-layer fix
+   Code block edge-bleed & double-layer fix
    ========================================================= */
 @-moz-document domain("chatgpt.com"), domain("chat.openai.com") {
 
@@ -332,16 +340,16 @@
     box-shadow: none !important;
   }
 
-  /* 2. 실제 둥근 모서리를 갖는 코드 쉘에 모서리 잘림(overflow: hidden) 및 깔끔한 테두리 지정 */
+  /* 2. 코드 블록 전체 쉘 */
   html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) {
     background-color: #fff1f5 !important;
     border: 1px solid #f4d5e0 !important;
     border-radius: 12px !important;
-    overflow: hidden !important; /* 모서리 밖으로 자식 요소가 삐져나가지 않도록 잘라냄 */
+    overflow: hidden !important;
     box-shadow: none !important;
   }
 
-  /* 3. 코드 헤더 (CSS 라벨 + 복사 버튼 줄) 깔끔하게 정돈 */
+  /* 3. 코드 헤더 (언어 라벨 + 복사 버튼 줄) */
   html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) > div:first-child:not(:has(pre)) {
     background-color: #fce4ec !important;
     border-bottom: 1px solid #f4d5e0 !important;
@@ -356,7 +364,7 @@
     border: none !important;
   }
 
-  /* === 다크 모드 동일 패치 === */
+  /* === 다크 모드 코드 블록 패치 === */
   html.dark [data-message-author-role="assistant"] .markdown > div:has(pre),
   html.dark [data-message-author-role="assistant"] .markdown div[class*="contain-inline-size"] {
     background: transparent !important;
