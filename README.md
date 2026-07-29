@@ -27,6 +27,7 @@
 | <img src="./images/green-light.png" width="400"> | <img src="./images/green-dark.png" width="400"> |
 - Github
   : Updated the Catppuccin theme to replace the GitHub activity graph (contribution grid) with a cherry blossom-shaped design.
+  
 | Theme | Graph |
 |-------|------|
 | <img src="./images/green-light.png" width="400"> | <img src="./images/green-dark.png" width="400"> |
