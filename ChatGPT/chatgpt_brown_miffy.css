@@ -1,0 +1,314 @@
+/* ==UserStyle==
+@name           ChatGPT Miffy Autumn Warmtone Theme (Miffy Icon Cursor)
+@namespace      https://chatgpt.com
+@version        1.5.0
+@description    Autumn warm-tone Miffy theme for ChatGPT - custom Miffy face SVG cursor icon.
+@author         M.R. Lee
+@homepageURL    https://chatgpt.com
+==/UserStyle== */
+
+@-moz-document domain("chatgpt.com"), domain("chat.openai.com") {
+  :root {
+    --miffy-warm-50: #fcf8f2;
+    --miffy-warm-100: #f4e8dc;
+    --miffy-warm-200: #e5cdbc;
+    --miffy-warm-300: #d4ae97;
+    --miffy-warm-500: #ac7255;
+    --miffy-brown-dark: #5c3a28;
+    --miffy-light-border: #e8d7c8;
+  }
+
+  /* Main background + 대형 미피 워터마크 */
+  html:not(.dark) body,
+  html:not(.dark) main {
+    background-color: #ffffff !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg opacity='0.09'%3E%3Cellipse cx='32' cy='20' rx='8' ry='22' fill='%23ac7255'/%3E%3Cellipse cx='68' cy='20' rx='8' ry='22' fill='%23ac7255'/%3E%3Cellipse cx='50' cy='55' rx='35' ry='25' fill='%23ac7255'/%3E%3Ccircle cx='32' cy='50' r='3.5' fill='%23ffffff'/%3E%3Ccircle cx='68' cy='50' r='3.5' fill='%23ffffff'/%3E%3Cpath d='M46 62 L54 68 M54 62 L46 68' stroke='%23ffffff' stroke-width='3.5' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: 380px !important;
+    background-attachment: fixed !important;
+  }
+
+  /* 귀여운 미피 아이콘 커서 */
+  body, html, *, 
+  button, a, [role="button"], 
+  input, textarea, [contenteditable="true"] {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 100 100"><g transform="translate(10, 5)"><ellipse cx="26" cy="18" rx="7" ry="18" fill="%23ac7255" stroke="%23ffffff" stroke-width="4"/><ellipse cx="54" cy="18" rx="7" ry="18" fill="%23ac7255" stroke="%23ffffff" stroke-width="4"/><ellipse cx="40" cy="45" rx="24" ry="20" fill="%23ac7255" stroke="%23ffffff" stroke-width="4"/><circle cx="30" cy="42" r="3" fill="%23ffffff"/><circle cx="50" cy="42" r="3" fill="%23ffffff"/><path d="M37 50 L43 56 M43 50 L37 56" stroke="%23ffffff" stroke-width="3" stroke-linecap="round"/></g></svg>') 16 16, auto !important;
+  }
+    
+  /* Sidebar (Light Mode) */
+  html:not(.dark) #stage-slideover-sidebar,
+  html:not(.dark) #stage-slideover-sidebar > div,
+  html:not(.dark) [data-testid="sidebar"],
+  html:not(.dark) [data-testid="sidebar"] > div,
+  html:not(.dark) aside,
+  html:not(.dark) aside > div {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg opacity='0.20'%3E%3C!-- 미피 1 --%3E%3Cg transform='translate(20, 20) scale(0.45)'%3E%3Cellipse cx='32' cy='22' rx='7' ry='20' fill='%23a36243'/%3E%3Cellipse cx='56' cy='22' rx='7' ry='20' fill='%23a36243'/%3E%3Cellipse cx='44' cy='52' rx='28' ry='22' fill='%23a36243'/%3E%3Ccircle cx='32' cy='48' r='3' fill='%23fff8f2'/%3E%3Ccircle cx='56' cy='48' r='3' fill='%23fff8f2'/%3E%3Cpath d='M41 57 L47 63 M47 57 L41 63' stroke='%23fff8f2' stroke-width='2.5' stroke-linecap='round'/%3E%3C/g%3E%3C!-- 미피 2 --%3E%3Cg transform='translate(130, 130) scale(0.36)'%3E%3Cellipse cx='32' cy='22' rx='7' ry='20' fill='%23a36243'/%3E%3Cellipse cx='56' cy='22' rx='7' ry='20' fill='%23a36243'/%3E%3Cellipse cx='44' cy='52' rx='28' ry='22' fill='%23a36243'/%3E%3Ccircle cx='32' cy='48' r='3' fill='%23fff8f2'/%3E%3Ccircle cx='56' cy='48' r='3' fill='%23fff8f2'/%3E%3Cpath d='M41 57 L47 63 M47 57 L41 63' stroke='%23fff8f2' stroke-width='2.5' stroke-linecap='round'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+      linear-gradient(to bottom, #fcf8f2 0%, #f4e8dc 50%, #eee0d0 100%) !important;
+    background-repeat: repeat !important;
+    background-size: 220px 220px, auto !important;
+    background-position: top left !important;
+    border-right-color: var(--miffy-light-border) !important;
+  }
+
+  /* Sidebar history items */
+  #stage-slideover-sidebar a,
+  #stage-slideover-sidebar button,
+  [data-testid="sidebar"] a,
+  [data-testid="sidebar"] button,
+  aside a,
+  aside button {
+    transition: background-color .15s ease, box-shadow .15s ease, transform .15s ease !important;
+  }
+
+  html:not(.dark) #stage-slideover-sidebar a:hover,
+  html:not(.dark) #stage-slideover-sidebar button:hover,
+  html:not(.dark) [data-testid="sidebar"] a:hover,
+  html:not(.dark) [data-testid="sidebar"] button:hover,
+  html:not(.dark) aside a:hover,
+  html:not(.dark) aside button:hover {
+    background-color: rgba(212, 174, 151, 0.35) !important;
+    border-radius: 10px !important;
+  }
+
+  /* User message bubble (+ 내 말풍선 미피 도장) */
+  html:not(.dark) [data-message-author-role="user"] .user-message-bubble-color,
+  html:not(.dark) [data-turn="user"] .user-message-bubble-color {
+    background-color: #f4e8dc !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg opacity='0.18'%3E%3Cellipse cx='32' cy='20' rx='8' ry='22' fill='%23ac7255'/%3E%3Cellipse cx='68' cy='20' rx='8' ry='22' fill='%23ac7255'/%3E%3Cellipse cx='50' cy='55' rx='35' ry='25' fill='%23ac7255'/%3E%3Ccircle cx='32' cy='50' r='3.5' fill='%23f4e8dc'/%3E%3Ccircle cx='68' cy='50' r='3.5' fill='%23f4e8dc'/%3E%3Cpath d='M46 62 L54 68 M54 62 L46 68' stroke='%23f4e8dc' stroke-width='3.5' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 5px bottom -10px !important;
+    background-size: 60px !important;
+    color: #4a2e1e !important;
+    border: 1px solid rgba(172, 114, 85, 0.22) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 2px 8px rgba(172, 114, 85, 0.12) !important;
+    transition: box-shadow .15s ease, transform .15s ease !important;
+  }
+
+  html:not(.dark) [data-message-author-role="user"] .user-message-bubble-color:hover,
+  html:not(.dark) [data-turn="user"] .user-message-bubble-color:hover {
+    box-shadow: 0 5px 16px rgba(172, 114, 85, 0.20) !important;
+    transform: translateY(-1px) !important;
+  }
+
+  /* Composer */
+  form:has(#prompt-textarea) div:has(> #prompt-textarea) {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  /* 입력창 외곽 단일 래퍼 (+ 빼꼼 미피 워터마크) */
+  html:not(.dark) form:has(#prompt-textarea) > div {
+    background-color: transparent !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg opacity='0.22'%3E%3Cellipse cx='32' cy='20' rx='8' ry='22' fill='%23ac7255'/%3E%3Cellipse cx='68' cy='20' rx='8' ry='22' fill='%23ac7255'/%3E%3Cellipse cx='50' cy='55' rx='35' ry='25' fill='%23ac7255'/%3E%3Ccircle cx='32' cy='50' r='3.5' fill='%23ffffff'/%3E%3Ccircle cx='68' cy='50' r='3.5' fill='%23ffffff'/%3E%3Cpath d='M46 62 L54 68 M54 62 L46 68' stroke='%23ffffff' stroke-width='3.5' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 60px bottom 10px !important;
+    background-size: 32px !important;
+    border: 1px solid #e8d7c8 !important;
+    border-radius: 28px !important;
+    box-shadow: 0 2px 10px rgba(172, 114, 85, 0.08) !important;
+    transition: border-color .2s ease, box-shadow .2s ease !important;
+  }
+
+  html:not(.dark) form:has(#prompt-textarea) > div:focus-within {
+    border-color: #ac7255 !important;
+    box-shadow: 0 0 0 2px rgba(172, 114, 85, 0.20), 0 8px 24px rgba(172, 114, 85, 0.15) !important;
+  }
+
+  /* Code blocks base */
+  html:not(.dark) [data-message-author-role="assistant"] pre,
+  html:not(.dark) [data-message-author-role="assistant"] code[class*="language-"] {
+    background-color: #fcf8f2 !important;
+    border-color: #e8d7c8 !important;
+  }
+
+  /* Selection */
+  ::selection {
+    background: #e5cdbc !important;
+    color: #3b2214 !important;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 9px !important; height: 9px !important; }
+  ::-webkit-scrollbar-track { background: transparent !important; }
+  ::-webkit-scrollbar-thumb { background: transparent !important; border-radius: 999px !important; }
+  *:hover::-webkit-scrollbar-thumb { background: #d4ae97 !important; }
+  *:hover::-webkit-scrollbar-thumb:hover { background: #ac7255 !important; }
+
+  /* Wider conversation area */
+  [data-testid^="conversation-turn-"] > div,
+  [data-turn] > div {
+    max-width: 1100px !important;
+  }
+
+  /* Sidebar layout wrappers transparency */
+  #stage-slideover-sidebar, [data-testid="sidebar"], aside { isolation: isolate !important; }
+  #stage-slideover-sidebar [class*="bg-token-sidebar"], #stage-slideover-sidebar [class*="bg-token-main-surface"],
+  [data-testid="sidebar"] [class*="bg-token-sidebar"], [data-testid="sidebar"] [class*="bg-token-main-surface"],
+  aside [class*="bg-token-sidebar"], aside [class*="bg-token-main-surface"] {
+    background-color: transparent !important; background-image: none !important;
+  }
+  #stage-slideover-sidebar > div > div, #stage-slideover-sidebar > div > div > div,
+  [data-testid="sidebar"] > div > div, [data-testid="sidebar"] > div > div > div { background-color: transparent !important; }
+  html:not(.dark) nav[class*="sidebar"], html:not(.dark) nav:has(a[href="/"]) { background-color: transparent !important; }
+  html.dark nav[class*="sidebar"], html.dark nav:has(a[href="/"]) { background-color: transparent !important; }
+  #stage-slideover-sidebar header, [data-testid="sidebar"] header, aside header,
+  #stage-slideover-sidebar [class*="sticky"][class*="top-0"], [data-testid="sidebar"] [class*="sticky"][class*="top-0"], aside [class*="sticky"][class*="top-0"] {
+    background-color: transparent !important; background-image: none !important; box-shadow: none !important;
+  }
+  #stage-slideover-sidebar header > div, #stage-slideover-sidebar header > div > div,
+  [data-testid="sidebar"] header > div, [data-testid="sidebar"] header > div > div,
+  aside header > div, aside header > div > div,
+  #stage-slideover-sidebar [class*="sticky"][class*="top-0"] > div,
+  [data-testid="sidebar"] [class*="sticky"][class*="top-0"] > div,
+  aside [class*="sticky"][class*="top-0"] > div {
+    background-color: transparent !important; background-image: none !important;
+  }
+  #stage-slideover-sidebar > div > div:first-child,
+  [data-testid="sidebar"] > div > div:first-child,
+  aside > div > div:first-child {
+    background-color: transparent !important; background-image: none !important;
+  }
+  #stage-slideover-sidebar header [class*="bg-token-"], [data-testid="sidebar"] header [class*="bg-token-"], aside header [class*="bg-token-"],
+  #stage-slideover-sidebar [class*="sticky"][class*="top-0"] [class*="bg-token-"], [data-testid="sidebar"] [class*="sticky"][class*="top-0"] [class*="bg-token-"],
+  aside [class*="sticky"][class*="top-0"] [class*="bg-token-"] {
+    background-color: transparent !important; background-image: none !important;
+  }
+  html:not(.dark) #stage-slideover-sidebar header button:hover, html:not(.dark) [data-testid="sidebar"] header button:hover,
+  html:not(.dark) aside header button:hover, html:not(.dark) #stage-slideover-sidebar header a:hover,
+  html:not(.dark) [data-testid="sidebar"] header a:hover, html:not(.dark) aside header a:hover {
+    background-color: rgba(212, 174, 151, 0.35) !important;
+  }
+  html.dark #stage-slideover-sidebar header button:hover, html.dark [data-testid="sidebar"] header button:hover,
+  html.dark aside header button:hover, html.dark #stage-slideover-sidebar header a:hover,
+  html.dark [data-testid="sidebar"] header a:hover, html.dark aside header a:hover {
+    background-color: rgba(224, 159, 103, 0.15) !important;
+  }
+
+  /* ======================== DARK MODE ======================== */
+  html.dark, html.dark body {
+    background-color: #170d09 !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg opacity='0.12'%3E%3Cellipse cx='32' cy='20' rx='8' ry='22' fill='%23e09f67'/%3E%3Cellipse cx='68' cy='20' rx='8' ry='22' fill='%23e09f67'/%3E%3Cellipse cx='50' cy='55' rx='35' ry='25' fill='%23e09f67'/%3E%3Ccircle cx='32' cy='50' r='3.5' fill='%23170d09'/%3E%3Ccircle cx='68' cy='50' r='3.5' fill='%23170d09'/%3E%3Cpath d='M46 62 L54 68 M54 62 L46 68' stroke='%23170d09' stroke-width='3.5' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: 380px !important;
+    background-attachment: fixed !important;
+    color-scheme: dark !important;
+  }
+
+  html.dark main { background: transparent !important; }
+
+  /* Dark mode sidebar */
+  html.dark #stage-slideover-sidebar, html.dark #stage-slideover-sidebar > div,
+  html.dark [data-testid="sidebar"], html.dark [data-testid="sidebar"] > div,
+  html.dark aside, html.dark aside > div {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg opacity='0.20'%3E%3Cg transform='translate(20, 20) scale(0.45)'%3E%3Cellipse cx='32' cy='22' rx='7' ry='20' fill='%23e09f67'/%3E%3Cellipse cx='56' cy='22' rx='7' ry='20' fill='%23e09f67'/%3E%3Cellipse cx='44' cy='52' rx='28' ry='22' fill='%23e09f67'/%3E%3Ccircle cx='32' cy='48' r='3' fill='%231f130c'/%3E%3Ccircle cx='56' cy='48' r='3' fill='%231f130c'/%3E%3Cpath d='M41 57 L47 63 M47 57 L41 63' stroke='%231f130c' stroke-width='2.5' stroke-linecap='round'/%3E%3C/g%3E%3Cg transform='translate(130, 130) scale(0.36)'%3E%3Cellipse cx='32' cy='22' rx='7' ry='20' fill='%23e09f67'/%3E%3Cellipse cx='56' cy='22' rx='7' ry='20' fill='%23e09f67'/%3E%3Cellipse cx='44' cy='52' rx='28' ry='22' fill='%23e09f67'/%3E%3Ccircle cx='32' cy='48' r='3' fill='%231f130c'/%3E%3Ccircle cx='56' cy='48' r='3' fill='%231f130c'/%3E%3Cpath d='M41 57 L47 63 M47 57 L41 63' stroke='%231f130c' stroke-width='2.5' stroke-linecap='round'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+      linear-gradient(to bottom, #2d1e18 0%, #1f130c 50%, #2d1e18 100%) !important;
+    background-repeat: repeat !important;
+    background-size: 220px 220px, auto !important;
+    background-position: top left !important;
+    border-right: 1px solid #4a3228 !important;
+  }
+
+  html.dark #stage-slideover-sidebar a:hover, html.dark #stage-slideover-sidebar button:hover,
+  html.dark [data-testid="sidebar"] a:hover, html.dark [data-testid="sidebar"] button:hover,
+  html.dark aside a:hover, html.dark aside button:hover {
+    background-color: rgba(224, 159, 103, 0.15) !important;
+    border-radius: 10px !important;
+  }
+
+  /* 다크모드 사용자 말풍선 */
+  html.dark [data-message-author-role="user"] .user-message-bubble-color,
+  html.dark [data-turn="user"] .user-message-bubble-color {
+    background-color: #3b251d !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg opacity='0.22'%3E%3Cellipse cx='32' cy='20' rx='8' ry='22' fill='%23e09f67'/%3E%3Cellipse cx='68' cy='20' rx='8' ry='22' fill='%23e09f67'/%3E%3Cellipse cx='50' cy='55' rx='35' ry='25' fill='%23e09f67'/%3E%3Ccircle cx='32' cy='50' r='3.5' fill='%233b251d'/%3E%3Ccircle cx='68' cy='50' r='3.5' fill='%233b251d'/%3E%3Cpath d='M46 62 L54 68 M54 62 L46 68' stroke='%233b251d' stroke-width='3.5' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 5px bottom -10px !important;
+    background-size: 60px !important;
+    color: #f7ede2 !important;
+    border: 1.5px solid #5a3b30 !important;
+    border-radius: 18px !important;
+    box-shadow: 0 2px 12px rgba(224, 159, 103, 0.18) !important;
+  }
+
+  html.dark [data-message-author-role="user"] .user-message-bubble-color:hover,
+  html.dark [data-turn="user"] .user-message-bubble-color:hover {
+    box-shadow: 0 5px 26px rgba(224, 159, 103, 0.28) !important;
+  }
+
+  html.dark [data-message-author-role="assistant"],
+  html.dark [data-message-author-role="assistant"] .markdown {
+    color: #f7ede2 !important;
+  }
+
+  /* 다크모드 입력창 네온 앰버 래퍼 */
+  html.dark form:has(#prompt-textarea) > div {
+    background-color: transparent !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg opacity='0.25'%3E%3Cellipse cx='32' cy='20' rx='8' ry='22' fill='%23e09f67'/%3E%3Cellipse cx='68' cy='20' rx='8' ry='22' fill='%23e09f67'/%3E%3Cellipse cx='50' cy='55' rx='35' ry='25' fill='%23e09f67'/%3E%3Ccircle cx='32' cy='50' r='3.5' fill='%23170d09'/%3E%3Ccircle cx='68' cy='50' r='3.5' fill='%23170d09'/%3E%3Cpath d='M46 62 L54 68 M54 62 L46 68' stroke='%23170d09' stroke-width='3.5' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 60px bottom 10px !important;
+    background-size: 32px !important;
+    border: 1px solid #4a3228 !important;
+    border-radius: 28px !important;
+    transition: border-color .2s ease, box-shadow .25s ease !important;
+  }
+
+  html.dark form:has(#prompt-textarea) > div:focus-within {
+    border-color: #e09f67 !important;
+    box-shadow: 0 0 8px #e09f67, 0 0 22px rgba(224, 159, 103, 0.50), inset 0 0 10px rgba(224, 159, 103, 0.15) !important;
+  }
+
+  html.dark #prompt-textarea { color: #f7ede2 !important; }
+  html.dark #prompt-textarea p[data-placeholder]::before,
+  html.dark #prompt-textarea[data-placeholder]::before { color: #a37d6a !important; }
+
+  html.dark pre, html.dark [data-message-author-role="assistant"] pre {
+    background-color: #1f130c !important;
+    border-color: #4a3228 !important;
+  }
+  html.dark code { background-color: #2d1d16 !important; }
+  html.dark ::selection { background: #7a4a35 !important; color: #fff !important; }
+  html.dark *:hover::-webkit-scrollbar-thumb { background: #543427 !important; box-shadow: 0 0 8px rgba(224, 159, 103, 0.26) !important; }
+  html.dark *:hover::-webkit-scrollbar-thumb:hover { background: #7a4a35 !important; box-shadow: 0 0 12px rgba(224, 159, 103, 0.40) !important; }
+  html.dark #stage-slideover-sidebar > div, html.dark [data-testid="sidebar"] > div, html.dark aside > div { background-color: transparent !important; }
+
+  @media (prefers-color-scheme: dark) { html:not(.light) body { background-color: #170d09 !important; } }
+}
+
+/* =========================================================
+   Code block edge-bleed & double-layer fix
+   ========================================================= */
+@-moz-document domain("chatgpt.com"), domain("chat.openai.com") {
+  html:not(.dark) [data-message-author-role="assistant"] .markdown > div:has(pre),
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="contain-inline-size"] {
+    background: transparent !important; background-color: transparent !important; border: none !important; box-shadow: none !important;
+  }
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) {
+    background-color: #fcf8f2 !important; border: 1px solid #e8d7c8 !important; border-radius: 12px !important; overflow: hidden !important; box-shadow: none !important;
+  }
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) > div:first-child:not(:has(pre)) {
+    background-color: #f4e8dc !important; border-bottom: 1px solid #e8d7c8 !important; border-top-left-radius: 11px !important; border-top-right-radius: 11px !important;
+  }
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) pre,
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) code {
+    background-color: transparent !important; border: none !important;
+  }
+
+  /* 다크 모드 */
+  html.dark [data-message-author-role="assistant"] .markdown > div:has(pre),
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="contain-inline-size"] {
+    background: transparent !important; background-color: transparent !important; border: none !important; box-shadow: none !important;
+  }
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) {
+    background-color: #1f130c !important; border: 1px solid #4a3228 !important; border-radius: 12px !important; overflow: hidden !important; box-shadow: none !important;
+  }
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) > div:first-child:not(:has(pre)) {
+    background-color: #2d1d16 !important; border-bottom: 1px solid #4a3228 !important; border-top-left-radius: 11px !important; border-top-right-radius: 11px !important;
+  }
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) pre,
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) code {
+    background-color: transparent !important; border: none !important;
+  }
+}
