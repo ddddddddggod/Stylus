@@ -1,8 +1,8 @@
 /* ==UserStyle==
-@name           Claude Miffy Autumn Warmtone Theme (Brighter Light Watermark)
+@name           Claude Miffy Autumn Warmtone Theme (Miffy Icon Cursor)
 @namespace      https://claude.ai
-@version        1.4.0
-@description    Autumn warm-tone Miffy theme for Claude - slightly clearer Miffy watermark in Light Mode.
+@version        1.5.0
+@description    Autumn warm-tone Miffy theme for Claude - custom Miffy face SVG cursor icon.
 @author         M.R. Lee
 @homepageURL    https://claude.ai
 ==/UserStyle== */
@@ -19,12 +19,12 @@
   }
 
   /* =========================================================
-     🐰 마우스 커서
+     🐰 귀여운 미피 아이콘 커서
      ========================================================= */
   body, html, *,
   button, a, [role="button"],
   input, textarea, [contenteditable="true"] {
-    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><text x="0" y="24" font-size="24">🐰</text></svg>') 12 12, auto !important;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 100 100"><g transform="translate(10, 5)"><ellipse cx="26" cy="18" rx="7" ry="18" fill="%23ac7255" stroke="%23ffffff" stroke-width="4"/><ellipse cx="54" cy="18" rx="7" ry="18" fill="%23ac7255" stroke="%23ffffff" stroke-width="4"/><ellipse cx="40" cy="45" rx="24" ry="20" fill="%23ac7255" stroke="%23ffffff" stroke-width="4"/><circle cx="30" cy="42" r="3" fill="%23ffffff"/><circle cx="50" cy="42" r="3" fill="%23ffffff"/><path d="M37 50 L43 56 M43 50 L37 56" stroke="%23ffffff" stroke-width="3" stroke-linecap="round"/></g></svg>') 16 16, auto !important;
   }
 
   /* =========================================================
@@ -144,7 +144,7 @@
     box-shadow: none !important;
   }
 
-  /* [라이트 모드] 입력창 테두리 + 빼꼼 미피 (opacity 0.22로 선명화) */
+  /* [라이트 모드] 입력창 테두리 + 빼꼼 미피 */
   fieldset {
     background-color: #ffffff !important;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg opacity='0.22'%3E%3Cellipse cx='32' cy='20' rx='8' ry='22' fill='%23ac7255'/%3E%3Cellipse cx='68' cy='20' rx='8' ry='22' fill='%23ac7255'/%3E%3Cellipse cx='50' cy='55' rx='35' ry='25' fill='%23ac7255'/%3E%3Ccircle cx='32' cy='50' r='3.5' fill='%23ffffff'/%3E%3Ccircle cx='68' cy='50' r='3.5' fill='%23ffffff'/%3E%3Cpath d='M46 62 L54 68 M54 62 L46 68' stroke='%23ffffff' stroke-width='3.5' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E") !important;
@@ -207,7 +207,7 @@
      BACKGROUND & MAIN VIEW
      ========================================================= */
 
-  /* [라이트 모드] 중앙 미피 배경 워터마크 (opacity 0.09로 진하게 보정) */
+  /* [라이트 모드] 중앙 미피 배경 워터마크 */
   html:not(.dark) body, html:not(.dark) main,
   html:not([data-theme="dark"]) body, html:not([data-theme="dark"]) main {
     background-color: #ffffff !important;
@@ -244,7 +244,7 @@
     background-color: transparent !important;
   }
 
-  /* [라이트 모드] 사용자 메시지 (opacity 0.18로 진하게 보정) */
+  /* [라이트 모드] 사용자 메시지 */
   [data-testid="user-message"] div[class*="bg-"],
   [data-testid="user-message"] > div,
   .font-user-message,
