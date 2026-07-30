@@ -44,6 +44,7 @@
 | <img src="pic/chatgpt_yellow_light.png" width="400"> | <img src="pic/chatgpt_yellow_dark.png" width="400"> |
 
 - Brown Miffy theme added!
+---
 
 ### Gemini
 **Light mode Only!!!!!!**
