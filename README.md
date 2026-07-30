@@ -49,7 +49,7 @@ Dark mode is under development.
 
 ### Claude
 26.07.30. released
-  - Miffy theme added!!
+  - rabbit theme added
     
 | Light | Dark |
 |-------|------|
