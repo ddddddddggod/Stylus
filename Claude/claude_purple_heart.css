@@ -1,0 +1,319 @@
+/* ==UserStyle==
+@name           Claude Purple Heart Theme (Softer Dark Sidebar Hearts)
+@namespace      https://claude.ai
+@version        1.2.0
+@description    Purple heart theme for Claude - softened sidebar heart pattern opacity for both Light & Dark modes.
+@author         M.R. Lee (Ported for Claude)
+@homepageURL    https://claude.ai
+==/UserStyle== */
+
+@-moz-document domain("claude.ai") {
+  :root {
+    --purple-50: #fbf7ff;
+    --purple-100: #efe3ff;
+    --purple-200: #d9b8ff;
+    --purple-300: #cfa8f7;
+    --purple-500: #9b5de5;
+    --purple-wine: #6f3bb3;
+    --purple-light-border: #dfc9f7;
+  }
+
+  /* =========================================================
+     💜 마우스 커서
+     ========================================================= */
+  body, html, *,
+  button, a, [role="button"],
+  input, textarea, [contenteditable="true"] {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><text x="0" y="24" font-size="24">💜</text></svg>') 12 12, auto !important;
+  }
+
+  /* =========================================================
+     💜 PURPLE SCROLLBAR
+     ========================================================= */
+
+  /* Firefox */
+  *, html, body, div, main, nav, section, aside {
+    scrollbar-color: #cfa8f7 transparent !important;
+    scrollbar-width: thin !important;
+  }
+
+  /* Chrome, Edge, Safari */
+  ::-webkit-scrollbar,
+  *::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+    background: transparent !important;
+  }
+
+  ::-webkit-scrollbar-track,
+  *::-webkit-scrollbar-track {
+    background: transparent !important;
+  }
+
+  ::-webkit-scrollbar-thumb,
+  *::-webkit-scrollbar-thumb {
+    background-color: #cfa8f7 !important;
+    border-radius: 999px !important;
+  }
+
+  ::-webkit-scrollbar-thumb:hover,
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #9b5de5 !important;
+  }
+
+  /* 다크모드 스크롤바 */
+  html.dark ::-webkit-scrollbar-thumb,
+  html.dark *::-webkit-scrollbar-thumb,
+  html[data-theme="dark"] ::-webkit-scrollbar-thumb,
+  html[data-theme="dark"] *::-webkit-scrollbar-thumb,
+  body.dark ::-webkit-scrollbar-thumb,
+  body.dark *::-webkit-scrollbar-thumb,
+  .dark *::-webkit-scrollbar-thumb {
+    background-color: #d070ff !important;
+    box-shadow: 0 0 8px rgba(208, 112, 255, 0.6) !important;
+  }
+
+  /* =========================================================
+     SIDEBAR (연해진 보라색 하트 패턴 - 라이트 & 다크)
+     ========================================================= */
+
+  /* 설정창(모달) 차단 */
+  [role="dialog"], [role="dialog"] *,
+  [aria-modal="true"], [aria-modal="true"] * {
+    background-image: none !important;
+  }
+
+  /* 사이드바 내부 래퍼 배경 뚫기 */
+  nav *, 
+  aside *, 
+  [data-testid="sidebar"] *,
+  [class*="overflow-y-auto"],
+  div:has(> nav) div {
+    background-color: transparent !important;
+  }
+
+  /* [라이트 모드] 은은한 보라색 하트 패턴 */
+  nav,
+  aside,
+  [data-testid="sidebar"],
+  .bg-bg-200,
+  div:has(> nav) {
+    background-image: 
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='220' viewBox='0 0 280 220'%3E%3Cg fill='%239b5de5' fill-opacity='0.10'%3E%3Cpath d='M62 67 C34 46 18 24 32 11 C45 -1 58 9 62 19 C66 9 79 -1 92 11 C106 24 90 46 62 67 Z'/%3E%3Cpath d='M206 165 C186 150 175 134 185 124 C194 116 203 122 206 130 C209 122 218 116 227 124 C237 134 226 150 206 165 Z'/%3E%3Cpath d='M224 48 C211 38 204 28 211 21 C217 15 223 19 225 24 C227 19 233 15 239 21 C246 28 239 38 224 48 Z' fill-opacity='.08'/%3E%3C%2Fg%3E%3C%2Fsvg%3E"),
+      linear-gradient(to bottom, #eee0ff 0%, #f6efff 50%, #e8d8ff 100%) !important;
+    background-repeat: repeat !important;
+    background-size: 240px 190px, auto !important;
+    background-position: top left !important;
+    border-right: 1px solid var(--purple-light-border) !important;
+  }
+
+  /* [다크 모드] 연하고 은은해진 보라색 하트 패턴 (opacity: 0.10 조절) */
+  html.dark nav, html.dark aside, html.dark [data-testid="sidebar"],
+  html[data-theme="dark"] nav, html[data-theme="dark"] aside, html[data-theme="dark"] [data-testid="sidebar"],
+  html[data-mode="dark"] nav, html[data-mode="dark"] aside, html[data-mode="dark"] [data-testid="sidebar"],
+  body.dark nav, body.dark aside, body.dark [data-testid="sidebar"],
+  .dark nav, .dark aside, .dark [data-testid="sidebar"] {
+    background-image: 
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='220' viewBox='0 0 280 220'%3E%3Cg fill='%23d9a8ff' fill-opacity='0.10'%3E%3Cpath d='M62 67 C34 46 18 24 32 11 C45 -1 58 9 62 19 C66 9 79 -1 92 11 C106 24 90 46 62 67 Z'/%3E%3Cpath d='M206 165 C186 150 175 134 185 124 C194 116 203 122 206 130 C209 122 218 116 227 124 C237 134 226 150 206 165 Z'/%3E%3Cpath d='M224 48 C211 38 204 28 211 21 C217 15 223 19 225 24 C227 19 233 15 239 21 C246 28 239 38 224 48 Z' fill-opacity='.08'/%3E%3C%2Fg%3E%3C%2Fsvg%3E"),
+      linear-gradient(to bottom, #2b163e 0%, #1d102b 50%, #2b163e 100%) !important;
+    background-repeat: repeat !important;
+    background-size: 240px 190px, auto !important;
+    background-position: top left !important;
+    border-right: 1px solid #3a2152 !important;
+  }
+
+  /* 사이드바 메뉴 호버 */
+  nav a:hover, nav button:hover,
+  [data-testid="sidebar"] a:hover, [data-testid="sidebar"] button:hover {
+    background-color: rgba(207, 168, 247, 0.30) !important;
+    border-radius: 10px !important;
+  }
+
+  /* =========================================================
+     COMPOSER / INPUT AREA
+     ========================================================= */
+
+  fieldset,
+  fieldset *,
+  [contenteditable="true"],
+  [contenteditable="true"]:focus,
+  textarea,
+  textarea:focus {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* [라이트 모드] 입력창 단일 테두리 */
+  fieldset {
+    background-color: #ffffff !important;
+    border: 1.5px solid #dec7f5 !important;
+    border-radius: 24px !important;
+    box-shadow: 0 2px 10px rgba(155, 93, 229, 0.05) !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+  }
+
+  fieldset:focus-within {
+    border-color: #b879ee !important;
+    box-shadow:
+      0 0 0 4px rgba(155, 93, 229, 0.15),
+      0 0 18px 4px rgba(155, 93, 229, 0.18),
+      0 4px 24px rgba(155, 93, 229, 0.12) !important;
+  }
+
+  /* [다크 모드] 입력창 단일 테두리 & 네온 바이올렛 글로우 */
+  html.dark fieldset,
+  html[data-theme="dark"] fieldset,
+  html[data-mode="dark"] fieldset,
+  body.dark fieldset,
+  [data-theme="dark"] fieldset,
+  .dark fieldset {
+    background-color: #241534 !important;
+    border: 1.5px solid #3a2152 !important;
+    border-radius: 24px !important;
+    box-shadow: none !important;
+  }
+
+  html.dark fieldset:focus-within,
+  html[data-theme="dark"] fieldset:focus-within,
+  html[data-mode="dark"] fieldset:focus-within,
+  body.dark fieldset:focus-within,
+  [data-theme="dark"] fieldset:focus-within,
+  .dark fieldset:focus-within {
+    border-color: #d070ff !important;
+    box-shadow:
+      0 0 0 3px rgba(208, 112, 255, 0.25),
+      0 0 16px 4px rgba(208, 112, 255, 0.55),
+      0 0 36px 8px rgba(208, 112, 255, 0.30),
+      inset 0 0 12px rgba(208, 112, 255, 0.12) !important;
+  }
+
+  html.dark [contenteditable="true"],
+  html[data-theme="dark"] [contenteditable="true"],
+  body.dark [contenteditable="true"],
+  .dark [contenteditable="true"] {
+    color: #faf2ff !important;
+  }
+
+  /* =========================================================
+     BACKGROUND & MAIN VIEW
+     ========================================================= */
+
+  html.dark body, html.dark main,
+  html[data-theme="dark"] body, html[data-theme="dark"] main,
+  html[data-mode="dark"] body, html[data-mode="dark"] main,
+  body.dark, body.dark main, .dark main {
+    background-color: #160d22 !important;
+    background: #160d22 !important;
+    color-scheme: dark !important;
+  }
+
+  /* =========================================================
+     USER MESSAGE BUBBLE
+     ========================================================= */
+
+  [data-testid="user-message"],
+  div:has(> [data-testid="user-message"]),
+  .font-user-message,
+  div[class*="bg-bg-"],
+  div[class*="bg-accent-"] {
+    background-color: transparent !important;
+  }
+
+  /* [라이트 모드] 사용자 메시지 */
+  [data-testid="user-message"] div[class*="bg-"],
+  [data-testid="user-message"] > div,
+  .font-user-message,
+  div[data-testid="user-message"] {
+    background-color: #efe3ff !important;
+    color: #3f2857 !important;
+    border: 1.5px solid rgba(155, 93, 229, 0.18) !important;
+    border-radius: 20px !important;
+    padding: 12px 20px !important;
+    box-shadow: 0 2px 10px rgba(169, 112, 235, 0.12) !important;
+  }
+
+  [data-testid="user-message"] p,
+  [data-testid="user-message"] span {
+    color: #3f2857 !important;
+    background-color: transparent !important;
+  }
+
+  /* [다크 모드] 사용자 메시지 */
+  html.dark [data-testid="user-message"] div[class*="bg-"],
+  html[data-theme="dark"] [data-testid="user-message"] div[class*="bg-"],
+  html[data-mode="dark"] [data-testid="user-message"] div[class*="bg-"],
+  body.dark [data-testid="user-message"] div[class*="bg-"],
+  .dark [data-testid="user-message"] div[class*="bg-"],
+  html.dark div[data-testid="user-message"],
+  html[data-theme="dark"] div[data-testid="user-message"],
+  body.dark div[data-testid="user-message"] {
+    background-color: #3a2152 !important;
+    color: #faf2ff !important;
+    border: 1.5px solid #56336f !important;
+    border-radius: 20px !important;
+    padding: 12px 20px !important;
+    box-shadow: 0 2px 12px rgba(177, 112, 235, 0.18) !important;
+  }
+
+  html.dark [data-testid="user-message"] p,
+  html.dark [data-testid="user-message"] span,
+  html[data-theme="dark"] [data-testid="user-message"] p,
+  html[data-theme="dark"] [data-testid="user-message"] span,
+  body.dark [data-testid="user-message"] p,
+  body.dark [data-testid="user-message"] span {
+    color: #faf2ff !important;
+    background-color: transparent !important;
+  }
+
+  /* =========================================================
+     CODE BLOCKS & SYNTAX FIX
+     ========================================================= */
+
+  pre {
+    background-color: #f8f1ff !important;
+    border: 1px solid #ead4f9 !important;
+    border-radius: 12px !important;
+  }
+
+  pre *, pre code, pre span, code span {
+    background-color: transparent !important;
+    background: transparent !important;
+  }
+
+  /* [다크 모드] 코드 블록 */
+  html.dark pre, html[data-theme="dark"] pre, body.dark pre, .dark pre {
+    background-color: #12091a !important;
+    border-color: #2f1946 !important;
+  }
+  
+  html.dark pre *, html.dark pre code, html.dark pre span {
+    color: #f3e8fc !important;
+  }
+
+  /* =========================================================
+     SELECTION
+     ========================================================= */
+  
+  main ::selection,
+  [role="main"] ::selection,
+  [data-testid="user-message"] ::selection,
+  p::selection, span::selection {
+    background-color: #d9b8ff !important;
+    color: #3c2850 !important;
+  }
+
+  html.dark main ::selection,
+  html[data-theme="dark"] main ::selection,
+  body.dark main ::selection {
+    background-color: #7b42ad !important;
+    color: #ffffff !important;
+  }
+
+  /* =========================================================
+     LAYOUT
+     ========================================================= */
+  .max-w-3xl, .max-w-2xl {
+    max-width: 1100px !important;
+  }
+}
