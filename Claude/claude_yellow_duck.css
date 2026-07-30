@@ -1,0 +1,343 @@
+/* ==UserStyle==
+@name           Claude Yellow Rubber Duck Theme (Perfect Spaced Rubber Duck)
+@namespace      https://claude.ai
+@version        1.6.0
+@description    Yellow rubber duck theme for Claude - cute classic rubber duck silhouette with spaced pattern & neon gold focus.
+@author         M.R. Lee (Ported for Claude)
+@homepageURL    https://claude.ai
+==/UserStyle== */
+
+@-moz-document domain("claude.ai") {
+  :root {
+    --duck-yellow-50: #fffde6;
+    --duck-yellow-100: #fff9b8;
+    --duck-yellow-200: #fff380;
+    --duck-yellow-300: #ffeb4d;
+    --duck-yellow-500: #f5c800;
+    --duck-wine: #997a00;
+    --duck-light-border: #fceea7;
+  }
+
+  /* =========================================================
+     🐥 마우스 커서
+     ========================================================= */
+  body, html, *,
+  button, a, [role="button"],
+  input, textarea, [contenteditable="true"] {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><text x="0" y="24" font-size="24">🐥</text></svg>') 12 12, auto !important;
+  }
+
+  /* =========================================================
+     🐥 YELLOW SCROLLBAR
+     ========================================================= */
+
+  /* Firefox */
+  *, html, body, div, main, nav, section, aside {
+    scrollbar-color: #ffe666 transparent !important;
+    scrollbar-width: thin !important;
+  }
+
+  /* Chrome, Edge, Safari */
+  ::-webkit-scrollbar,
+  *::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+    background: transparent !important;
+  }
+
+  ::-webkit-scrollbar-track,
+  *::-webkit-scrollbar-track {
+    background: transparent !important;
+  }
+
+  ::-webkit-scrollbar-thumb,
+  *::-webkit-scrollbar-thumb {
+    background-color: #ffe666 !important;
+    border-radius: 999px !important;
+  }
+
+  ::-webkit-scrollbar-thumb:hover,
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #f5c800 !important;
+  }
+
+  /* 다크모드 스크롤바 */
+  html.dark ::-webkit-scrollbar-thumb,
+  html.dark *::-webkit-scrollbar-thumb,
+  html[data-theme="dark"] ::-webkit-scrollbar-thumb,
+  html[data-theme="dark"] *::-webkit-scrollbar-thumb,
+  body.dark ::-webkit-scrollbar-thumb,
+  body.dark *::-webkit-scrollbar-thumb,
+  .dark *::-webkit-scrollbar-thumb {
+    background-color: #ffea00 !important;
+    box-shadow: 0 0 8px rgba(255, 234, 0, 0.6) !important;
+  }
+
+  /* =========================================================
+     SIDEBAR (간격이 띄엄띄엄하고 완벽한 러버덕 패턴)
+     ========================================================= */
+
+  /* 설정창(모달) 차단 */
+  [role="dialog"], [role="dialog"] *,
+  [aria-modal="true"], [aria-modal="true"] * {
+    background-image: none !important;
+  }
+
+  /* 사이드바 내부 래퍼 배경 뚫기 */
+  nav *, 
+  aside *, 
+  [data-testid="sidebar"] *,
+  [class*="overflow-y-auto"],
+  div:has(> nav) div {
+    background-color: transparent !important;
+  }
+
+  /* [라이트 모드] 널찍하고 아기자기한 러버덕 SVG 패턴 */
+  nav,
+  aside,
+  [data-testid="sidebar"],
+  .bg-bg-200,
+  div:has(> nav) {
+    background-image: 
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg opacity='0.22'%3E%3C!-- 러버덕 1 --%3E%3Cg transform='translate(20, 20) scale(0.48)'%3E%3Cpath fill='%23f59e00' d='M 45 15 C 30 15 20 26 20 40 C 20 48 24 53 28 56 C 14 62 4 78 4 96 C 4 122 30 135 65 135 C 100 135 120 118 120 98 C 120 80 110 72 96 72 C 82 72 74 54 74 42 C 74 26 60 15 45 15 Z'/%3E%3Cpath fill='%23e67e00' d='M 22 38 C 10 38 6 45 10 50 C 15 54 24 52 28 47 Z'/%3E%3Ccircle cx='40' cy='32' r='4' fill='%23332200'/%3E%3C/g%3E%3C!-- 러버덕 2 (넓은 간격 재배치) --%3E%3Cg transform='translate(130, 130) scale(0.38)'%3E%3Cpath fill='%23f59e00' d='M 45 15 C 30 15 20 26 20 40 C 20 48 24 53 28 56 C 14 62 4 78 4 96 C 4 122 30 135 65 135 C 100 135 120 118 120 98 C 120 80 110 72 96 72 C 82 72 74 54 74 42 C 74 26 60 15 45 15 Z'/%3E%3Cpath fill='%23e67e00' d='M 22 38 C 10 38 6 45 10 50 C 15 54 24 52 28 47 Z'/%3E%3Ccircle cx='40' cy='32' r='4' fill='%23332200'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+      linear-gradient(to bottom, #fffde6 0%, #fffce0 50%, #fff9cc 100%) !important;
+    background-repeat: repeat !important;
+    background-size: 220px 220px, auto !important; /* 간격을 220px로 넓혀 띄엄띄엄 오리가 보이도록 조정 */
+    background-position: top left !important;
+    border-right: 1px solid var(--duck-light-border) !important;
+  }
+
+  /* [다크 모드] 널찍하고 아기자기한 러버덕 SVG 패턴 */
+  html.dark nav, html.dark aside, html.dark [data-testid="sidebar"],
+  html[data-theme="dark"] nav, html[data-theme="dark"] aside, html[data-theme="dark"] [data-testid="sidebar"],
+  html[data-mode="dark"] nav, html[data-mode="dark"] aside, html[data-mode="dark"] [data-testid="sidebar"],
+  body.dark nav, body.dark aside, body.dark [data-testid="sidebar"],
+  .dark nav, .dark aside, .dark [data-testid="sidebar"] {
+    background-image: 
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg opacity='0.20'%3E%3Cg transform='translate(20, 20) scale(0.48)'%3E%3Cpath fill='%23ffea00' d='M 45 15 C 30 15 20 26 20 40 C 20 48 24 53 28 56 C 14 62 4 78 4 96 C 4 122 30 135 65 135 C 100 135 120 118 120 98 C 120 80 110 72 96 72 C 82 72 74 54 74 42 C 74 26 60 15 45 15 Z'/%3E%3Cpath fill='%23ff9900' d='M 22 38 C 10 38 6 45 10 50 C 15 54 24 52 28 47 Z'/%3E%3Ccircle cx='40' cy='32' r='4' fill='%23ffffff'/%3E%3C/g%3E%3Cg transform='translate(130, 130) scale(0.38)'%3E%3Cpath fill='%23ffea00' d='M 45 15 C 30 15 20 26 20 40 C 20 48 24 53 28 56 C 14 62 4 78 4 96 C 4 122 30 135 65 135 C 100 135 120 118 120 98 C 120 80 110 72 96 72 C 82 72 74 54 74 42 C 74 26 60 15 45 15 Z'/%3E%3Cpath fill='%23ff9900' d='M 22 38 C 10 38 6 45 10 50 C 15 54 24 52 28 47 Z'/%3E%3Ccircle cx='40' cy='32' r='4' fill='%23ffffff'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+      linear-gradient(to bottom, #262100 0%, #1a1900 50%, #262100 100%) !important;
+    background-repeat: repeat !important;
+    background-size: 220px 220px, auto !important;
+    background-position: top left !important;
+    border-right: 1px solid #473c00 !important;
+  }
+
+  /* 사이드바 메뉴 호버 */
+  nav a:hover, nav button:hover,
+  [data-testid="sidebar"] a:hover, [data-testid="sidebar"] button:hover {
+    background-color: rgba(255, 243, 128, 0.35) !important;
+    border-radius: 10px !important;
+  }
+
+  /* =========================================================
+     COMPOSER / INPUT AREA
+     ========================================================= */
+
+  fieldset,
+  fieldset *,
+  [contenteditable="true"],
+  [contenteditable="true"]:focus,
+  textarea,
+  textarea:focus {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* [라이트 모드] 입력창 단일 테두리 */
+  fieldset {
+    background-color: #ffffff !important;
+    border: 1.5px solid #fceea7 !important;
+    border-radius: 24px !important;
+    box-shadow: 0 2px 10px rgba(245, 200, 0, 0.08) !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+  }
+
+  fieldset:focus-within {
+    border-color: #f5c800 !important;
+    box-shadow:
+      0 0 0 4px rgba(245, 200, 0, 0.18),
+      0 0 18px 4px rgba(245, 200, 0, 0.22),
+      0 4px 24px rgba(245, 200, 0, 0.15) !important;
+  }
+
+  /* [다크 모드] 입력창 단일 테두리 & 네온 골드 글로우 */
+  html.dark fieldset,
+  html[data-theme="dark"] fieldset,
+  html[data-mode="dark"] fieldset,
+  body.dark fieldset,
+  [data-theme="dark"] fieldset,
+  .dark fieldset {
+    background-color: #211c00 !important;
+    border: 1.5px solid #473c00 !important;
+    border-radius: 24px !important;
+    box-shadow: none !important;
+  }
+
+  html.dark fieldset:focus-within,
+  html[data-theme="dark"] fieldset:focus-within,
+  html[data-mode="dark"] fieldset:focus-within,
+  body.dark fieldset:focus-within,
+  [data-theme="dark"] fieldset:focus-within,
+  .dark fieldset:focus-within {
+    border-color: #ffea00 !important;
+    box-shadow:
+      0 0 0 3px rgba(255, 234, 0, 0.30),
+      0 0 16px 4px rgba(255, 234, 0, 0.60),
+      0 0 36px 8px rgba(255, 234, 0, 0.35),
+      inset 0 0 12px rgba(255, 234, 0, 0.15) !important;
+  }
+
+  html.dark [contenteditable="true"],
+  html[data-theme="dark"] [contenteditable="true"],
+  body.dark [contenteditable="true"],
+  .dark [contenteditable="true"] {
+    color: #ffffeb !important;
+  }
+
+  /* =========================================================
+     BACKGROUND & MAIN VIEW
+     ========================================================= */
+
+  html.dark body, html.dark main,
+  html[data-theme="dark"] body, html[data-theme="dark"] main,
+  html[data-mode="dark"] body, html[data-mode="dark"] main,
+  body.dark, body.dark main, .dark main {
+    background-color: #141300 !important;
+    background: #141300 !important;
+    color-scheme: dark !important;
+  }
+
+  /* =========================================================
+     USER MESSAGE BUBBLE
+     ========================================================= */
+
+  [data-testid="user-message"],
+  div:has(> [data-testid="user-message"]),
+  .font-user-message,
+  div[class*="bg-bg-"],
+  div[class*="bg-accent-"] {
+    background-color: transparent !important;
+  }
+
+  /* [라이트 모드] 사용자 메시지 */
+  [data-testid="user-message"] div[class*="bg-"],
+  [data-testid="user-message"] > div,
+  .font-user-message,
+  div[data-testid="user-message"] {
+    background-color: #fff9b8 !important;
+    color: #473900 !important;
+    border: 1.5px solid rgba(245, 200, 0, 0.25) !important;
+    border-radius: 20px !important;
+    padding: 12px 20px !important;
+    box-shadow: 0 2px 10px rgba(245, 200, 0, 0.15) !important;
+  }
+
+  [data-testid="user-message"] p,
+  [data-testid="user-message"] span {
+    color: #473900 !important;
+    background-color: transparent !important;
+  }
+
+  /* [다크 모드] 사용자 메시지 */
+  html.dark [data-testid="user-message"] div[class*="bg-"],
+  html[data-theme="dark"] [data-testid="user-message"] div[class*="bg-"],
+  html[data-mode="dark"] [data-testid="user-message"] div[class*="bg-"],
+  body.dark [data-testid="user-message"] div[class*="bg-"],
+  .dark [data-testid="user-message"] div[class*="bg-"],
+  html.dark div[data-testid="user-message"],
+  html[data-theme="dark"] div[data-testid="user-message"],
+  body.dark div[data-testid="user-message"] {
+    background-color: #383000 !important;
+    color: #ffffeb !important;
+    border: 1.5px solid #5c4e00 !important;
+    border-radius: 20px !important;
+    padding: 12px 20px !important;
+    box-shadow: 0 2px 12px rgba(255, 234, 0, 0.20) !important;
+  }
+
+  html.dark [data-testid="user-message"] p,
+  html.dark [data-testid="user-message"] span,
+  html[data-theme="dark"] [data-testid="user-message"] p,
+  html[data-theme="dark"] [data-testid="user-message"] span,
+  body.dark [data-testid="user-message"] p,
+  body.dark [data-testid="user-message"] span {
+    color: #ffffeb !important;
+    background-color: transparent !important;
+  }
+
+  /* =========================================================
+     CODE BLOCKS & SYNTAX FIX (다크모드 가독성 완벽 보정)
+     ========================================================= */
+
+  /* [라이트 모드] 코드 블록 */
+  html:not(.dark):not([data-theme="dark"]):not([data-mode="dark"]) pre {
+    background-color: #fffde6 !important;
+    border: 1px solid #fceea7 !important;
+    border-radius: 12px !important;
+    color: #473900 !important;
+  }
+
+  html:not(.dark):not([data-theme="dark"]):not([data-mode="dark"]) pre *,
+  html:not(.dark):not([data-theme="dark"]):not([data-mode="dark"]) pre code,
+  html:not(.dark):not([data-theme="dark"]):not([data-mode="dark"]) pre span {
+    background-color: transparent !important;
+    color: #473900 !important;
+  }
+
+  /* [다크 모드] 코드 블록 */
+  html.dark pre, 
+  html[data-theme="dark"] pre, 
+  html[data-mode="dark"] pre, 
+  body.dark pre, 
+  .dark pre {
+    background-color: #1a1800 !important;
+    border: 1px solid #473c00 !important;
+    border-radius: 12px !important;
+    color: #ffffeb !important;
+  }
+
+  html.dark pre *, 
+  html[data-theme="dark"] pre *, 
+  html[data-mode="dark"] pre *, 
+  body.dark pre *, 
+  .dark pre *,
+  html.dark pre code, 
+  html[data-theme="dark"] pre code, 
+  body.dark pre code, 
+  .dark pre code,
+  html.dark pre span, 
+  html[data-theme="dark"] pre span, 
+  body.dark pre span, 
+  .dark pre span {
+    background-color: transparent !important;
+    background: transparent !important;
+    color: #ffffeb !important;
+  }
+
+  /* =========================================================
+     SELECTION
+     ========================================================= */
+  
+  main ::selection,
+  [role="main"] ::selection,
+  [data-testid="user-message"] ::selection,
+  p::selection, span::selection {
+    background-color: #fff380 !important;
+    color: #3b3000 !important;
+  }
+
+  html.dark main ::selection,
+  html[data-theme="dark"] main ::selection,
+  body.dark main ::selection {
+    background-color: #6e6000 !important;
+    color: #ffffff !important;
+  }
+
+  /* =========================================================
+     LAYOUT
+     ========================================================= */
+  .max-w-3xl, .max-w-2xl {
+    max-width: 1100px !important;
+  }
+}
