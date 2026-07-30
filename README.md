@@ -37,6 +37,12 @@
 |-------|------|
 | <img src="pic/chatgpt_green_light.png" width="400"> | <img src="pic/chatgpt_green_dark.png" width="400"> |
 
+  - 🐥 Yellow Duck
+    
+| Light | Dark |
+|-------|------|
+| <img src="pic/chatgpt_yellow_light.png" width="400"> | <img src="pic/chatgpt_yellow_dark.png" width="400"> |
+
 ### Gemini
 **Light mode Only!!!!!!**
 Dark mode is under development.
