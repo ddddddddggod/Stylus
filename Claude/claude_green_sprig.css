@@ -1,0 +1,319 @@
+/* ==UserStyle==
+@name           Claude Green Sprig Theme (Single Border & Neon Glow)
+@namespace      https://claude.ai
+@version        1.0.0
+@description    Green leafy sprig theme for Claude - single rounded border & neon green focus mode.
+@author         M.R. Lee (Ported for Claude)
+@homepageURL    https://claude.ai
+==/UserStyle== */
+
+@-moz-document domain("claude.ai") {
+  :root {
+    --sprig-green-50: #f7fff8;
+    --sprig-green-100: #e5f6e9;
+    --sprig-green-200: #c2e7ca;
+    --sprig-green-300: #b2dcbb;
+    --sprig-green-500: #53ad76;
+    --sprig-green-wine: #2f7a4f;
+    --sprig-light-border: #d3ead8;
+  }
+
+  /* =========================================================
+     🌿 마우스 커서
+     ========================================================= */
+  body, html, *,
+  button, a, [role="button"],
+  input, textarea, [contenteditable="true"] {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><text x="0" y="24" font-size="24">🌿</text></svg>') 12 12, auto !important;
+  }
+
+  /* =========================================================
+     🌿 GREEN SCROLLBAR
+     ========================================================= */
+
+  /* Firefox */
+  *, html, body, div, main, nav, section, aside {
+    scrollbar-color: #a3dcae transparent !important;
+    scrollbar-width: thin !important;
+  }
+
+  /* Chrome, Edge, Safari */
+  ::-webkit-scrollbar,
+  *::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+    background: transparent !important;
+  }
+
+  ::-webkit-scrollbar-track,
+  *::-webkit-scrollbar-track {
+    background: transparent !important;
+  }
+
+  ::-webkit-scrollbar-thumb,
+  *::-webkit-scrollbar-thumb {
+    background-color: #a3dcae !important;
+    border-radius: 999px !important;
+  }
+
+  ::-webkit-scrollbar-thumb:hover,
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #53ad76 !important;
+  }
+
+  /* 다크모드 스크롤바 */
+  html.dark ::-webkit-scrollbar-thumb,
+  html.dark *::-webkit-scrollbar-thumb,
+  html[data-theme="dark"] ::-webkit-scrollbar-thumb,
+  html[data-theme="dark"] *::-webkit-scrollbar-thumb,
+  body.dark ::-webkit-scrollbar-thumb,
+  body.dark *::-webkit-scrollbar-thumb,
+  .dark *::-webkit-scrollbar-thumb {
+    background-color: #39ff14 !important;
+    box-shadow: 0 0 8px rgba(57, 255, 20, 0.6) !important;
+  }
+
+  /* =========================================================
+     SIDEBAR (초록 나뭇잎 패턴 타일링)
+     ========================================================= */
+
+  /* 설정창(모달) 나뭇잎 차단 */
+  [role="dialog"], [role="dialog"] *,
+  [aria-modal="true"], [aria-modal="true"] * {
+    background-image: none !important;
+  }
+
+  /* 사이드바 내부 래퍼 배경 뚫기 */
+  nav *, 
+  aside *, 
+  [data-testid="sidebar"] *,
+  [class*="overflow-y-auto"],
+  div:has(> nav) div {
+    background-color: transparent !important;
+  }
+
+  /* [라이트 모드] 사이드바 나뭇잎 타일링 */
+  nav,
+  aside,
+  [data-testid="sidebar"],
+  .bg-bg-200,
+  div:has(> nav) {
+    background-image: 
+      url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27280%27%20height%3D%27220%27%20viewBox%3D%270%200%20280%20220%27%3E%0A%20%20%3Cg%20fill%3D%27%234a8c62%27%20stroke%3D%27%234a8c62%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cg%20transform%3D%27translate%2828%2022%29%20rotate%28-8%29%27%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M28%2092%20C48%2072%2069%2051%2091%2024%27%20fill%3D%27none%27%20stroke-opacity%3D%270.22%27%20stroke-width%3D%272.3%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M37%2081%20C25%2074%2023%2063%2027%2056%20C38%2057%2045%2065%2045%2075%20C43%2078%2041%2080%2037%2081%20Z%27%20fill-opacity%3D%270.25%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M47%2071%20C58%2062%2069%2062%2076%2067%20C73%2078%2064%2083%2054%2081%20C50%2078%2048%2075%2047%2071%20Z%27%20fill-opacity%3D%270.25%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M56%2061%20C45%2054%2043%2044%2047%2037%20C58%2038%2065%2046%2065%2056%20C62%2058%2060%2060%2056%2061%20Z%27%20fill-opacity%3D%270.25%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M66%2051%20C77%2042%2088%2042%2095%2047%20C92%2058%2083%2063%2073%2061%20C69%2058%2067%2055%2066%2051%20Z%27%20fill-opacity%3D%270.25%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M75%2040%20C65%2034%2064%2024%2068%2018%20C78%2019%2085%2026%2084%2035%20C82%2037%2079%2039%2075%2040%20Z%27%20fill-opacity%3D%270.25%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M87%2030%20C96%2022%20106%2022%20112%2027%20C109%2036%20101%2041%2092%2039%20C89%2036%2088%2033%2087%2030%20Z%27%20fill-opacity%3D%270.25%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%0A%20%20%20%20%3Cg%20transform%3D%27translate%28164%20118%29%20rotate%2810%29%20scale%28.82%29%27%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M28%2092%20C48%2072%2069%2051%2091%2024%27%20fill%3D%27none%27%20stroke-opacity%3D%270.18%27%20stroke-width%3D%272.1%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M37%2081%20C25%2074%2023%2063%2027%2056%20C38%2057%2045%2065%2045%2075%20C43%2078%2041%2080%2037%2081%20Z%27%20fill-opacity%3D%270.20%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M47%2071%20C58%2062%2069%2062%2076%2067%20C73%2078%2064%2083%2054%2081%20C50%2078%2048%2075%2047%2071%20Z%27%20fill-opacity%3D%270.20%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M56%2061%20C45%2054%2043%2044%2047%2037%20C58%2038%2065%2046%2065%2056%20C62%2058%2060%2060%2056%2061%20Z%27%20fill-opacity%3D%270.20%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M66%2051%20C77%2042%2088%2042%2095%2047%20C92%2058%2083%2063%2073%2061%20C69%2058%2067%2055%2066%2051%20Z%27%20fill-opacity%3D%270.20%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M75%2040%20C65%2034%2064%2024%2068%2018%20C78%2019%2085%2026%2084%2035%20C82%2037%2079%2039%2075%2040%20Z%27%20fill-opacity%3D%270.20%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M87%2030%20C96%2022%20106%2022%20112%2027%20C109%2036%20101%2041%2092%2039%20C89%2036%2088%2033%2087%2030%20Z%27%20fill-opacity%3D%270.20%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%0A%20%20%20%20%3Cg%20transform%3D%27translate%28188%2022%29%20rotate%28-3%29%20scale%28.52%29%27%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M28%2092%20C48%2072%2069%2051%2091%2024%27%20fill%3D%27none%27%20stroke-opacity%3D%270.15%27%20stroke-width%3D%272%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M37%2081%20C25%2074%2023%2063%2027%2056%20C38%2057%2045%2065%2045%2075%20C43%2078%2041%2080%2037%2081%20Z%27%20fill-opacity%3D%270.16%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M47%2071%20C58%2062%2069%2062%2076%2067%20C73%2078%2064%2083%2054%2081%20C50%2078%2048%2075%2047%2071%20Z%27%20fill-opacity%3D%270.16%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M56%2061%20C45%2054%2043%2044%2047%2037%20C58%2038%2065%2046%2065%2056%20C62%2058%2060%2060%2056%2061%20Z%27%20fill-opacity%3D%270.16%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M66%2051%20C77%2042%2088%2042%2095%2047%20C92%2058%2083%2063%2073%2061%20C69%2058%2067%2055%2066%2051%20Z%27%20fill-opacity%3D%270.16%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M75%2040%20C65%2034%2064%2024%2068%2018%20C78%2019%2085%2026%2084%2035%20C82%2037%2079%2039%2075%2040%20Z%27%20fill-opacity%3D%270.16%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E"),
+      linear-gradient(to bottom, #e6f5e9 0%, #edf8ef 50%, #e0f0e4 100%) !important;
+    background-repeat: repeat !important;
+    background-size: 240px 200px, auto !important;
+    background-position: top left !important;
+    border-right: 1px solid var(--sprig-light-border) !important;
+  }
+
+  /* [다크 모드] 사이드바 나뭇잎 타일링 */
+  html.dark nav, html.dark aside, html.dark [data-testid="sidebar"],
+  html[data-theme="dark"] nav, html[data-theme="dark"] aside, html[data-theme="dark"] [data-testid="sidebar"],
+  html[data-mode="dark"] nav, html[data-mode="dark"] aside, html[data-mode="dark"] [data-testid="sidebar"],
+  body.dark nav, body.dark aside, body.dark [data-testid="sidebar"],
+  .dark nav, .dark aside, .dark [data-testid="sidebar"] {
+    background-image: 
+      url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27280%27%20height%3D%27220%27%20viewBox%3D%270%200%20280%20220%27%3E%0A%20%20%3Cg%20fill%3D%27%238edcb0%27%20stroke%3D%27%238edcb0%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cg%20transform%3D%27translate%2828%2022%29%20rotate%28-8%29%27%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M28%2092%20C48%2072%2069%2051%2091%2024%27%20fill%3D%27none%27%20stroke-opacity%3D%270.20%27%20stroke-width%3D%272.3%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M37%2081%20C25%2074%2023%2063%2027%2056%20C38%2057%2045%2065%2045%2075%20C43%2078%2041%2080%2037%2081%20Z%27%20fill-opacity%3D%270.22%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M47%2071%20C58%2062%2069%2062%2076%2067%20C73%2078%2064%2083%2054%2081%20C50%2078%2048%2075%2047%2071%20Z%27%20fill-opacity%3D%270.22%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M56%2061%20C45%2054%2043%2044%2047%2037%20C58%2038%2065%2046%2065%2056%20C62%2058%2060%2060%2056%2061%20Z%27%20fill-opacity%3D%270.22%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M66%2051%20C77%2042%2088%2042%2095%2047%20C92%2058%2083%2063%2073%2061%20C69%2058%2067%2055%2066%2051%20Z%27%20fill-opacity%3D%270.22%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M75%2040%20C65%2034%2064%2024%2068%2018%20C78%2019%2085%2026%2084%2035%20C82%2037%2079%2039%2075%2040%20Z%27%20fill-opacity%3D%270.22%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M87%2030%20C96%2022%20106%2022%20112%2027%20C109%2036%20101%2041%2092%2039%20C89%2036%2088%2033%2087%2030%20Z%27%20fill-opacity%3D%270.22%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%0A%20%20%20%20%3Cg%20transform%3D%27translate%28164%20118%29%20rotate%2810%29%20scale%28.82%29%27%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M28%2092%20C48%2072%2069%2051%2091%2024%27%20fill%3D%27none%27%20stroke-opacity%3D%270.15%27%20stroke-width%3D%272.1%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M37%2081%20C25%2074%2023%2063%2027%2056%20C38%2057%2045%2065%2045%2075%20C43%2078%2041%2080%2037%2081%20Z%27%20fill-opacity%3D%270.17%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M47%2071%20C58%2062%2069%2062%2076%2067%20C73%2078%2064%2083%2054%2081%20C50%2078%2048%2075%2047%2071%20Z%27%20fill-opacity%3D%270.17%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M56%2061%20C45%2054%2043%2044%2047%2037%20C58%2038%2065%2046%2065%2056%20C62%2058%2060%2060%2056%2061%20Z%27%20fill-opacity%3D%270.17%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M66%2051%20C77%2042%2088%2042%2095%2047%20C92%2058%2083%2063%2073%2061%20C69%2058%2067%2055%2066%2051%20Z%27%20fill-opacity%3D%270.17%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M75%2040%20C65%2034%2064%2024%2068%2018%20C78%2019%2085%2026%2084%2035%20C82%2037%2079%2039%2075%2040%20Z%27%20fill-opacity%3D%270.17%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M87%2030%20C96%2022%20106%2022%20112%2027%20C109%2036%20101%2041%2092%2039%20C89%2036%2088%2033%2087%2030%20Z%27%20fill-opacity%3D%270.17%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%0A%20%20%20%20%3Cg%20transform%3D%27translate%28188%2022%29%20rotate%28-3%29%20scale%28.52%29%27%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M28%2092%20C48%2072%2069%2051%2091%2024%27%20fill%3D%27none%27%20stroke-opacity%3D%270.12%27%20stroke-width%3D%272%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M37%2081%20C25%2074%2023%2063%2027%2056%20C38%2057%2045%2065%2045%2075%20C43%2078%2041%2080%2037%2081%20Z%27%20fill-opacity%3D%270.14%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M47%2071%20C58%2062%2069%2062%2076%2067%20C73%2078%2064%2083%2054%2081%20C50%2078%2048%2075%2047%2071%20Z%27%20fill-opacity%3D%270.14%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M56%2061%20C45%2054%2043%2044%2047%2037%20C58%2038%2065%2046%2065%2056%20C62%2058%2060%2060%2056%2061%20Z%27%20fill-opacity%3D%270.14%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M66%2051%20C77%2042%2088%2042%2095%2047%20C92%2058%2083%2063%2073%2061%20C69%2058%2067%2055%2066%2051%20Z%27%20fill-opacity%3D%270.14%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%27M75%2040%20C65%2034%2064%2024%2068%2018%20C78%2019%2085%2026%2084%2035%20C82%2037%2079%2039%2075%2040%20Z%27%20fill-opacity%3D%270.14%27%20stroke%3D%27none%27%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E"),
+      linear-gradient(to bottom, #173120 0%, #102117 50%, #173120 100%) !important;
+    background-repeat: repeat !important;
+    background-size: 240px 200px, auto !important;
+    background-position: top left !important;
+    border-right: 1px solid #21432e !important;
+  }
+
+  /* 사이드바 메뉴 호버 */
+  nav a:hover, nav button:hover,
+  [data-testid="sidebar"] a:hover, [data-testid="sidebar"] button:hover {
+    background-color: rgba(170, 220, 183, 0.30) !important;
+    border-radius: 10px !important;
+  }
+
+  /* =========================================================
+     COMPOSER / INPUT AREA
+     ========================================================= */
+
+  fieldset,
+  fieldset *,
+  [contenteditable="true"],
+  [contenteditable="true"]:focus,
+  textarea,
+  textarea:focus {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* [라이트 모드] 입력창 단일 테두리 */
+  fieldset {
+    background-color: #ffffff !important;
+    border: 1.5px solid #cfe5d5 !important;
+    border-radius: 24px !important;
+    box-shadow: 0 2px 10px rgba(83, 173, 118, 0.05) !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+  }
+
+  fieldset:focus-within {
+    border-color: #76c591 !important;
+    box-shadow:
+      0 0 0 4px rgba(83, 173, 118, 0.15),
+      0 0 18px 4px rgba(83, 173, 118, 0.18),
+      0 4px 24px rgba(83, 173, 118, 0.12) !important;
+  }
+
+  /* [다크 모드] 입력창 단일 테두리 & 글로우 */
+  html.dark fieldset,
+  html[data-theme="dark"] fieldset,
+  html[data-mode="dark"] fieldset,
+  body.dark fieldset,
+  [data-theme="dark"] fieldset,
+  .dark fieldset {
+    background-color: #16271c !important;
+    border: 1.5px solid #21432e !important;
+    border-radius: 24px !important;
+    box-shadow: none !important;
+  }
+
+  html.dark fieldset:focus-within,
+  html[data-theme="dark"] fieldset:focus-within,
+  html[data-mode="dark"] fieldset:focus-within,
+  body.dark fieldset:focus-within,
+  [data-theme="dark"] fieldset:focus-within,
+  .dark fieldset:focus-within {
+    border-color: #39ff14 !important;
+    box-shadow:
+      0 0 0 3px rgba(57, 255, 20, 0.25),
+      0 0 16px 4px rgba(57, 255, 20, 0.55),
+      0 0 36px 8px rgba(57, 255, 20, 0.30),
+      inset 0 0 12px rgba(57, 255, 20, 0.12) !important;
+  }
+
+  html.dark [contenteditable="true"],
+  html[data-theme="dark"] [contenteditable="true"],
+  body.dark [contenteditable="true"],
+  .dark [contenteditable="true"] {
+    color: #f2fff5 !important;
+  }
+
+  /* =========================================================
+     BACKGROUND & MAIN VIEW
+     ========================================================= */
+
+  html.dark body, html.dark main,
+  html[data-theme="dark"] body, html[data-theme="dark"] main,
+  html[data-mode="dark"] body, html[data-mode="dark"] main,
+  body.dark, body.dark main, .dark main {
+    background-color: #0f1712 !important;
+    background: #0f1712 !important;
+    color-scheme: dark !important;
+  }
+
+  /* =========================================================
+     USER MESSAGE BUBBLE
+     ========================================================= */
+
+  [data-testid="user-message"],
+  div:has(> [data-testid="user-message"]),
+  .font-user-message,
+  div[class*="bg-bg-"],
+  div[class*="bg-accent-"] {
+    background-color: transparent !important;
+  }
+
+  /* [라이트 모드] 사용자 메시지 */
+  [data-testid="user-message"] div[class*="bg-"],
+  [data-testid="user-message"] > div,
+  .font-user-message,
+  div[data-testid="user-message"] {
+    background-color: #e5f6e9 !important;
+    color: #294434 !important;
+    border: 1.5px solid rgba(83, 173, 118, 0.18) !important;
+    border-radius: 20px !important;
+    padding: 12px 20px !important;
+    box-shadow: 0 2px 10px rgba(92, 183, 128, 0.12) !important;
+  }
+
+  [data-testid="user-message"] p,
+  [data-testid="user-message"] span {
+    color: #294434 !important;
+    background-color: transparent !important;
+  }
+
+  /* [다크 모드] 사용자 메시지 */
+  html.dark [data-testid="user-message"] div[class*="bg-"],
+  html[data-theme="dark"] [data-testid="user-message"] div[class*="bg-"],
+  html[data-mode="dark"] [data-testid="user-message"] div[class*="bg-"],
+  body.dark [data-testid="user-message"] div[class*="bg-"],
+  .dark [data-testid="user-message"] div[class*="bg-"],
+  html.dark div[data-testid="user-message"],
+  html[data-theme="dark"] div[data-testid="user-message"],
+  body.dark div[data-testid="user-message"] {
+    background-color: #21432e !important;
+    color: #f2fff5 !important;
+    border: 1.5px solid #315640 !important;
+    border-radius: 20px !important;
+    padding: 12px 20px !important;
+    box-shadow: 0 2px 12px rgba(101, 190, 136, 0.18) !important;
+  }
+
+  html.dark [data-testid="user-message"] p,
+  html.dark [data-testid="user-message"] span,
+  html[data-theme="dark"] [data-testid="user-message"] p,
+  html[data-theme="dark"] [data-testid="user-message"] span,
+  body.dark [data-testid="user-message"] p,
+  body.dark [data-testid="user-message"] span {
+    color: #f2fff5 !important;
+    background-color: transparent !important;
+  }
+
+  /* =========================================================
+     CODE BLOCKS & SYNTAX FIX
+     ========================================================= */
+
+  pre {
+    background-color: #f3fbf5 !important;
+    border: 1px solid #deefe2 !important;
+    border-radius: 12px !important;
+  }
+
+  pre *, pre code, pre span, code span {
+    background-color: transparent !important;
+    background: transparent !important;
+  }
+
+  /* [다크 모드] 코드 블록 */
+  html.dark pre, html[data-theme="dark"] pre, body.dark pre, .dark pre {
+    background-color: #0f1d14 !important;
+    border-color: #1f3d2b !important;
+  }
+  
+  html.dark pre *, html.dark pre code, html.dark pre span {
+    color: #e8f7ec !important;
+  }
+
+  /* =========================================================
+     SELECTION
+     ========================================================= */
+  
+  main ::selection,
+  [role="main"] ::selection,
+  [data-testid="user-message"] ::selection,
+  p::selection, span::selection {
+    background-color: #c2e7ca !important;
+    color: #284133 !important;
+  }
+
+  html.dark main ::selection,
+  html[data-theme="dark"] main ::selection,
+  body.dark main ::selection {
+    background-color: #417a57 !important;
+    color: #ffffff !important;
+  }
+
+  /* =========================================================
+     LAYOUT
+     ========================================================= */
+  .max-w-3xl, .max-w-2xl {
+    max-width: 1100px !important;
+  }
+}
