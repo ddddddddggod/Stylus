@@ -1,0 +1,321 @@
+/* ==UserStyle==
+@name           Claude Sakura Theme (Code Block Syntax Background Fix)
+@namespace      https://claude.ai
+@version        2.9.0
+@description    Cherry blossom theme for Claude - fixed code block syntax text background artifacts & full dark mode support.
+@author         M.R. Lee
+@homepageURL    https://claude.ai
+==/UserStyle== */
+
+@-moz-document domain("claude.ai") {
+  :root {
+    --sakura-pink-50: #fff7fa;
+    --sakura-pink-100: #fce4ec;
+    --sakura-pink-200: #f8bbd0;
+    --sakura-pink-300: #f0b8d4;
+    --sakura-pink-500: #e91e63;
+    --sakura-wine: #880e4f;
+    --sakura-light-border: #f3cfdd;
+  }
+
+  /* =========================================================
+     🌸 마우스 커서
+     ========================================================= */
+  body, html, *,
+  button, a, [role="button"],
+  input, textarea, [contenteditable="true"] {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><text x="0" y="24" font-size="24">🌸</text></svg>') 12 12, auto !important;
+  }
+
+  /* =========================================================
+     🌸 PINK SCROLLBAR
+     ========================================================= */
+
+  /* Firefox */
+  *, html, body, div, main, nav, section, aside {
+    scrollbar-color: #f0a3c4 transparent !important;
+    scrollbar-width: thin !important;
+  }
+
+  /* Chrome, Edge, Safari */
+  ::-webkit-scrollbar,
+  *::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+    background: transparent !important;
+  }
+
+  ::-webkit-scrollbar-track,
+  *::-webkit-scrollbar-track {
+    background: transparent !important;
+  }
+
+  ::-webkit-scrollbar-thumb,
+  *::-webkit-scrollbar-thumb {
+    background-color: #f0a3c4 !important;
+    border-radius: 999px !important;
+  }
+
+  ::-webkit-scrollbar-thumb:hover,
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #e91e63 !important;
+  }
+
+  /* 다크모드 스크롤바 */
+  html.dark ::-webkit-scrollbar-thumb,
+  html.dark *::-webkit-scrollbar-thumb,
+  html[data-theme="dark"] ::-webkit-scrollbar-thumb,
+  html[data-theme="dark"] *::-webkit-scrollbar-thumb,
+  body.dark ::-webkit-scrollbar-thumb,
+  body.dark *::-webkit-scrollbar-thumb,
+  .dark *::-webkit-scrollbar-thumb {
+    background-color: #ff4081 !important;
+    box-shadow: 0 0 8px rgba(255, 64, 129, 0.6) !important;
+  }
+
+  /* =========================================================
+     SIDEBAR
+     ========================================================= */
+
+  /* 설정창(모달) 벚꽃 차단 */
+  [role="dialog"], [role="dialog"] *,
+  [aria-modal="true"], [aria-modal="true"] * {
+    background-image: none !important;
+  }
+
+  /* 사이드바 내부 래퍼 배경 뚫기 */
+  nav *, 
+  aside *, 
+  [data-testid="sidebar"] *,
+  [class*="overflow-y-auto"],
+  div:has(> nav) div {
+    background-color: transparent !important;
+  }
+
+  /* [라이트 모드] 사이드바 벚꽃 타일링 */
+  nav,
+  aside,
+  [data-testid="sidebar"],
+  .bg-bg-200,
+  div:has(> nav) {
+    background-image: 
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 250 250'%3E%3Cg opacity='0.11'%3E%3Cg transform='translate(30,30) scale(0.65)'%3E%3Cpath fill='%23c2185b' d='M52.5,48.7C67.9,69.5,90.6,65,97.5,58.8c0,0-3.4-3.9-12.1-8.5c5.8-3.1,13.3-8.8,13.3-8.8C91.9,36.3,67.9,32.4,52.5,48.7z'/%3E%3Cpath fill='%23c2185b' d='M65.5,13.6C65.8,7.9,63,1.3,62,0c-8.4,3.5-19.8,23-12,43.9c24.3-2,30.7-29.8,27.3-38C75.7,6.6,71.5,8.7,65.5,13.6z'/%3E%3Cpath fill='%23c2185b' d='M46.3,43.9C46.6,17.6,30.4,5.6,21.1,5.3c0,0-0.3,5.2,2.7,14.6c-5.7-3.8-15.7-3-15.7-3C9.4,25.3,23.8,44.8,46.3,43.9z'/%3E%3Cpath fill='%23c2185b' d='M14,63.5c-3.6,4.3-5.5,11.2-5.4,12.9c8.8,2.3,29.7-6.3,36.2-27.6C24.3,35.6,2.4,53.8,0,62.3C1.7,62.8,6.3,63.7,14,63.5z'/%3E%3Cpath fill='%23c2185b' d='M52.5,85.9c2.6,5,11.1,9.4,12.6,10c5.6-7.2,3.5-36.3-15.9-43.6C29,66,39,92.9,46,98.4C47,97,49.7,93.1,52.5,85.9z'/%3E%3Ccircle cx='49' cy='49' r='6' fill='%23f8bbd0'/%3E%3C/g%3E%3Cg transform='translate(150,130) scale(0.45) rotate(45)'%3E%3Cpath fill='%23c2185b' d='M52.5,48.7C67.9,69.5,90.6,65,97.5,58.8c0,0-3.4-3.9-12.1-8.5c5.8-3.1,13.3-8.8,13.3-8.8C91.9,36.3,67.9,32.4,52.5,48.7z'/%3E%3Cpath fill='%23c2185b' d='M65.5,13.6C65.8,7.9,63,1.3,62,0c-8.4,3.5-19.8,23-12,43.9c24.3-2,30.7-29.8,27.3-38C75.7,6.6,71.5,8.7,65.5,13.6z'/%3E%3Cpath fill='%23c2185b' d='M46.3,43.9C46.6,17.6,30.4,5.6,21.1,5.3c0,0-0.3,5.2,2.7,14.6c-5.7-3.8-15.7-3-15.7-3C9.4,25.3,23.8,44.8,46.3,43.9z'/%3E%3Cpath fill='%23c2185b' d='M14,63.5c-3.6,4.3-5.5,11.2-5.4,12.9c8.8,2.3,29.7-6.3,36.2-27.6C24.3,35.6,2.4,53.8,0,62.3C1.7,62.8,6.3,63.7,14,63.5z'/%3E%3Cpath fill='%23c2185b' d='M52.5,85.9c2.6,5,11.1,9.4,12.6,10c5.6-7.2,3.5-36.3-15.9-43.6C29,66,39,92.9,46,98.4C47,97,49.7,93.1,52.5,85.9z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+      linear-gradient(to bottom, #fce4ec 0%, #fde5ec 50%, #fce4ec 100%) !important;
+    background-repeat: repeat !important;
+    background-size: 220px 220px, auto !important;
+    background-position: top left !important;
+    border-right: 1px solid var(--sakura-light-border) !important;
+  }
+
+  /* [다크 모드] 사이드바 벚꽃 타일링 */
+  html.dark nav, html.dark aside, html.dark [data-testid="sidebar"],
+  html[data-theme="dark"] nav, html[data-theme="dark"] aside, html[data-theme="dark"] [data-testid="sidebar"],
+  html[data-mode="dark"] nav, html[data-mode="dark"] aside, html[data-mode="dark"] [data-testid="sidebar"],
+  body.dark nav, body.dark aside, body.dark [data-testid="sidebar"],
+  .dark nav, .dark aside, .dark [data-testid="sidebar"] {
+    background-image: 
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 250 250'%3E%3Cg opacity='0.15'%3E%3Cg transform='translate(30,30) scale(0.65)'%3E%3Cpath fill='%23ffb7c5' d='M52.5,48.7C67.9,69.5,90.6,65,97.5,58.8c0,0-3.4-3.9-12.1-8.5c5.8-3.1,13.3-8.8,13.3-8.8C91.9,36.3,67.9,32.4,52.5,48.7z'/%3E%3Cpath fill='%23ffb7c5' d='M65.5,13.6C65.8,7.9,63,1.3,62,0c-8.4,3.5-19.8,23-12,43.9c24.3-2,30.7-29.8,27.3-38C75.7,6.6,71.5,8.7,65.5,13.6z'/%3E%3Cpath fill='%23ffb7c5' d='M46.3,43.9C46.6,17.6,30.4,5.6,21.1,5.3c0,0-0.3,5.2,2.7,14.6c-5.7-3.8-15.7-3-15.7-3C9.4,25.3,23.8,44.8,46.3,43.9z'/%3E%3Cpath fill='%23ffb7c5' d='M14,63.5c-3.6,4.3-5.5,11.2-5.4,12.9c8.8,2.3,29.7-6.3,36.2-27.6C24.3,35.6,2.4,53.8,0,62.3C1.7,62.8,6.3,63.7,14,63.5z'/%3E%3Cpath fill='%23ffb7c5' d='M52.5,85.9c2.6,5,11.1,9.4,12.6,10c5.6-7.2,3.5-36.3-15.9-43.6C29,66,39,92.9,46,98.4C47,97,49.7,93.1,52.5,85.9z'/%3E%3Ccircle cx='49' cy='49' r='6' fill='%23ffd4dc' fill-opacity='0.3'/%3E%3C/g%3E%3Cg transform='translate(150,130) scale(0.45) rotate(45)'%3E%3Cpath fill='%23ffb7c5' d='M52.5,48.7C67.9,69.5,90.6,65,97.5,58.8c0,0-3.4-3.9-12.1-8.5c5.8-3.1,13.3-8.8,13.3-8.8C91.9,36.3,67.9,32.4,52.5,48.7z'/%3E%3Cpath fill='%23ffb7c5' d='M65.5,13.6C65.8,7.9,63,1.3,62,0c-8.4,3.5-19.8,23-12,43.9c24.3-2,30.7-29.8,27.3-38C75.7,6.6,71.5,8.7,65.5,13.6z'/%3E%3Cpath fill='%23ffb7c5' d='M46.3,43.9C46.6,17.6,30.4,5.6,21.1,5.3c0,0-0.3,5.2,2.7,14.6c-5.7-3.8-15.7-3-15.7-3C9.4,25.3,23.8,44.8,46.3,43.9z'/%3E%3Cpath fill='%23ffb7c5' d='M14,63.5c-3.6,4.3-5.5,11.2-5.4,12.9c8.8,2.3,29.7-6.3,36.2-27.6C24.3,35.6,2.4,53.8,0,62.3C1.7,62.8,6.3,63.7,14,63.5z'/%3E%3Cpath fill='%23ffb7c5' d='M52.5,85.9c2.6,5,11.1,9.4,12.6,10c5.6-7.2,3.5-36.3-15.9-43.6C29,66,39,92.9,46,98.4C47,97,49.7,93.1,52.5,85.9z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+      linear-gradient(to bottom, #2d0f1a 0%, #1f0a12 50%, #2d0f1a 100%) !important;
+    background-repeat: repeat !important;
+    background-size: 220px 220px, auto !important;
+    background-position: top left !important;
+    border-right: 1px solid #4a1a2a !important;
+  }
+
+  /* 사이드바 메뉴 호버 */
+  nav a:hover, nav button:hover,
+  [data-testid="sidebar"] a:hover, [data-testid="sidebar"] button:hover {
+    background-color: rgba(240, 184, 212, 0.35) !important;
+    border-radius: 10px !important;
+  }
+
+  /* =========================================================
+     COMPOSER / INPUT AREA
+     ========================================================= */
+
+  fieldset,
+  fieldset *,
+  [contenteditable="true"],
+  [contenteditable="true"]:focus,
+  textarea,
+  textarea:focus {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* [라이트 모드] 입력창 단일 테두리 */
+  fieldset {
+    background-color: #ffffff !important;
+    border: 1.5px solid #f1cad9 !important;
+    border-radius: 24px !important;
+    box-shadow: 0 2px 10px rgba(233, 30, 99, 0.05) !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+  }
+
+  fieldset:focus-within {
+    border-color: #e98aae !important;
+    box-shadow:
+      0 0 0 4px rgba(233, 30, 99, 0.12),
+      0 0 18px 4px rgba(233, 30, 99, 0.18),
+      0 4px 24px rgba(233, 30, 99, 0.12) !important;
+  }
+
+  /* [다크 모드] 입력창 단일 테두리 & 글로우 */
+  html.dark fieldset,
+  html[data-theme="dark"] fieldset,
+  html[data-mode="dark"] fieldset,
+  body.dark fieldset,
+  [data-theme="dark"] fieldset,
+  .dark fieldset {
+    background-color: #2a1018 !important;
+    border: 1.5px solid #5a1d33 !important;
+    border-radius: 24px !important;
+    box-shadow: none !important;
+  }
+
+  html.dark fieldset:focus-within,
+  html[data-theme="dark"] fieldset:focus-within,
+  html[data-mode="dark"] fieldset:focus-within,
+  body.dark fieldset:focus-within,
+  [data-theme="dark"] fieldset:focus-within,
+  .dark fieldset:focus-within {
+    border-color: #ff4081 !important;
+    box-shadow:
+      0 0 0 3px rgba(255, 64, 129, 0.25),
+      0 0 16px 4px rgba(255, 64, 129, 0.55),
+      0 0 36px 8px rgba(255, 64, 129, 0.30),
+      inset 0 0 12px rgba(255, 64, 129, 0.12) !important;
+  }
+
+  html.dark [contenteditable="true"],
+  html[data-theme="dark"] [contenteditable="true"],
+  body.dark [contenteditable="true"],
+  .dark [contenteditable="true"] {
+    color: #ffeef2 !important;
+  }
+
+  /* =========================================================
+     BACKGROUND & MAIN VIEW
+     ========================================================= */
+
+  html.dark body, html.dark main,
+  html[data-theme="dark"] body, html[data-theme="dark"] main,
+  html[data-mode="dark"] body, html[data-mode="dark"] main,
+  body.dark, body.dark main, .dark main {
+    background-color: #1a0a10 !important;
+    background: #1a0a10 !important;
+    color-scheme: dark !important;
+  }
+
+  /* =========================================================
+     USER MESSAGE BUBBLE
+     ========================================================= */
+
+  [data-testid="user-message"],
+  div:has(> [data-testid="user-message"]),
+  .font-user-message,
+  div[class*="bg-bg-"],
+  div[class*="bg-accent-"] {
+    background-color: transparent !important;
+  }
+
+  /* [라이트 모드] 사용자 메시지 */
+  [data-testid="user-message"] div[class*="bg-"],
+  [data-testid="user-message"] > div,
+  .font-user-message,
+  div[data-testid="user-message"] {
+    background-color: #fce4ec !important;
+    color: #3a1825 !important;
+    border: 1.5px solid rgba(194, 24, 91, 0.18) !important;
+    border-radius: 20px !important;
+    padding: 12px 20px !important;
+    box-shadow: 0 2px 10px rgba(230, 124, 171, 0.12) !important;
+  }
+
+  [data-testid="user-message"] p,
+  [data-testid="user-message"] span {
+    color: #3a1825 !important;
+    background-color: transparent !important;
+  }
+
+  /* [다크 모드] 사용자 메시지 */
+  html.dark [data-testid="user-message"] div[class*="bg-"],
+  html[data-theme="dark"] [data-testid="user-message"] div[class*="bg-"],
+  html[data-mode="dark"] [data-testid="user-message"] div[class*="bg-"],
+  body.dark [data-testid="user-message"] div[class*="bg-"],
+  .dark [data-testid="user-message"] div[class*="bg-"],
+  html.dark div[data-testid="user-message"],
+  html[data-theme="dark"] div[data-testid="user-message"],
+  body.dark div[data-testid="user-message"] {
+    background-color: #4a1a2a !important;
+    color: #ffeef2 !important;
+    border: 1.5px solid #63213a !important;
+    border-radius: 20px !important;
+    padding: 12px 20px !important;
+    box-shadow: 0 2px 12px rgba(255, 128, 171, 0.18) !important;
+  }
+
+  html.dark [data-testid="user-message"] p,
+  html.dark [data-testid="user-message"] span,
+  html[data-theme="dark"] [data-testid="user-message"] p,
+  html[data-theme="dark"] [data-testid="user-message"] span,
+  body.dark [data-testid="user-message"] p,
+  body.dark [data-testid="user-message"] span {
+    color: #ffeef2 !important;
+    background-color: transparent !important;
+  }
+
+  /* =========================================================
+     CODE BLOCKS & SYNTAX FIX (드래그 박스 핑크색 오염 박멸)
+     ========================================================= */
+
+  /* 코드 블록 외곽 래퍼 */
+  pre {
+    background-color: #fff1f5 !important;
+    border: 1px solid #f4d5e0 !important;
+    border-radius: 12px !important;
+  }
+
+  /* 코드 내부의 모든 구문(Syntax Token: span, code 등)의 불필요한 핑크 배경 완전 제거 */
+  pre *, pre code, pre span, code span {
+    background-color: transparent !important;
+    background: transparent !important;
+  }
+
+  /* [다크 모드] 코드 블록 */
+  html.dark pre, html[data-theme="dark"] pre, body.dark pre, .dark pre {
+    background-color: #1f0a12 !important;
+    border-color: #3a1525 !important;
+  }
+  
+  html.dark pre *, html.dark pre code, html.dark pre span {
+    color: #f5e6ea !important;
+  }
+
+  /* =========================================================
+     SELECTION (사용자가 '마우스로 실제 선택한 텍스트'에만 핑크 하이라이트)
+     ========================================================= */
+  
+  main ::selection,
+  [role="main"] ::selection,
+  [data-testid="user-message"] ::selection,
+  p::selection, span::selection {
+    background-color: #f8bbd0 !important;
+    color: #4a1028 !important;
+  }
+
+  html.dark main ::selection,
+  html[data-theme="dark"] main ::selection,
+  body.dark main ::selection {
+    background-color: #8a2050 !important;
+    color: #ffffff !important;
+  }
+
+  /* =========================================================
+     LAYOUT
+     ========================================================= */
+  .max-w-3xl, .max-w-2xl {
+    max-width: 1100px !important;
+  }
+}
