@@ -10,7 +10,7 @@
 
 
 ### Chat GPT
-  : Created 4 Chatgpt-themed variations inspired by Gemini's Sakura theme.
+  : Created 5 Chatgpt-themed variations inspired by Gemini's Sakura theme.
   
   *if you want normal cursor just delete the cursor block
   - 🌸 Pink Sakura
