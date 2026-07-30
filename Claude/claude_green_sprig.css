@@ -1,8 +1,8 @@
 /* ==UserStyle==
-@name           Claude Green Sprig Theme (Single Border & Neon Glow)
+@name           Claude Green Sprig Theme (Dark Mode Code Block Fix)
 @namespace      https://claude.ai
-@version        1.0.0
-@description    Green leafy sprig theme for Claude - single rounded border & neon green focus mode.
+@version        1.1.0
+@description    Green leafy sprig theme for Claude - fixed dark mode code block text contrast & ASCII readability.
 @author         M.R. Lee (Ported for Claude)
 @homepageURL    https://claude.ai
 ==/UserStyle== */
@@ -74,7 +74,7 @@
   }
 
   /* =========================================================
-     SIDEBAR (초록 나뭇잎 패턴 타일링)
+     SIDEBAR
      ========================================================= */
 
   /* 설정창(모달) 나뭇잎 차단 */
@@ -267,27 +267,51 @@
   }
 
   /* =========================================================
-     CODE BLOCKS & SYNTAX FIX
+     CODE BLOCKS & SYNTAX FIX (다크모드 가독성 완벽 보정)
      ========================================================= */
 
-  pre {
+  /* [라이트 모드] 코드 블록 */
+  html:not(.dark):not([data-theme="dark"]):not([data-mode="dark"]) pre {
     background-color: #f3fbf5 !important;
     border: 1px solid #deefe2 !important;
     border-radius: 12px !important;
+    color: #294434 !important;
   }
 
-  pre *, pre code, pre span, code span {
+  html:not(.dark):not([data-theme="dark"]):not([data-mode="dark"]) pre *,
+  html:not(.dark):not([data-theme="dark"]):not([data-mode="dark"]) pre code,
+  html:not(.dark):not([data-theme="dark"]):not([data-mode="dark"]) pre span {
     background-color: transparent !important;
-    background: transparent !important;
+    color: #294434 !important;
   }
 
   /* [다크 모드] 코드 블록 */
-  html.dark pre, html[data-theme="dark"] pre, body.dark pre, .dark pre {
+  html.dark pre, 
+  html[data-theme="dark"] pre, 
+  html[data-mode="dark"] pre, 
+  body.dark pre, 
+  .dark pre {
     background-color: #0f1d14 !important;
-    border-color: #1f3d2b !important;
+    border: 1px solid #1f3d2b !important;
+    border-radius: 12px !important;
+    color: #e8f7ec !important;
   }
-  
-  html.dark pre *, html.dark pre code, html.dark pre span {
+
+  html.dark pre *, 
+  html[data-theme="dark"] pre *, 
+  html[data-mode="dark"] pre *, 
+  body.dark pre *, 
+  .dark pre *,
+  html.dark pre code, 
+  html[data-theme="dark"] pre code, 
+  body.dark pre code, 
+  .dark pre code,
+  html.dark pre span, 
+  html[data-theme="dark"] pre span, 
+  body.dark pre span, 
+  .dark pre span {
+    background-color: transparent !important;
+    background: transparent !important;
     color: #e8f7ec !important;
   }
 
