@@ -1,5 +1,14 @@
 # Stylus
 ---
+### How to use Stylus (Chrome Extension)
+
+1. Install Stylus from the Chrome Web Store
+2. Click the Stylus icon in your toolbar
+3. Add the style
+4. Paste CSS code
+5. Hit Save
+
+
 ### Chat GPT
   : Created 4 Chatgpt-themed variations inspired by Gemini's Sakura theme.
   
