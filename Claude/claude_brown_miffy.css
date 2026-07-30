@@ -1,0 +1,375 @@
+/* ==UserStyle==
+@name           Claude Miffy Autumn Warmtone Theme (Brighter Light Watermark)
+@namespace      https://claude.ai
+@version        1.4.0
+@description    Autumn warm-tone Miffy theme for Claude - slightly clearer Miffy watermark in Light Mode.
+@author         M.R. Lee
+@homepageURL    https://claude.ai
+==/UserStyle== */
+
+@-moz-document domain("claude.ai") {
+  :root {
+    --miffy-warm-50: #fcf8f2;
+    --miffy-warm-100: #f4e8dc;
+    --miffy-warm-200: #e5cdbc;
+    --miffy-warm-300: #d4ae97;
+    --miffy-warm-500: #ac7255;
+    --miffy-brown-dark: #5c3a28;
+    --miffy-light-border: #e8d7c8;
+  }
+
+  /* =========================================================
+     🐰 마우스 커서
+     ========================================================= */
+  body, html, *,
+  button, a, [role="button"],
+  input, textarea, [contenteditable="true"] {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><text x="0" y="24" font-size="24">🐰</text></svg>') 12 12, auto !important;
+  }
+
+  /* =========================================================
+     🍂 WARM SCROLLBAR
+     ========================================================= */
+
+  /* Firefox */
+  *, html, body, div, main, nav, section, aside {
+    scrollbar-color: #d4ae97 transparent !important;
+    scrollbar-width: thin !important;
+  }
+
+  /* Chrome, Edge, Safari */
+  ::-webkit-scrollbar,
+  *::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+    background: transparent !important;
+  }
+
+  ::-webkit-scrollbar-track,
+  *::-webkit-scrollbar-track {
+    background: transparent !important;
+  }
+
+  ::-webkit-scrollbar-thumb,
+  *::-webkit-scrollbar-thumb {
+    background-color: #d4ae97 !important;
+    border-radius: 999px !important;
+  }
+
+  ::-webkit-scrollbar-thumb:hover,
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #ac7255 !important;
+  }
+
+  /* 다크모드 스크롤바 */
+  html.dark ::-webkit-scrollbar-thumb,
+  html.dark *::-webkit-scrollbar-thumb,
+  html[data-theme="dark"] ::-webkit-scrollbar-thumb,
+  html[data-theme="dark"] *::-webkit-scrollbar-thumb,
+  body.dark ::-webkit-scrollbar-thumb,
+  body.dark *::-webkit-scrollbar-thumb,
+  .dark *::-webkit-scrollbar-thumb {
+    background-color: #e09f67 !important;
+    box-shadow: 0 0 8px rgba(224, 159, 103, 0.6) !important;
+  }
+
+  /* =========================================================
+     SIDEBAR (미피 패턴 타일링)
+     ========================================================= */
+
+  /* 설정창(모달) 차단 */
+  [role="dialog"], [role="dialog"] *,
+  [aria-modal="true"], [aria-modal="true"] * {
+    background-image: none !important;
+  }
+
+  /* 사이드바 내부 래퍼 배경 뚫기 */
+  nav *, 
+  aside *, 
+  [data-testid="sidebar"] *,
+  [class*="overflow-y-auto"],
+  div:has(> nav) div {
+    background-color: transparent !important;
+  }
+
+  /* [라이트 모드] 널찍한 미피 SVG 패턴 */
+  nav,
+  aside,
+  [data-testid="sidebar"],
+  .bg-bg-200,
+  div:has(> nav) {
+    background-image: 
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg opacity='0.20'%3E%3C!-- 미피 1 --%3E%3Cg transform='translate(20, 20) scale(0.45)'%3E%3Cellipse cx='32' cy='22' rx='7' ry='20' fill='%23a36243'/%3E%3Cellipse cx='56' cy='22' rx='7' ry='20' fill='%23a36243'/%3E%3Cellipse cx='44' cy='52' rx='28' ry='22' fill='%23a36243'/%3E%3Ccircle cx='32' cy='48' r='3' fill='%23fff8f2'/%3E%3Ccircle cx='56' cy='48' r='3' fill='%23fff8f2'/%3E%3Cpath d='M41 57 L47 63 M47 57 L41 63' stroke='%23fff8f2' stroke-width='2.5' stroke-linecap='round'/%3E%3C/g%3E%3C!-- 미피 2 --%3E%3Cg transform='translate(130, 130) scale(0.36)'%3E%3Cellipse cx='32' cy='22' rx='7' ry='20' fill='%23a36243'/%3E%3Cellipse cx='56' cy='22' rx='7' ry='20' fill='%23a36243'/%3E%3Cellipse cx='44' cy='52' rx='28' ry='22' fill='%23a36243'/%3E%3Ccircle cx='32' cy='48' r='3' fill='%23fff8f2'/%3E%3Ccircle cx='56' cy='48' r='3' fill='%23fff8f2'/%3E%3Cpath d='M41 57 L47 63 M47 57 L41 63' stroke='%23fff8f2' stroke-width='2.5' stroke-linecap='round'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+      linear-gradient(to bottom, #fcf8f2 0%, #f4e8dc 50%, #eee0d0 100%) !important;
+    background-repeat: repeat !important;
+    background-size: 220px 220px, auto !important;
+    background-position: top left !important;
+    border-right: 1px solid var(--miffy-light-border) !important;
+  }
+
+  /* [다크 모드] 널찍한 미피 SVG 패턴 */
+  html.dark nav, html.dark aside, html.dark [data-testid="sidebar"],
+  html[data-theme="dark"] nav, html[data-theme="dark"] aside, html[data-theme="dark"] [data-testid="sidebar"],
+  html[data-mode="dark"] nav, html[data-mode="dark"] aside, html[data-mode="dark"] [data-testid="sidebar"],
+  body.dark nav, body.dark aside, body.dark [data-testid="sidebar"],
+  .dark nav, .dark aside, .dark [data-testid="sidebar"] {
+    background-image: 
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg opacity='0.20'%3E%3Cg transform='translate(20, 20) scale(0.45)'%3E%3Cellipse cx='32' cy='22' rx='7' ry='20' fill='%23e09f67'/%3E%3Cellipse cx='56' cy='22' rx='7' ry='20' fill='%23e09f67'/%3E%3Cellipse cx='44' cy='52' rx='28' ry='22' fill='%23e09f67'/%3E%3Ccircle cx='32' cy='48' r='3' fill='%231f130c'/%3E%3Ccircle cx='56' cy='48' r='3' fill='%231f130c'/%3E%3Cpath d='M41 57 L47 63 M47 57 L41 63' stroke='%231f130c' stroke-width='2.5' stroke-linecap='round'/%3E%3C/g%3E%3Cg transform='translate(130, 130) scale(0.36)'%3E%3Cellipse cx='32' cy='22' rx='7' ry='20' fill='%23e09f67'/%3E%3Cellipse cx='56' cy='22' rx='7' ry='20' fill='%23e09f67'/%3E%3Cellipse cx='44' cy='52' rx='28' ry='22' fill='%23e09f67'/%3E%3Ccircle cx='32' cy='48' r='3' fill='%231f130c'/%3E%3Ccircle cx='56' cy='48' r='3' fill='%231f130c'/%3E%3Cpath d='M41 57 L47 63 M47 57 L41 63' stroke='%231f130c' stroke-width='2.5' stroke-linecap='round'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+      linear-gradient(to bottom, #2d1e18 0%, #1f130c 50%, #2d1e18 100%) !important;
+    background-repeat: repeat !important;
+    background-size: 220px 220px, auto !important;
+    background-position: top left !important;
+    border-right: 1px solid #4a3228 !important;
+  }
+
+  /* 사이드바 메뉴 호버 */
+  nav a:hover, nav button:hover,
+  [data-testid="sidebar"] a:hover, [data-testid="sidebar"] button:hover {
+    background-color: rgba(212, 174, 151, 0.35) !important;
+    border-radius: 10px !important;
+  }
+
+  /* =========================================================
+     COMPOSER / INPUT AREA
+     ========================================================= */
+
+  fieldset,
+  fieldset *,
+  [contenteditable="true"],
+  [contenteditable="true"]:focus,
+  textarea,
+  textarea:focus {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* [라이트 모드] 입력창 테두리 + 빼꼼 미피 (opacity 0.22로 선명화) */
+  fieldset {
+    background-color: #ffffff !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg opacity='0.22'%3E%3Cellipse cx='32' cy='20' rx='8' ry='22' fill='%23ac7255'/%3E%3Cellipse cx='68' cy='20' rx='8' ry='22' fill='%23ac7255'/%3E%3Cellipse cx='50' cy='55' rx='35' ry='25' fill='%23ac7255'/%3E%3Ccircle cx='32' cy='50' r='3.5' fill='%23ffffff'/%3E%3Ccircle cx='68' cy='50' r='3.5' fill='%23ffffff'/%3E%3Cpath d='M46 62 L54 68 M54 62 L46 68' stroke='%23ffffff' stroke-width='3.5' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 65px bottom 12px !important;
+    background-size: 32px !important;
+    border: 1.5px solid #e8d7c8 !important;
+    border-radius: 24px !important;
+    box-shadow: 0 2px 10px rgba(172, 114, 85, 0.08) !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+  }
+
+  fieldset:focus-within {
+    border-color: #ac7255 !important;
+    box-shadow:
+      0 0 0 4px rgba(172, 114, 85, 0.15),
+      0 0 18px 4px rgba(172, 114, 85, 0.18),
+      0 4px 24px rgba(172, 114, 85, 0.12) !important;
+  }
+
+  /* [다크 모드] 입력창 테두리 + 빼꼼 미피 */
+  html.dark fieldset,
+  html[data-theme="dark"] fieldset,
+  html[data-mode="dark"] fieldset,
+  body.dark fieldset,
+  [data-theme="dark"] fieldset,
+  .dark fieldset {
+    background-color: #241611 !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg opacity='0.25'%3E%3Cellipse cx='32' cy='20' rx='8' ry='22' fill='%23e09f67'/%3E%3Cellipse cx='68' cy='20' rx='8' ry='22' fill='%23e09f67'/%3E%3Cellipse cx='50' cy='55' rx='35' ry='25' fill='%23e09f67'/%3E%3Ccircle cx='32' cy='50' r='3.5' fill='%23241611'/%3E%3Ccircle cx='68' cy='50' r='3.5' fill='%23241611'/%3E%3Cpath d='M46 62 L54 68 M54 62 L46 68' stroke='%23241611' stroke-width='3.5' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 65px bottom 12px !important;
+    background-size: 32px !important;
+    border: 1.5px solid #4a3228 !important;
+    border-radius: 24px !important;
+    box-shadow: none !important;
+  }
+
+  html.dark fieldset:focus-within,
+  html[data-theme="dark"] fieldset:focus-within,
+  html[data-mode="dark"] fieldset:focus-within,
+  body.dark fieldset:focus-within,
+  [data-theme="dark"] fieldset:focus-within,
+  .dark fieldset:focus-within {
+    border-color: #e09f67 !important;
+    box-shadow:
+      0 0 0 3px rgba(224, 159, 103, 0.28),
+      0 0 16px 4px rgba(224, 159, 103, 0.55),
+      0 0 36px 8px rgba(224, 159, 103, 0.30),
+      inset 0 0 12px rgba(224, 159, 103, 0.12) !important;
+  }
+
+  html.dark [contenteditable="true"],
+  html[data-theme="dark"] [contenteditable="true"],
+  body.dark [contenteditable="true"],
+  .dark [contenteditable="true"] {
+    color: #f7ede2 !important;
+  }
+
+  /* =========================================================
+     BACKGROUND & MAIN VIEW
+     ========================================================= */
+
+  /* [라이트 모드] 중앙 미피 배경 워터마크 (opacity 0.09로 진하게 보정) */
+  html:not(.dark) body, html:not(.dark) main,
+  html:not([data-theme="dark"]) body, html:not([data-theme="dark"]) main {
+    background-color: #ffffff !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg opacity='0.09'%3E%3Cellipse cx='32' cy='20' rx='8' ry='22' fill='%23ac7255'/%3E%3Cellipse cx='68' cy='20' rx='8' ry='22' fill='%23ac7255'/%3E%3Cellipse cx='50' cy='55' rx='35' ry='25' fill='%23ac7255'/%3E%3Ccircle cx='32' cy='50' r='3.5' fill='%23ffffff'/%3E%3Ccircle cx='68' cy='50' r='3.5' fill='%23ffffff'/%3E%3Cpath d='M46 62 L54 68 M54 62 L46 68' stroke='%23ffffff' stroke-width='3.5' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: 380px !important;
+    background-attachment: fixed !important;
+  }
+
+  /* [다크 모드] 중앙 미피 배경 워터마크 */
+  html.dark body, html.dark main,
+  html[data-theme="dark"] body, html[data-theme="dark"] main,
+  html[data-mode="dark"] body, html[data-mode="dark"] main,
+  body.dark, body.dark main, .dark main {
+    background-color: #170d09 !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg opacity='0.12'%3E%3Cellipse cx='32' cy='20' rx='8' ry='22' fill='%23e09f67'/%3E%3Cellipse cx='68' cy='20' rx='8' ry='22' fill='%23e09f67'/%3E%3Cellipse cx='50' cy='55' rx='35' ry='25' fill='%23e09f67'/%3E%3Ccircle cx='32' cy='50' r='3.5' fill='%23170d09'/%3E%3Ccircle cx='68' cy='50' r='3.5' fill='%23170d09'/%3E%3Cpath d='M46 62 L54 68 M54 62 L46 68' stroke='%23170d09' stroke-width='3.5' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: 380px !important;
+    background-attachment: fixed !important;
+    color-scheme: dark !important;
+  }
+
+  /* =========================================================
+     USER MESSAGE BUBBLE
+     ========================================================= */
+
+  [data-testid="user-message"],
+  div:has(> [data-testid="user-message"]),
+  .font-user-message,
+  div[class*="bg-bg-"],
+  div[class*="bg-accent-"] {
+    background-color: transparent !important;
+  }
+
+  /* [라이트 모드] 사용자 메시지 (opacity 0.18로 진하게 보정) */
+  [data-testid="user-message"] div[class*="bg-"],
+  [data-testid="user-message"] > div,
+  .font-user-message,
+  div[data-testid="user-message"] {
+    background-color: #f4e8dc !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg opacity='0.18'%3E%3Cellipse cx='32' cy='20' rx='8' ry='22' fill='%23ac7255'/%3E%3Cellipse cx='68' cy='20' rx='8' ry='22' fill='%23ac7255'/%3E%3Cellipse cx='50' cy='55' rx='35' ry='25' fill='%23ac7255'/%3E%3Ccircle cx='32' cy='50' r='3.5' fill='%23f4e8dc'/%3E%3Ccircle cx='68' cy='50' r='3.5' fill='%23f4e8dc'/%3E%3Cpath d='M46 62 L54 68 M54 62 L46 68' stroke='%23f4e8dc' stroke-width='3.5' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 5px bottom -10px !important;
+    background-size: 60px !important;
+    color: #4a2e1e !important;
+    border: 1.5px solid rgba(172, 114, 85, 0.22) !important;
+    border-radius: 20px !important;
+    padding: 12px 20px !important;
+    box-shadow: 0 2px 10px rgba(172, 114, 85, 0.12) !important;
+  }
+
+  [data-testid="user-message"] p,
+  [data-testid="user-message"] span {
+    color: #4a2e1e !important;
+    background-color: transparent !important;
+  }
+
+  /* [다크 모드] 사용자 메시지 */
+  html.dark [data-testid="user-message"] div[class*="bg-"],
+  html[data-theme="dark"] [data-testid="user-message"] div[class*="bg-"],
+  html[data-mode="dark"] [data-testid="user-message"] div[class*="bg-"],
+  body.dark [data-testid="user-message"] div[class*="bg-"],
+  .dark [data-testid="user-message"] div[class*="bg-"],
+  html.dark div[data-testid="user-message"],
+  html[data-theme="dark"] div[data-testid="user-message"],
+  body.dark div[data-testid="user-message"] {
+    background-color: #3b251d !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg opacity='0.22'%3E%3Cellipse cx='32' cy='20' rx='8' ry='22' fill='%23e09f67'/%3E%3Cellipse cx='68' cy='20' rx='8' ry='22' fill='%23e09f67'/%3E%3Cellipse cx='50' cy='55' rx='35' ry='25' fill='%23e09f67'/%3E%3Ccircle cx='32' cy='50' r='3.5' fill='%233b251d'/%3E%3Ccircle cx='68' cy='50' r='3.5' fill='%233b251d'/%3E%3Cpath d='M46 62 L54 68 M54 62 L46 68' stroke='%233b251d' stroke-width='3.5' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 5px bottom -10px !important;
+    background-size: 60px !important;
+    color: #f7ede2 !important;
+    border: 1.5px solid #5a3b30 !important;
+    border-radius: 20px !important;
+    padding: 12px 20px !important;
+    box-shadow: 0 2px 12px rgba(224, 159, 103, 0.18) !important;
+  }
+
+  html.dark [data-testid="user-message"] p,
+  html.dark [data-testid="user-message"] span,
+  html[data-theme="dark"] [data-testid="user-message"] p,
+  html[data-theme="dark"] [data-testid="user-message"] span,
+  body.dark [data-testid="user-message"] p,
+  body.dark [data-testid="user-message"] span {
+    color: #f7ede2 !important;
+    background-color: transparent !important;
+  }
+
+  /* =========================================================
+     CODE BLOCKS & SYNTAX FIX
+     ========================================================= */
+
+  /* [라이트 모드] 코드 블록 */
+  html:not(.dark):not([data-theme="dark"]):not([data-mode="dark"]) pre {
+    background-color: #fcf8f2 !important;
+    border: 1px solid #e8d7c8 !important;
+    border-radius: 12px !important;
+    color: #4a2e1e !important;
+  }
+
+  html:not(.dark):not([data-theme="dark"]):not([data-mode="dark"]) pre *,
+  html:not(.dark):not([data-theme="dark"]):not([data-mode="dark"]) pre code,
+  html:not(.dark):not([data-theme="dark"]):not([data-mode="dark"]) pre span {
+    background-color: transparent !important;
+    color: #4a2e1e !important;
+  }
+
+  /* [다크 모드] 코드 블록 */
+  html.dark pre, 
+  html[data-theme="dark"] pre, 
+  html[data-mode="dark"] pre, 
+  body.dark pre, 
+  .dark pre {
+    background-color: #1f130c !important;
+    border: 1px solid #4a3228 !important;
+    border-radius: 12px !important;
+    color: #f7ede2 !important;
+  }
+
+  html.dark pre *, 
+  html[data-theme="dark"] pre *, 
+  html[data-mode="dark"] pre *, 
+  body.dark pre *, 
+  .dark pre *,
+  html.dark pre code, 
+  html[data-theme="dark"] pre code, 
+  body.dark pre code, 
+  .dark pre code,
+  html.dark pre span, 
+  html[data-theme="dark"] pre span, 
+  body.dark pre span, 
+  .dark pre span {
+    background-color: transparent !important;
+    background: transparent !important;
+    color: #f7ede2 !important;
+  }
+
+  /* =========================================================
+     SELECTION
+     ========================================================= */
+  
+  main ::selection,
+  [role="main"] ::selection,
+  [data-testid="user-message"] ::selection,
+  p::selection, span::selection {
+    background-color: #e5cdbc !important;
+    color: #3b2214 !important;
+  }
+
+  html.dark main ::selection,
+  html[data-theme="dark"] main ::selection,
+  body.dark main ::selection {
+    background-color: #7a4a35 !important;
+    color: #ffffff !important;
+  }
+
+  /* =========================================================
+     LAYOUT
+     ========================================================= */
+  .max-w-3xl, .max-w-2xl {
+    max-width: 1100px !important;
+  }
+}
