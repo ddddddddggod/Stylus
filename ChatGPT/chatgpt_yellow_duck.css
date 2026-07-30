@@ -1,0 +1,403 @@
+/* ==UserStyle==
+@name           ChatGPT Yellow Rubber Duck Theme (Single Border & Neon Fix)
+@namespace      https://chatgpt.com
+@version        1.6.0
+@description    Yellow rubber duck theme for ChatGPT with single rounded border, spaced classic rubber duck pattern & neon gold focus mode.
+@author         M.R. Lee
+@homepageURL    https://chatgpt.com
+==/UserStyle== */
+
+@-moz-document domain("chatgpt.com"), domain("chat.openai.com") {
+  :root {
+    --duck-yellow-50: #fffde6;
+    --duck-yellow-100: #fff9b8;
+    --duck-yellow-200: #fff380;
+    --duck-yellow-300: #ffeb4d;
+    --duck-yellow-500: #f5c800;
+    --duck-wine: #997a00;
+    --duck-light-border: #fceea7;
+  }
+
+  /* Main light background */
+  html:not(.dark) body,
+  html:not(.dark) main {
+    background: #fff !important;
+  }
+
+  /* Cursor */
+  body, html, *, 
+  button, a, [role="button"], 
+  input, textarea, [contenteditable="true"] {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><text x="0" y="24" font-size="24">🐥</text></svg>') 12 12, auto !important;
+  }
+    
+  /* Sidebar (Light Mode) */
+  html:not(.dark) #stage-slideover-sidebar,
+  html:not(.dark) #stage-slideover-sidebar > div,
+  html:not(.dark) [data-testid="sidebar"],
+  html:not(.dark) [data-testid="sidebar"] > div,
+  html:not(.dark) aside,
+  html:not(.dark) aside > div {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg opacity='0.22'%3E%3C!-- 러버덕 1 --%3E%3Cg transform='translate(20, 20) scale(0.48)'%3E%3Cpath fill='%23f59e00' d='M 45 15 C 30 15 20 26 20 40 C 20 48 24 53 28 56 C 14 62 4 78 4 96 C 4 122 30 135 65 135 C 100 135 120 118 120 98 C 120 80 110 72 96 72 C 82 72 74 54 74 42 C 74 26 60 15 45 15 Z'/%3E%3Cpath fill='%23e67e00' d='M 22 38 C 10 38 6 45 10 50 C 15 54 24 52 28 47 Z'/%3E%3Ccircle cx='40' cy='32' r='4' fill='%23332200'/%3E%3C/g%3E%3C!-- 러버덕 2 --%3E%3Cg transform='translate(130, 130) scale(0.38)'%3E%3Cpath fill='%23f59e00' d='M 45 15 C 30 15 20 26 20 40 C 20 48 24 53 28 56 C 14 62 4 78 4 96 C 4 122 30 135 65 135 C 100 135 120 118 120 98 C 120 80 110 72 96 72 C 82 72 74 54 74 42 C 74 26 60 15 45 15 Z'/%3E%3Cpath fill='%23e67e00' d='M 22 38 C 10 38 6 45 10 50 C 15 54 24 52 28 47 Z'/%3E%3Ccircle cx='40' cy='32' r='4' fill='%23332200'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+      linear-gradient(to bottom, #fffde6 0%, #fffce0 50%, #fff9cc 100%) !important;
+    border-right-color: var(--duck-light-border) !important;
+  }
+
+  /* Sidebar history items */
+  #stage-slideover-sidebar a,
+  #stage-slideover-sidebar button,
+  [data-testid="sidebar"] a,
+  [data-testid="sidebar"] button,
+  aside a,
+  aside button {
+    transition: background-color .15s ease, box-shadow .15s ease, transform .15s ease !important;
+  }
+
+  html:not(.dark) #stage-slideover-sidebar a:hover,
+  html:not(.dark) #stage-slideover-sidebar button:hover,
+  html:not(.dark) [data-testid="sidebar"] a:hover,
+  html:not(.dark) [data-testid="sidebar"] button:hover,
+  html:not(.dark) aside a:hover,
+  html:not(.dark) aside button:hover {
+    background-color: rgba(255, 243, 128, 0.35) !important;
+    border-radius: 10px !important;
+  }
+
+  /* User message bubble */
+  html:not(.dark) [data-message-author-role="user"] .user-message-bubble-color,
+  html:not(.dark) [data-turn="user"] .user-message-bubble-color {
+    background: #fff9b8 !important;
+    color: #473900 !important;
+    border: 1px solid rgba(245, 200, 0, 0.25) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 2px 8px rgba(245, 200, 0, 0.15) !important;
+    transition: box-shadow .15s ease, transform .15s ease !important;
+  }
+
+  html:not(.dark) [data-message-author-role="user"] .user-message-bubble-color:hover,
+  html:not(.dark) [data-turn="user"] .user-message-bubble-color:hover {
+    box-shadow: 0 5px 16px rgba(245, 200, 0, 0.25) !important;
+    transform: translateY(-1px) !important;
+  }
+
+  /* =========================================================
+     Composer (중복 border 제거 및 단일 래퍼 적용)
+     ========================================================= */
+
+  /* 자식/내부 래퍼 border & shadow 초기화 */
+  form:has(#prompt-textarea) div:has(> #prompt-textarea) {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  /* 라이트 모드 외곽 단일 래퍼 */
+  html:not(.dark) form:has(#prompt-textarea) > div {
+    border: 1px solid #fceea7 !important;
+    border-radius: 28px !important;
+    box-shadow: 0 2px 10px rgba(245, 200, 0, 0.08) !important;
+    transition: border-color .2s ease, box-shadow .2s ease !important;
+  }
+
+  html:not(.dark) form:has(#prompt-textarea) > div:focus-within {
+    border-color: #f5c800 !important;
+    box-shadow: 0 0 0 2px rgba(245, 200, 0, 0.20), 0 8px 24px rgba(245, 200, 0, 0.15) !important;
+  }
+
+  /* Code blocks base */
+  html:not(.dark) [data-message-author-role="assistant"] pre,
+  html:not(.dark) [data-message-author-role="assistant"] code[class*="language-"] {
+    background-color: #fffde6 !important;
+    border-color: #fceea7 !important;
+  }
+
+  /* Selection */
+  ::selection {
+    background: #fff380 !important;
+    color: #3b3000 !important;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 9px !important; height: 9px !important; }
+  ::-webkit-scrollbar-track { background: transparent !important; }
+  ::-webkit-scrollbar-thumb { background: transparent !important; border-radius: 999px !important; }
+  *:hover::-webkit-scrollbar-thumb { background: #ffe666 !important; }
+  *:hover::-webkit-scrollbar-thumb:hover { background: #f5c800 !important; }
+
+  /* Wider conversation area */
+  [data-testid^="conversation-turn-"] > div,
+  [data-turn] > div {
+    max-width: 1100px !important;
+  }
+
+  /* Sidebar layout wrappers transparency */
+  #stage-slideover-sidebar,
+  [data-testid="sidebar"],
+  aside {
+    isolation: isolate !important;
+  }
+
+  #stage-slideover-sidebar [class*="bg-token-sidebar"],
+  #stage-slideover-sidebar [class*="bg-token-main-surface"],
+  [data-testid="sidebar"] [class*="bg-token-sidebar"],
+  [data-testid="sidebar"] [class*="bg-token-main-surface"],
+  aside [class*="bg-token-sidebar"],
+  aside [class*="bg-token-main-surface"] {
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+
+  #stage-slideover-sidebar > div > div,
+  #stage-slideover-sidebar > div > div > div,
+  [data-testid="sidebar"] > div > div,
+  [data-testid="sidebar"] > div > div > div {
+    background-color: transparent !important;
+  }
+
+  html:not(.dark) nav[class*="sidebar"],
+  html:not(.dark) nav:has(a[href="/"]) {
+    background-color: transparent !important;
+  }
+
+  html.dark nav[class*="sidebar"],
+  html.dark nav:has(a[href="/"]) {
+    background-color: transparent !important;
+  }
+
+  #stage-slideover-sidebar header,
+  [data-testid="sidebar"] header,
+  aside header,
+  #stage-slideover-sidebar [class*="sticky"][class*="top-0"],
+  [data-testid="sidebar"] [class*="sticky"][class*="top-0"],
+  aside [class*="sticky"][class*="top-0"] {
+    background-color: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+  }
+
+  #stage-slideover-sidebar header > div,
+  #stage-slideover-sidebar header > div > div,
+  [data-testid="sidebar"] header > div,
+  [data-testid="sidebar"] header > div > div,
+  aside header > div,
+  aside header > div > div,
+  #stage-slideover-sidebar [class*="sticky"][class*="top-0"] > div,
+  [data-testid="sidebar"] [class*="sticky"][class*="top-0"] > div,
+  aside [class*="sticky"][class*="top-0"] > div {
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+
+  #stage-slideover-sidebar > div > div:first-child,
+  [data-testid="sidebar"] > div > div:first-child,
+  aside > div > div:first-child {
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+
+  #stage-slideover-sidebar header [class*="bg-token-"],
+  [data-testid="sidebar"] header [class*="bg-token-"],
+  aside header [class*="bg-token-"],
+  #stage-slideover-sidebar [class*="sticky"][class*="top-0"] [class*="bg-token-"],
+  [data-testid="sidebar"] [class*="sticky"][class*="top-0"] [class*="bg-token-"],
+  aside [class*="sticky"][class*="top-0"] [class*="bg-token-"] {
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+
+  html:not(.dark) #stage-slideover-sidebar header button:hover,
+  html:not(.dark) [data-testid="sidebar"] header button:hover,
+  html:not(.dark) aside header button:hover,
+  html:not(.dark) #stage-slideover-sidebar header a:hover,
+  html:not(.dark) [data-testid="sidebar"] header a:hover,
+  html:not(.dark) aside header a:hover {
+    background-color: rgba(255, 243, 128, 0.35) !important;
+  }
+
+  html.dark #stage-slideover-sidebar header button:hover,
+  html.dark [data-testid="sidebar"] header button:hover,
+  html.dark aside header button:hover,
+  html.dark #stage-slideover-sidebar header a:hover,
+  html.dark [data-testid="sidebar"] header a:hover,
+  html.dark aside header a:hover {
+    background-color: rgba(255, 234, 0, 0.15) !important;
+  }
+
+  /* ======================== DARK MODE ======================== */
+  html.dark,
+  html.dark body {
+    background: #141300 !important;
+    color-scheme: dark !important;
+  }
+
+  html.dark main {
+    background: #141300 !important;
+  }
+
+  /* Dark mode sidebar */
+  html.dark #stage-slideover-sidebar,
+  html.dark #stage-slideover-sidebar > div,
+  html.dark [data-testid="sidebar"],
+  html.dark [data-testid="sidebar"] > div,
+  html.dark aside,
+  html.dark aside > div {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg opacity='0.20'%3E%3Cg transform='translate(20, 20) scale(0.48)'%3E%3Cpath fill='%23ffea00' d='M 45 15 C 30 15 20 26 20 40 C 20 48 24 53 28 56 C 14 62 4 78 4 96 C 4 122 30 135 65 135 C 100 135 120 118 120 98 C 120 80 110 72 96 72 C 82 72 74 54 74 42 C 74 26 60 15 45 15 Z'/%3E%3Cpath fill='%23ff9900' d='M 22 38 C 10 38 6 45 10 50 C 15 54 24 52 28 47 Z'/%3E%3Ccircle cx='40' cy='32' r='4' fill='%23ffffff'/%3E%3C/g%3E%3Cg transform='translate(130, 130) scale(0.38)'%3E%3Cpath fill='%23ffea00' d='M 45 15 C 30 15 20 26 20 40 C 20 48 24 53 28 56 C 14 62 4 78 4 96 C 4 122 30 135 65 135 C 100 135 120 118 120 98 C 120 80 110 72 96 72 C 82 72 74 54 74 42 C 74 26 60 15 45 15 Z'/%3E%3Cpath fill='%23ff9900' d='M 22 38 C 10 38 6 45 10 50 C 15 54 24 52 28 47 Z'/%3E%3Ccircle cx='40' cy='32' r='4' fill='%23ffffff'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+      linear-gradient(to bottom, #262100 0%, #1a1900 50%, #262100 100%) !important;
+    border-right: 1px solid #473c00 !important;
+  }
+
+  html.dark #stage-slideover-sidebar a:hover,
+  html.dark #stage-slideover-sidebar button:hover,
+  html.dark [data-testid="sidebar"] a:hover,
+  html.dark [data-testid="sidebar"] button:hover,
+  html.dark aside a:hover,
+  html.dark aside button:hover {
+    background-color: rgba(255, 234, 0, 0.15) !important;
+    border-radius: 10px !important;
+  }
+
+  html.dark [data-message-author-role="user"] .user-message-bubble-color,
+  html.dark [data-turn="user"] .user-message-bubble-color {
+    background: #383000 !important;
+    color: #ffffeb !important;
+    border: 1px solid #5c4e00 !important;
+    border-radius: 18px !important;
+    box-shadow: 0 2px 12px rgba(255, 234, 0, 0.20) !important;
+  }
+
+  html.dark [data-message-author-role="user"] .user-message-bubble-color:hover,
+  html.dark [data-turn="user"] .user-message-bubble-color:hover {
+    box-shadow: 0 5px 26px rgba(255, 234, 0, 0.30) !important;
+  }
+
+  html.dark [data-message-author-role="assistant"],
+  html.dark [data-message-author-role="assistant"] .markdown {
+    color: #ffffeb !important;
+  }
+
+  /* Dark mode Composer 단일 네온 골드 래퍼 */
+  html.dark form:has(#prompt-textarea) > div {
+    background-color: #211c00 !important;
+    border: 1px solid #473c00 !important;
+    border-radius: 28px !important;
+    transition: border-color .2s ease, box-shadow .25s ease !important;
+  }
+
+  /* 다크모드 입력창 네온 골드 글로우 */
+  html.dark form:has(#prompt-textarea) > div:focus-within {
+    border-color: #ffea00 !important;
+    box-shadow: 0 0 8px #ffea00, 0 0 22px rgba(255, 234, 0, 0.50), inset 0 0 10px rgba(255, 234, 0, 0.15) !important;
+  }
+
+  html.dark #prompt-textarea {
+    color: #ffffeb !important;
+  }
+
+  html.dark #prompt-textarea p[data-placeholder]::before,
+  html.dark #prompt-textarea[data-placeholder]::before {
+    color: #a39533 !important;
+  }
+
+  html.dark pre,
+  html.dark [data-message-author-role="assistant"] pre {
+    background-color: #1a1800 !important;
+    border-color: #473c00 !important;
+  }
+
+  html.dark code {
+    background-color: #262300 !important;
+  }
+
+  html.dark ::selection {
+    background: #6e6000 !important;
+    color: #fff !important;
+  }
+
+  html.dark *:hover::-webkit-scrollbar-thumb {
+    background: #524700 !important;
+    box-shadow: 0 0 8px rgba(255, 234, 0, 0.26) !important;
+  }
+  html.dark *:hover::-webkit-scrollbar-thumb:hover {
+    background: #6e6000 !important;
+    box-shadow: 0 0 12px rgba(255, 234, 0, 0.40) !important;
+  }
+
+  html.dark #stage-slideover-sidebar > div,
+  html.dark [data-testid="sidebar"] > div,
+  html.dark aside > div {
+    background-color: transparent !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html:not(.light) body { background: #141300 !important; }
+  }
+}
+
+/* =========================================================
+   Code block edge-bleed & double-layer fix (Rubber Duck Theme 적용)
+   ========================================================= */
+@-moz-document domain("chatgpt.com"), domain("chat.openai.com") {
+
+  /* 1. 최외각 컨테이너의 잔여 배경 및 테두리 제거 */
+  html:not(.dark) [data-message-author-role="assistant"] .markdown > div:has(pre),
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="contain-inline-size"] {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* 2. 코드 블록 전체 쉘 */
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) {
+    background-color: #fffde6 !important;
+    border: 1px solid #fceea7 !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: none !important;
+  }
+
+  /* 3. 코드 헤더 (언어 라벨 + 복사 버튼 줄) */
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) > div:first-child:not(:has(pre)) {
+    background-color: #fff9b8 !important;
+    border-bottom: 1px solid #fceea7 !important;
+    border-top-left-radius: 11px !important;
+    border-top-right-radius: 11px !important;
+  }
+
+  /* 4. 내부 pre 및 code 요소 중복 배경 투명화 */
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) pre,
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) code {
+    background-color: transparent !important;
+    border: none !important;
+  }
+
+  /* === 다크 모드 코드 블록 패치 === */
+  html.dark [data-message-author-role="assistant"] .markdown > div:has(pre),
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="contain-inline-size"] {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) {
+    background-color: #1a1800 !important;
+    border: 1px solid #473c00 !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: none !important;
+  }
+
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) > div:first-child:not(:has(pre)) {
+    background-color: #262300 !important;
+    border-bottom: 1px solid #473c00 !important;
+    border-top-left-radius: 11px !important;
+    border-top-right-radius: 11px !important;
+  }
+
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) pre,
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) code {
+    background-color: transparent !important;
+    border: none !important;
+  }
+}
