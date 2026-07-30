@@ -49,7 +49,11 @@ Dark mode is under development.
 
 ### Claude
 26.07.30. released
-
+  - Miffy theme added!!
+    
+| Light | Dark |
+|-------|------|
+| <img src="pic/claude_miffy_light.png" width="400"> | <img src="pic/claude_miffy_dark.png" width="400"> |
 ### Github
   : Updated the Catppuccin theme to replace the GitHub activity graph (contribution grid) with a cherry blossom-shaped design.
   
