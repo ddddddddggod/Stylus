@@ -41,13 +41,13 @@
     
 | Light | Dark |
 |-------|------|
-| <img src="pic/chatgpt_kirby_light.png" width="400"> | <img src="pic/chatgpt_kirby_dark.png" width="400"> |
+| <img src="pic/chatgpt_yelllow_light.png" width="400"> | <img src="pic/chatgpt_yellow_dark.png" width="400"> |
 
 - Brown Miffy theme released (26.07.30.)
 - Pink Kirby theme released (26.07.31.)
 | Light | Dark |
 |-------|------|
-| <img src="pic/chatgpt_yellow_light.png" width="400"> | <img src="pic/chatgpt_yellow_dark.png" width="400"> |
+| <img src="pic/chatgpt_kirby_light.png" width="400"> | <img src="pic/chatgpt_kirby_dark.png" width="400"> |
 ---
 
 ### Gemini
