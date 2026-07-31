@@ -1,0 +1,314 @@
+/* ==UserStyle==
+@name            ChatGPT Kirby Theme (Soft Subtle Bubble Kirby Final)
+@namespace      https://chatgpt.com
+@version        6.0.0
+@description    Kirby theme with soft, highly transparent bubble Kirbies and perfectly tuned sidebar silhouettes.
+@author         M.R. Lee
+@homepageURL    https://chatgpt.com
+==/UserStyle== */
+
+@-moz-document domain("chatgpt.com"), domain("chat.openai.com") {
+  :root {
+    --kirby-pink-50: #fef0f5;
+    --kirby-pink-100: #fde2ec;
+    --kirby-pink-200: #f8a5c2;
+    --kirby-pink-300: #f78fb3;
+    --kirby-pink-500: #e0115f;
+    --kirby-dark-text: #2c1a24;
+    --kirby-light-border: #f8a5c2;
+  }
+
+  /* Main background + Large Kirby watermark (Light) */
+  html:not(.dark) body,
+  html:not(.dark) main {
+    background-color: #ffffff !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg opacity='0.09'%3E%3Cellipse cx='20' cy='75' rx='18' ry='12' fill='%23e0115f' transform='rotate(-15 20 75)'/%3E%3Cellipse cx='80' cy='75' rx='18' ry='12' fill='%23e0115f' transform='rotate(15 80 75)'/%3E%3Cellipse cx='12' cy='48' rx='10' ry='14' fill='%23f8a5c2' transform='rotate(-20 12 48)'/%3E%3Cellipse cx='88' cy='48' rx='10' ry='14' fill='%23f8a5c2' transform='rotate(20 88 48)'/%3E%3Ccircle cx='50' cy='50' r='38' fill='%23f8a5c2'/%3E%3Cellipse cx='28' cy='48' rx='10' ry='5' fill='%23f78fb3'/%3E%3Cellipse cx='72' cy='48' rx='10' ry='5' fill='%23f78fb3'/%3E%3Cellipse cx='40' cy='42' rx='5' ry='11' fill='%23000000'/%3E%3Cellipse cx='40' cy='37' rx='2.5' ry='5' fill='%23ffffff'/%3E%3Cellipse cx='40' cy='48' rx='3.5' ry='4' fill='%230078d7'/%3E%3Cellipse cx='60' cy='42' rx='5' ry='11' fill='%23000000'/%3E%3Cellipse cx='60' cy='37' rx='2.5' ry='5' fill='%23ffffff'/%3E%3Cellipse cx='60' cy='48' rx='3.5' ry='4' fill='%230078d7'/%3E%3Cpath d='M46 58 Q50 62 54 58' stroke='%23000000' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: 380px !important;
+    background-attachment: fixed !important;
+  }
+
+  /* Kirby icon cursor */
+  body, html, *, 
+  button, a, [role="button"], 
+  input, textarea, [contenteditable="true"] {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 100 100"><g><ellipse cx="20" cy="76" rx="17" ry="11" fill="%23e0115f" transform="rotate(-15 20 76)"/><ellipse cx="80" cy="76" rx="17" ry="11" fill="%23e0115f" transform="rotate(15 80 76)"/><ellipse cx="11" cy="48" rx="10" ry="14" fill="%23f8a5c2" transform="rotate(-20 11 48)"/><ellipse cx="89" cy="48" rx="10" ry="14" fill="%23f8a5c2" transform="rotate(20 89 48)"/><circle cx="50" cy="50" r="38" fill="%23f8a5c2"/><ellipse cx="28" cy="48" rx="10" ry="5" fill="%23f78fb3"/><ellipse cx="72" cy="48" rx="10" ry="5" fill="%23f78fb3"/><ellipse cx="40" cy="41" rx="5" ry="11" fill="%23000000"/><ellipse cx="40" cy="36" rx="2.5" ry="5" fill="%23ffffff"/><ellipse cx="40" cy="47" rx="3.5" ry="4" fill="%230078d7"/><ellipse cx="60" cy="41" rx="5" ry="11" fill="%23000000"/><ellipse cx="60" cy="36" rx="2.5" ry="5" fill="%23ffffff"/><ellipse cx="60" cy="47" rx="3.5" ry="4" fill="%230078d7"/><path d="M46 57 Q50 61 54 57" stroke="%23000000" stroke-width="2.5" fill="none" stroke-linecap="round"/></g></svg>') 16 16, auto !important;
+  }
+    
+  /* Sidebar (Light Mode) */
+  html:not(.dark) #stage-slideover-sidebar,
+  html:not(.dark) #stage-slideover-sidebar > div,
+  html:not(.dark) [data-testid="sidebar"],
+  html:not(.dark) [data-testid="sidebar"] > div,
+  html:not(.dark) aside,
+  html:not(.dark) aside > div {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg opacity='0.25'%3E%3Cg transform='translate(20, 20) scale(0.45)'%3E%3Cellipse cx='20' cy='75' rx='18' ry='12' fill='%23e0115f' transform='rotate(-15 20 75)'/%3E%3Cellipse cx='80' cy='75' rx='18' ry='12' fill='%23e0115f' transform='rotate(15 80 75)'/%3E%3Cellipse cx='12' cy='48' rx='10' ry='14' fill='%23f78fb3' transform='rotate(-20 12 48)'/%3E%3Cellipse cx='88' cy='48' rx='10' ry='14' fill='%23f78fb3' transform='rotate(20 88 48)'/%3E%3Ccircle cx='50' cy='50' r='38' fill='%23f78fb3'/%3E%3Cellipse cx='40' cy='42' rx='4.5' ry='10' fill='%23ffffff' opacity='0.45'/%3E%3Cellipse cx='60' cy='42' rx='4.5' ry='10' fill='%23ffffff' opacity='0.45'/%3E%3C/g%3E%3Cg transform='translate(130, 130) scale(0.36)'%3E%3Cellipse cx='20' cy='75' rx='18' ry='12' fill='%23e0115f' transform='rotate(-15 20 75)'/%3E%3Cellipse cx='80' cy='75' rx='18' ry='12' fill='%23e0115f' transform='rotate(15 80 75)'/%3E%3Cellipse cx='12' cy='48' rx='10' ry='14' fill='%23f78fb3' transform='rotate(-20 12 48)'/%3E%3Cellipse cx='88' cy='48' rx='10' ry='14' fill='%23f78fb3' transform='rotate(20 88 48)'/%3E%3Ccircle cx='50' cy='50' r='38' fill='%23f78fb3'/%3E%3Cellipse cx='40' cy='42' rx='4.5' ry='10' fill='%23ffffff' opacity='0.45'/%3E%3Cellipse cx='60' cy='42' rx='4.5' ry='10' fill='%23ffffff' opacity='0.45'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+      linear-gradient(to bottom, #fef0f5 0%, #fde2ec 50%, #f8d7e3 100%) !important;
+    background-repeat: repeat !important;
+    background-size: 220px 220px, auto !important;
+    background-position: top left !important;
+    border-right-color: var(--kirby-light-border) !important;
+  }
+
+  /* Sidebar history items */
+  #stage-slideover-sidebar a,
+  #stage-slideover-sidebar button,
+  [data-testid="sidebar"] a,
+  [data-testid="sidebar"] button,
+  aside a,
+  aside button {
+    transition: background-color .15s ease, box-shadow .15s ease, transform .15s ease !important;
+  }
+
+  html:not(.dark) #stage-slideover-sidebar a:hover,
+  html:not(.dark) #stage-slideover-sidebar button:hover,
+  html:not(.dark) [data-testid="sidebar"] a:hover,
+  html:not(.dark) [data-testid="sidebar"] button:hover,
+  html:not(.dark) aside a:hover,
+  html:not(.dark) aside button:hover {
+    background-color: rgba(248, 165, 194, 0.35) !important;
+    border-radius: 10px !important;
+  }
+
+  /* User message bubble (Light Mode: Changed opacity='0.22' for a softer look) */
+  html:not(.dark) [data-message-author-role="user"] .user-message-bubble-color,
+  html:not(.dark) [data-turn="user"] .user-message-bubble-color {
+    background-color: #fde2ec !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg opacity='0.22'%3E%3C!-- Feet --%3E%3Cellipse cx='30' cy='72' rx='14' ry='10' fill='%23c20049' transform='rotate(-10 30 72)'/%3E%3Cellipse cx='70' cy='68' rx='14' ry='10' fill='%23e0115f' transform='rotate(15 70 68)'/%3E%3C!-- Body --%3E%3Ccircle cx='48' cy='46' r='32' fill='%23f8a5c2'/%3E%3C!-- Hands --%3E%3Cellipse cx='18' cy='44' rx='9' ry='12' fill='%23f8a5c2' transform='rotate(-25 18 44)'/%3E%3Cellipse cx='76' cy='28' rx='9' ry='13' fill='%23f596b7' transform='rotate(30 76 28)'/%3E%3C!-- Blush --%3E%3Cellipse cx='28' cy='48' rx='6' ry='3.5' fill='%23f78fb3'/%3E%3Cellipse cx='66' cy='45' rx='6' ry='3.5' fill='%23f78fb3'/%3E%3C!-- Eyebrows --%3E%3Cpath d='M 30 28 L 43 35' stroke='%23221820' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M 62 33 L 50 28' stroke='%23221820' stroke-width='2.5' stroke-linecap='round'/%3E%3C!-- Eyes --%3E%3Cellipse cx='38' cy='40' rx='3.8' ry='9' fill='%23221820' transform='rotate(-5 38 40)'/%3E%3Cellipse cx='38' cy='35' rx='2' ry='4.5' fill='%23ffffff' transform='rotate(-5 38 35)'/%3E%3Cellipse cx='38' cy='44' rx='2.5' ry='3.5' fill='%230078d7' transform='rotate(-5 38 44)'/%3E%3Cellipse cx='55' cy='38' rx='3.8' ry='9' fill='%23221820' transform='rotate(5 55 38)'/%3E%3Cellipse cx='55' cy='33' rx='2' ry='4.5' fill='%23ffffff' transform='rotate(5 55 33)'/%3E%3Cellipse cx='55' cy='42' rx='2.5' ry='3.5' fill='%230078d7' transform='rotate(5 55 42)'/%3E%3C!-- Closed mouth --%3E%3Cpath d='M 41 53 Q 48 51 54 54' stroke='%23221820' stroke-width='2.2' fill='none' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 4px bottom -4px !important;
+    background-size: 65px !important;
+    color: #2c1a24 !important;
+    border: 1px solid rgba(224, 17, 95, 0.22) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 2px 8px rgba(224, 17, 95, 0.12) !important;
+    transition: box-shadow .15s ease, transform .15s ease !important;
+  }
+
+  html:not(.dark) [data-message-author-role="user"] .user-message-bubble-color:hover,
+  html:not(.dark) [data-turn="user"] .user-message-bubble-color:hover {
+    box-shadow: 0 5px 16px rgba(224, 17, 95, 0.20) !important;
+    transform: translateY(-1px) !important;
+  }
+
+  /* Composer */
+  form:has(#prompt-textarea) div:has(> #prompt-textarea) {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  /* Single outer wrapper for input field */
+  html:not(.dark) form:has(#prompt-textarea) > div {
+    background-color: transparent !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg opacity='0.22'%3E%3Ccircle cx='50' cy='50' r='38' fill='%23f8a5c2'/%3E%3Cellipse cx='40' cy='42' rx='5' ry='11' fill='%23ffffff'/%3E%3Cellipse cx='60' cy='42' rx='5' ry='11' fill='%23ffffff'/%3E%3C/g%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 60px bottom 10px !important;
+    background-size: 32px !important;
+    border: 1px solid #f8a5c2 !important;
+    border-radius: 28px !important;
+    box-shadow: 0 2px 10px rgba(224, 17, 95, 0.08) !important;
+    transition: border-color .2s ease, box-shadow .2s ease !important;
+  }
+
+  html:not(.dark) form:has(#prompt-textarea) > div:focus-within {
+    border-color: #e0115f !important;
+    box-shadow: 0 0 0 2px rgba(224, 17, 95, 0.20), 0 8px 24px rgba(224, 17, 95, 0.15) !important;
+  }
+
+  /* Code blocks base */
+  html:not(.dark) [data-message-author-role="assistant"] pre,
+  html:not(.dark) [data-message-author-role="assistant"] code[class*="language-"] {
+    background-color: #fef0f5 !important;
+    border-color: #f8a5c2 !important;
+  }
+
+  /* Selection */
+  ::selection {
+    background: #f8a5c2 !important;
+    color: #ffffff !important;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 9px !important; height: 9px !important; }
+  ::-webkit-scrollbar-track { background: transparent !important; }
+  ::-webkit-scrollbar-thumb { background: transparent !important; border-radius: 999px !important; }
+  *:hover::-webkit-scrollbar-thumb { background: #f78fb3 !important; }
+  *:hover::-webkit-scrollbar-thumb:hover { background: #e0115f !important; }
+
+  /* Wider conversation area */
+  [data-testid^="conversation-turn-"] > div,
+  [data-turn] > div {
+    max-width: 1100px !important;
+  }
+
+  /* Sidebar layout wrappers transparency */
+  #stage-slideover-sidebar, [data-testid="sidebar"], aside { isolation: isolate !important; }
+  #stage-slideover-sidebar [class*="bg-token-sidebar"], #stage-slideover-sidebar [class*="bg-token-main-surface"],
+  [data-testid="sidebar"] [class*="bg-token-sidebar"], [data-testid="sidebar"] [class*="bg-token-main-surface"],
+  aside [class*="bg-token-sidebar"], aside [class*="bg-token-main-surface"] {
+    background-color: transparent !important; background-image: none !important;
+  }
+  #stage-slideover-sidebar > div > div, #stage-slideover-sidebar > div > div > div,
+  [data-testid="sidebar"] > div > div, [data-testid="sidebar"] > div > div > div { background-color: transparent !important; }
+  html:not(.dark) nav[class*="sidebar"], html:not(.dark) nav:has(a[href="/"]) { background-color: transparent !important; }
+  html.dark nav[class*="sidebar"], html.dark nav:has(a[href="/"]) { background-color: transparent !important; }
+  #stage-slideover-sidebar header, [data-testid="sidebar"] header, aside header,
+  #stage-slideover-sidebar [class*="sticky"][class*="top-0"], [data-testid="sidebar"] [class*="sticky"][class*="top-0"], aside [class*="sticky"][class*="top-0"] {
+    background-color: transparent !important; background-image: none !important; box-shadow: none !important;
+  }
+  #stage-slideover-sidebar header > div, #stage-slideover-sidebar header > div > div,
+  [data-testid="sidebar"] header > div, [data-testid="sidebar"] header > div > div,
+  aside header > div, aside header > div > div,
+  #stage-slideover-sidebar [class*="sticky"][class*="top-0"] > div,
+  [data-testid="sidebar"] [class*="sticky"][class*="top-0"] > div,
+  aside [class*="sticky"][class*="top-0"] > div {
+    background-color: transparent !important; background-image: none !important;
+  }
+  #stage-slideover-sidebar > div > div:first-child,
+  [data-testid="sidebar"] > div > div:first-child,
+  aside > div > div:first-child {
+    background-color: transparent !important; background-image: none !important;
+  }
+  #stage-slideover-sidebar header [class*="bg-token-"], [data-testid="sidebar"] header [class*="bg-token-"], aside header [class*="bg-token-"],
+  #stage-slideover-sidebar [class*="sticky"][class*="top-0"] [class*="bg-token-"], [data-testid="sidebar"] [class*="sticky"][class*="top-0"] [class*="bg-token-"],
+  aside [class*="sticky"][class*="top-0"] [class*="bg-token-"] {
+    background-color: transparent !important; background-image: none !important;
+  }
+  html:not(.dark) #stage-slideover-sidebar header button:hover, html:not(.dark) [data-testid="sidebar"] header button:hover,
+  html:not(.dark) aside header button:hover, html:not(.dark) #stage-slideover-sidebar header a:hover,
+  html:not(.dark) [data-testid="sidebar"] header a:hover, html:not(.dark) aside header a:hover {
+    background-color: rgba(248, 165, 194, 0.35) !important;
+  }
+  html.dark #stage-slideover-sidebar header button:hover, html.dark [data-testid="sidebar"] header button:hover,
+  html.dark aside header button:hover, html.dark #stage-slideover-sidebar header a:hover,
+  html.dark [data-testid="sidebar"] header a:hover, html.dark aside header a:hover {
+    background-color: rgba(248, 165, 194, 0.15) !important;
+  }
+
+  /* ======================== DARK MODE ======================== */
+  html.dark, html.dark body {
+    background-color: #1e131d !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg opacity='0.12'%3E%3Cellipse cx='20' cy='75' rx='18' ry='12' fill='%23e0115f' transform='rotate(-15 20 75)'/%3E%3Cellipse cx='80' cy='75' rx='18' ry='12' fill='%23e0115f' transform='rotate(15 80 75)'/%3E%3Cellipse cx='12' cy='48' rx='10' ry='14' fill='%23f8a5c2' transform='rotate(-20 12 48)'/%3E%3Cellipse cx='88' cy='48' rx='10' ry='14' fill='%23f8a5c2' transform='rotate(20 88 48)'/%3E%3Ccircle cx='50' cy='50' r='38' fill='%23f8a5c2'/%3E%3Cellipse cx='28' cy='48' rx='10' ry='5' fill='%23f78fb3'/%3E%3Cellipse cx='72' cy='48' rx='10' ry='5' fill='%23f78fb3'/%3E%3Cellipse cx='40' cy='42' rx='5' ry='11' fill='%233a2337'/%3E%3Cellipse cx='40' cy='37' rx='2.5' ry='5' fill='%23fde2ec'/%3E%3Cellipse cx='40' cy='48' rx='3.5' ry='4' fill='%23e0115f'/%3E%3Cellipse cx='60' cy='42' rx='5' ry='11' fill='%233a2337'/%3E%3Cellipse cx='60' cy='37' rx='2.5' ry='5' fill='%23fde2ec'/%3E%3Cellipse cx='60' cy='48' rx='3.5' ry='4' fill='%23e0115f'/%3E%3Cpath d='M46 58 Q50 62 54 58' stroke='%233a2337' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: 380px !important;
+    background-attachment: fixed !important;
+    color-scheme: dark !important;
+  }
+
+  html.dark main { background: transparent !important; }
+
+  /* Dark mode sidebar (Softened feet color: %23c83b74 applied) */
+  html.dark #stage-slideover-sidebar, html.dark #stage-slideover-sidebar > div,
+  html.dark [data-testid="sidebar"], html.dark [data-testid="sidebar"] > div,
+  html.dark aside, html.dark aside > div {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg opacity='0.20'%3E%3Cg transform='translate(20, 20) scale(0.45)'%3E%3C!-- Softened pink feet --%3E%3Cellipse cx='20' cy='75' rx='18' ry='12' fill='%23c83b74' transform='rotate(-15 20 75)'/%3E%3Cellipse cx='80' cy='75' rx='18' ry='12' fill='%23c83b74' transform='rotate(15 80 75)'/%3E%3C!-- Body and hands --%3E%3Cellipse cx='12' cy='48' rx='10' ry='14' fill='%23f8a5c2' transform='rotate(-20 12 48)'/%3E%3Cellipse cx='88' cy='48' rx='10' ry='14' fill='%23f8a5c2' transform='rotate(20 88 48)'/%3E%3Ccircle cx='50' cy='50' r='38' fill='%23f8a5c2'/%3E%3C!-- Transparent eyes --%3E%3Cellipse cx='40' cy='42' rx='4.5' ry='10' fill='%231e131d' opacity='0.35'/%3E%3Cellipse cx='60' cy='42' rx='4.5' ry='10' fill='%231e131d' opacity='0.35'/%3E%3C/g%3E%3Cg transform='translate(130, 130) scale(0.36)'%3E%3C!-- Softened pink feet --%3E%3Cellipse cx='20' cy='75' rx='18' ry='12' fill='%23c83b74' transform='rotate(-15 20 75)'/%3E%3Cellipse cx='80' cy='75' rx='18' ry='12' fill='%23c83b74' transform='rotate(15 80 75)'/%3E%3C!-- Body and hands --%3E%3Cellipse cx='12' cy='48' rx='10' ry='14' fill='%23f8a5c2' transform='rotate(-20 12 48)'/%3E%3Cellipse cx='88' cy='48' rx='10' ry='14' fill='%23f8a5c2' transform='rotate(20 88 48)'/%3E%3Ccircle cx='50' cy='50' r='38' fill='%23f8a5c2'/%3E%3C!-- Transparent eyes --%3E%3Cellipse cx='40' cy='42' rx='4.5' ry='10' fill='%231e131d' opacity='0.35'/%3E%3Cellipse cx='60' cy='42' rx='4.5' ry='10' fill='%231e131d' opacity='0.35'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+      linear-gradient(to bottom, #2b1a29 0%, #1e131d 50%, #2b1a29 100%) !important;
+    background-repeat: repeat !important;
+    background-size: 220px 220px, auto !important;
+    background-position: top left !important;
+    border-right: 1px solid #4a2d46 !important;
+  }
+
+  html.dark #stage-slideover-sidebar a:hover, html.dark #stage-slideover-sidebar button:hover,
+  html.dark [data-testid="sidebar"] a:hover, html.dark [data-testid="sidebar"] button:hover,
+  html.dark aside a:hover, html.dark aside button:hover {
+    background-color: rgba(248, 165, 194, 0.15) !important;
+    border-radius: 10px !important;
+  }
+
+  /* User message bubble (Dark Mode: Changed opacity='0.22' for a softer look) */
+  html.dark [data-message-author-role="user"] .user-message-bubble-color,
+  html.dark [data-turn="user"] .user-message-bubble-color {
+    background-color: #3a2337 !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg opacity='0.22'%3E%3C!-- Feet --%3E%3Cellipse cx='30' cy='72' rx='14' ry='10' fill='%23c20049' transform='rotate(-10 30 72)'/%3E%3Cellipse cx='70' cy='68' rx='14' ry='10' fill='%23e0115f' transform='rotate(15 70 68)'/%3E%3C!-- Body --%3E%3Ccircle cx='48' cy='46' r='32' fill='%23f8a5c2'/%3E%3C!-- Hands --%3E%3Cellipse cx='18' cy='44' rx='9' ry='12' fill='%23f8a5c2' transform='rotate(-25 18 44)'/%3E%3Cellipse cx='76' cy='28' rx='9' ry='13' fill='%23f596b7' transform='rotate(30 76 28)'/%3E%3C!-- Blush --%3E%3Cellipse cx='28' cy='48' rx='6' ry='3.5' fill='%23f78fb3'/%3E%3Cellipse cx='66' cy='45' rx='6' ry='3.5' fill='%23f78fb3'/%3E%3C!-- Eyebrows --%3E%3Cpath d='M 30 28 L 43 35' stroke='%233a2337' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M 62 33 L 50 28' stroke='%233a2337' stroke-width='2.5' stroke-linecap='round'/%3E%3C!-- Eyes --%3E%3Cellipse cx='38' cy='40' rx='3.8' ry='9' fill='%233a2337' transform='rotate(-5 38 40)'/%3E%3Cellipse cx='38' cy='35' rx='2' ry='4.5' fill='%23ffffff' transform='rotate(-5 38 35)'/%3E%3Cellipse cx='38' cy='44' rx='2.5' ry='3.5' fill='%230078d7' transform='rotate(-5 38 44)'/%3E%3Cellipse cx='55' cy='38' rx='3.8' ry='9' fill='%233a2337' transform='rotate(5 55 38)'/%3E%3Cellipse cx='55' cy='33' rx='2' ry='4.5' fill='%23ffffff' transform='rotate(5 55 33)'/%3E%3Cellipse cx='55' cy='42' rx='2.5' ry='3.5' fill='%230078d7' transform='rotate(5 55 42)'/%3E%3C!-- Closed mouth --%3E%3Cpath d='M 41 53 Q 48 51 54 54' stroke='%233a2337' stroke-width='2.2' fill='none' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 4px bottom -4px !important;
+    background-size: 65px !important;
+    color: #fde2ec !important;
+    border: 1.5px solid #5e3358 !important;
+    border-radius: 18px !important;
+    box-shadow: 0 2px 12px rgba(248, 165, 194, 0.18) !important;
+  }
+
+  html.dark [data-message-author-role="user"] .user-message-bubble-color:hover,
+  html.dark [data-turn="user"] .user-message-bubble-color:hover {
+    box-shadow: 0 5px 26px rgba(248, 165, 194, 0.28) !important;
+  }
+
+  html.dark [data-message-author-role="assistant"],
+  html.dark [data-message-author-role="assistant"] .markdown {
+    color: #fde2ec !important;
+  }
+
+  /* Dark mode input field */
+  html.dark form:has(#prompt-textarea) > div {
+    background-color: transparent !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg opacity='0.28'%3E%3Ccircle cx='50' cy='50' r='38' fill='%23f8a5c2'/%3E%3Cellipse cx='40' cy='42' rx='5' ry='11' fill='%233a2337'/%3E%3Cellipse cx='40' cy='37' rx='2.5' ry='5' fill='%23fde2ec'/%3E%3Cellipse cx='60' cy='42' rx='5' ry='11' fill='%233a2337'/%3E%3Cellipse cx='60' cy='37' rx='2.5' ry='5' fill='%23fde2ec'/%3E%3C/g%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 60px bottom 10px !important;
+    background-size: 32px !important;
+    border: 1px solid #4a2d46 !important;
+    border-radius: 28px !important;
+    transition: border-color .2s ease, box-shadow .25s ease !important;
+  }
+
+  html.dark form:has(#prompt-textarea) > div:focus-within {
+    border-color: #f8a5c2 !important;
+    box-shadow: 0 0 8px #f8a5c2, 0 0 22px rgba(248, 165, 194, 0.50), inset 0 0 10px rgba(248, 165, 194, 0.15) !important;
+  }
+
+  html.dark #prompt-textarea { color: #fde2ec !important; }
+  html.dark #prompt-textarea p[data-placeholder]::before,
+  html.dark #prompt-textarea[data-placeholder]::before { color: #b881a6 !important; }
+
+  html.dark pre, html.dark [data-message-author-role="assistant"] pre {
+    background-color: #2b1a29 !important;
+    border-color: #4a2d46 !important;
+  }
+  html.dark code { background-color: #3a2337 !important; }
+  html.dark ::selection { background: #5e3358 !important; color: #fff !important; }
+  html.dark *:hover::-webkit-scrollbar-thumb { background: #4a2d46 !important; box-shadow: 0 0 8px rgba(248, 165, 194, 0.26) !important; }
+  html.dark *:hover::-webkit-scrollbar-thumb:hover { background: #5e3358 !important; box-shadow: 0 0 12px rgba(248, 165, 194, 0.40) !important; }
+  html.dark #stage-slideover-sidebar > div, html.dark [data-testid="sidebar"] > div, html.dark aside > div { background-color: transparent !important; }
+
+  @media (prefers-color-scheme: dark) { html:not(.light) body { background-color: #1e131d !important; } }
+}
+
+/* =========================================================
+   Code block edge-bleed & double-layer fix
+   ========================================================= */
+@-moz-document domain("chatgpt.com"), domain("chat.openai.com") {
+  html:not(.dark) [data-message-author-role="assistant"] .markdown > div:has(pre),
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="contain-inline-size"] {
+    background: transparent !important; background-color: transparent !important; border: none !important; box-shadow: none !important;
+  }
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) {
+    background-color: #fef0f5 !important; border: 1px solid #f8a5c2 !important; border-radius: 12px !important; overflow: hidden !important; box-shadow: none !important;
+  }
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) > div:first-child:not(:has(pre)) {
+    background-color: #fde2ec !important; border-bottom: 1px solid #f8a5c2 !important; border-top-left-radius: 11px !important; border-top-right-radius: 11px !important;
+  }
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) pre,
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) code {
+    background-color: transparent !important; border: none !important;
+  }
+
+  /* Dark Mode */
+  html.dark [data-message-author-role="assistant"] .markdown > div:has(pre),
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="contain-inline-size"] {
+    background: transparent !important; background-color: transparent !important; border: none !important; box-shadow: none !important;
+  }
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) {
+    background-color: #2b1a29 !important; border: 1px solid #4a2d46 !important; border-radius: 12px !important; overflow: hidden !important; box-shadow: none !important;
+  }
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) > div:first-child:not(:has(pre)) {
+    background-color: #3a2337 !important; border-bottom: 1px solid #4a2d46 !important; border-top-left-radius: 11px !important; border-top-right-radius: 11px !important;
+  }
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) pre,
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) code {
+    background-color: transparent !important; border: none !important;
+  }
+}
