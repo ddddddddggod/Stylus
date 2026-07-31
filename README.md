@@ -58,7 +58,7 @@ Dark mode is under development.
 
 ### Claude
 26.07.30. released
-  - Miffy theme added
+  - Brown Miffy theme
     
 | Light | Dark |
 |-------|------|
