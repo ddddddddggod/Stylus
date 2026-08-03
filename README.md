@@ -50,6 +50,33 @@
 |-------|------|
 | <img src="pic/chatgpt_kirby_light.png" width="400"> | <img src="pic/chatgpt_kirby_dark.png" width="400"> |
 
+- Ganadi theme released (26.08.03.)
+
+<table>
+  <thead>
+    <!-- 1번째 줄: 2칸으로 합침 (Light / Dark) -->
+    <tr>
+      <th colspan="2" align="center">Light</th>
+      <th colspan="2" align="center">Dark</th>
+    </tr>
+    <!-- 2번째 줄: 4칸으로 나눔 (home / chat / home / chat) -->
+    <tr>
+      <td align="center">home</td>
+      <td align="center">chat</td>
+      <td align="center">home</td>
+      <td align="center">chat</td>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- 3번째 줄: 이미지 4개 -->
+    <tr>
+      <td align="center"><img src="pic/chatgpt_ganadi_light_home.png" width="200"></td>
+      <td align="center"><img src="pic/chatgpt_ganadi_light_chat.png" width="200"></td>
+      <td align="center"><img src="pic/chatgpt_ganadi_dark_home.png" width="200"></td>
+      <td align="center"><img src="pic/chatgpt_ganadi_dark_chat.png" width="200"></td>
+    </tr>
+  </tbody>
+</table>
 ---
 
 ### Gemini
