@@ -1,8 +1,8 @@
 /* ==UserStyle==
-@name           ChatGPT Perfect Floating Ganadi Theme
+@name           ChatGPT Perfect Floating Ganadi Theme (Clean Code Block - Fixed)
 @namespace      https://chatgpt.com
-@version        28.4.0
-@description    Ganadi Theme with Notebook Sidebar and Binder Holes
+@version        28.9.8
+@description    Ganadi Theme with flawless single-box code blocks & beige tone fixes.
 @author         M.R. Lee
 ==/UserStyle== */
 
@@ -20,10 +20,41 @@
     --ganadi-sidebar-hover: #e6dcd0;
     --ganadi-sidebar-selected: #ddd2c5;
     --ganadi-sidebar-edge: #d3c7ba;
+    
+    /* 텍스트 하이라이트 색상 */
+    --ganadi-highlight-bg: #f3e5c8;
+    --ganadi-highlight-color: #222222;
   }
 
   /* =========================================================
-     1. 메인 배경
+     0. 텍스트 하이라이트 & 스크롤바
+     ========================================================= */
+
+  ::selection {
+    background-color: var(--ganadi-highlight-bg) !important;
+    color: var(--ganadi-highlight-color) !important;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent !important;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(180, 165, 150, 0.4) !important;
+    border-radius: 4px !important;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(150, 135, 120, 0.6) !important;
+  }
+
+  /* =========================================================
+     1. 메인 배경 (라이트 모드)
      ========================================================= */
 
   html:not(.dark) body,
@@ -38,38 +69,66 @@
   }
 
   /* =========================================================
-     2. 사이드바
-     - 진한 베이지 노트 배경
-     - 줄노트 선
-     - 세로 여백선
-     - 왼쪽 홀더 구멍
-     - 계정 이름 위 빼꼼 가나디
+     1-1. 새 채팅 화면 전용 가나디 워터마크
+     ========================================================= */
+
+  html:not(.dark) main:not(:has([data-message-author-role]))::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 38% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 280px !important;
+    height: 280px !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
+    opacity: 0.22 !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 130'%3E%3Cg fill='%23ffffff' stroke='%23222222' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M35 17 C17 12 5 29 13 42 C18 49 25 46 25 37 C25 64 28 86 45 91 C56 94 74 94 85 91 C102 86 105 64 105 37 C105 46 112 49 117 42 C125 29 113 12 95 17 C80 13 50 13 35 17 Z'/%3E%3Cpath d='M31 91 C32 85 39 82 46 84 C52 86 55 91 53 97 C51 103 46 106 39 105 C33 105 29 101 30 96 C30 94 30 92 31 91 Z'/%3E%3Cpath d='M77 91 C78 85 83 83 91 84 C98 85 102 90 101 96 C100 102 95 105 89 105 C82 105 77 102 76 97 C76 95 76 93 77 91 Z'/%3E%3Ccircle cx='44' cy='46' r='4' fill='%23222222' stroke='none'/%3E%3Ccircle cx='86' cy='46' r='4' fill='%23222222' stroke='none'/%3E%3Ccircle cx='65' cy='71' r='2' fill='%23222222' stroke='none'/%3E%3Cpath d='M58 77 C58 81 65 81 65 77 C65 81 72 81 72 77' fill='none' stroke-width='3.5'/%3E%3C/g%3E%3C/svg%3E") !important;
+  }
+
+  html.dark main:not(:has([data-message-author-role]))::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 38% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 280px !important;
+    height: 280px !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
+    opacity: 0.28 !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 130'%3E%3Cg fill='%23ffffff' stroke='%23222222' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M35 17 C17 12 5 29 13 42 C18 49 25 46 25 37 C25 64 28 86 45 91 C56 94 74 94 85 91 C102 86 105 64 105 37 C105 46 112 49 117 42 C125 29 113 12 95 17 C80 13 50 13 35 17 Z'/%3E%3Cpath d='M31 91 C32 85 39 82 46 84 C52 86 55 91 53 97 C51 103 46 106 39 105 C33 105 29 101 30 96 C30 94 30 92 31 91 Z'/%3E%3Cpath d='M77 91 C78 85 83 83 91 84 C98 85 102 90 101 96 C100 102 95 105 89 105 C82 105 77 102 76 97 C76 95 76 93 77 91 Z'/%3E%3Ccircle cx='44' cy='46' r='4' fill='%23222222' stroke='none'/%3E%3Ccircle cx='86' cy='46' r='4' fill='%23222222' stroke='none'/%3E%3Ccircle cx='65' cy='71' r='2' fill='%23222222' stroke='none'/%3E%3Cpath d='M58 77 C58 81 65 81 65 77 C65 81 72 81 72 77' fill='none' stroke-width='3.5'/%3E%3C/g%3E%3C/svg%3E") !important;
+  }
+
+  /* =========================================================
+     2. 사이드바 바탕 및 노트 질감 (라이트 모드)
      ========================================================= */
 
   html:not(.dark) #stage-slideover-sidebar,
   html:not(.dark) [data-testid="sidebar"],
   html:not(.dark) aside {
+    position: relative !important;
     background-color: var(--ganadi-sidebar-bg-1) !important;
 
     background-image:
-      /* 가나디 빼꼼 */
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='92' height='62' viewBox='0 0 120 80'%3E%3Cg fill='%23fffdfa' stroke='%23222222' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 80 C20 53 25 39 35 32 C30 22 35 13 43 16 C49 18 53 24 55 28 C58 27 62 27 65 28 C67 23 71 18 77 16 C85 14 90 22 85 32 C95 39 100 53 100 80 Z'/%3E%3Ccircle cx='49' cy='48' r='3' fill='%23222222' stroke='none'/%3E%3Ccircle cx='71' cy='48' r='3' fill='%23222222' stroke='none'/%3E%3Ccircle cx='60' cy='58' r='1.7' fill='%23222222' stroke='none'/%3E%3Cpath d='M55 62 C55 65 60 65 60 62 C60 65 65 65 65 62' fill='none' stroke-width='2.5'/%3E%3C/g%3E%3C/svg%3E"),
-      /* 홀더 구멍 */
       radial-gradient(circle at center, rgba(120, 106, 92, 0.28) 0 4px, rgba(247, 241, 234, 0.95) 4.5px 8px, transparent 8.5px),
-      /* 세로 여백선 */
       linear-gradient(
         to right,
         transparent 0 26px,
         var(--ganadi-sidebar-margin) 26px 28px,
         transparent 28px 100%
       ),
-      /* 줄노트 가로선 */
       repeating-linear-gradient(
         to bottom,
         transparent 0 27px,
         var(--ganadi-sidebar-line) 27px 28px
       ),
-      /* 종이 바탕 */
       linear-gradient(
         to bottom,
         var(--ganadi-sidebar-bg-1) 0%,
@@ -77,21 +136,18 @@
       ) !important;
 
     background-repeat:
-      no-repeat,
       repeat-y,
       no-repeat,
       repeat,
       no-repeat !important;
 
     background-position:
-      center calc(100% - 118px),
       7px 18px,
       left top,
       left top,
       left top !important;
 
     background-size:
-      76px auto,
       20px 56px,
       100% 100%,
       100% 28px,
@@ -102,7 +158,46 @@
   }
 
   /* =========================================================
-     3. 사이드바 내부 기본 배경 제거
+     2-1. 가나디 캐릭터 (사이드바)
+     ========================================================= */
+
+  aside::after,
+  [data-testid="sidebar"]::after,
+  #stage-slideover-sidebar::after {
+    content: '' !important;
+    position: absolute !important;
+    display: block !important;
+    width: 76px !important;
+    height: 52px !important;
+    
+    bottom: 65px !important; 
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    
+    z-index: 1 !important; 
+    pointer-events: none !important;
+
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center bottom !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='92' height='62' viewBox='0 0 120 80'%3E%3Cg fill='%23fffdfa' stroke='%23222222' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 80 C20 53 25 39 35 32 C30 22 35 13 43 16 C49 18 53 24 55 28 C58 27 62 27 65 28 C67 23 71 18 77 16 C85 14 90 22 85 32 C95 39 100 53 100 80 Z'/%3E%3Ccircle cx='49' cy='48' r='3' fill='%23222222' stroke='none'/%3E%3Ccircle cx='71' cy='48' r='3' fill='%23222222' stroke='none'/%3E%3Ccircle cx='60' cy='58' r='1.7' fill='%23222222' stroke='none'/%3E%3Cpath d='M55 62 C55 65 60 65 60 62 C60 65 65 65 65 62' fill='none' stroke-width='2.5'/%3E%3C/g%3E%3C/svg%3E") !important;
+  }
+
+  aside > div,
+  [data-testid="sidebar"] > div,
+  #stage-slideover-sidebar > div {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  aside nav,
+  [data-testid="sidebar"] nav,
+  #stage-slideover-sidebar nav {
+    padding-bottom: 70px !important;
+  }
+
+  /* =========================================================
+     3. 사이드바 
      ========================================================= */
 
   #stage-slideover-sidebar,
@@ -114,11 +209,9 @@
   #stage-slideover-sidebar > div,
   #stage-slideover-sidebar > div > div,
   #stage-slideover-sidebar > div > div > div,
-
   [data-testid="sidebar"] > div,
   [data-testid="sidebar"] > div > div,
   [data-testid="sidebar"] > div > div > div,
-
   aside > div,
   aside > div > div,
   aside > div > div > div {
@@ -128,10 +221,8 @@
 
   #stage-slideover-sidebar [class*="bg-token-sidebar"],
   #stage-slideover-sidebar [class*="bg-token-main-surface"],
-
   [data-testid="sidebar"] [class*="bg-token-sidebar"],
   [data-testid="sidebar"] [class*="bg-token-main-surface"],
-
   aside [class*="bg-token-sidebar"],
   aside [class*="bg-token-main-surface"] {
     background-color: transparent !important;
@@ -144,14 +235,9 @@
     background-image: none !important;
   }
 
-  /* =========================================================
-     4. 상단 sticky/header 투명화
-     ========================================================= */
-
   #stage-slideover-sidebar header,
   [data-testid="sidebar"] header,
   aside header,
-
   #stage-slideover-sidebar [class*="sticky"][class*="top-0"],
   [data-testid="sidebar"] [class*="sticky"][class*="top-0"],
   aside [class*="sticky"][class*="top-0"] {
@@ -160,97 +246,69 @@
     box-shadow: none !important;
   }
 
-  #stage-slideover-sidebar header > div,
-  #stage-slideover-sidebar header > div > div,
-
-  [data-testid="sidebar"] header > div,
-  [data-testid="sidebar"] header > div > div,
-
-  aside header > div,
-  aside header > div > div,
-
-  #stage-slideover-sidebar [class*="sticky"][class*="top-0"] > div,
-  [data-testid="sidebar"] [class*="sticky"][class*="top-0"] > div,
-  aside [class*="sticky"][class*="top-0"] > div {
-    background-color: transparent !important;
-    background-image: none !important;
-  }
-
   /* =========================================================
-     5. 사이드바 버튼/항목
+     4. 사이드바 버튼/항목
      ========================================================= */
 
   #stage-slideover-sidebar a,
   #stage-slideover-sidebar button,
-
   [data-testid="sidebar"] a,
   [data-testid="sidebar"] button,
-
   aside a,
   aside button {
     border-radius: 12px !important;
-    transition:
-      background-color .15s ease,
-      transform .15s ease,
-      box-shadow .15s ease !important;
+    transition: background-color .15s ease, transform .15s ease, box-shadow .15s ease !important;
   }
 
   html:not(.dark) #stage-slideover-sidebar a:hover,
   html:not(.dark) #stage-slideover-sidebar button:hover,
-
   html:not(.dark) [data-testid="sidebar"] a:hover,
   html:not(.dark) [data-testid="sidebar"] button:hover,
-
   html:not(.dark) aside a:hover,
   html:not(.dark) aside button:hover {
     background-color: var(--ganadi-sidebar-hover) !important;
   }
 
-  /* 선택된 항목 */
-  html:not(.dark)
-  #stage-slideover-sidebar [aria-current="page"],
-
-  html:not(.dark)
-  [data-testid="sidebar"] [aria-current="page"],
-
-  html:not(.dark)
-  aside [aria-current="page"],
-
-  html:not(.dark)
-  #stage-slideover-sidebar [class*="bg-token-sidebar-surface-secondary"],
-
-  html:not(.dark)
-  [data-testid="sidebar"] [class*="bg-token-sidebar-surface-secondary"],
-
-  html:not(.dark)
-  aside [class*="bg-token-sidebar-surface-secondary"] {
+  html:not(.dark) #stage-slideover-sidebar [aria-current="page"],
+  html:not(.dark) [data-testid="sidebar"] [aria-current="page"],
+  html:not(.dark) aside [aria-current="page"],
+  html:not(.dark) #stage-slideover-sidebar [class*="bg-token-sidebar-surface-secondary"],
+  html:not(.dark) [data-testid="sidebar"] [class*="bg-token-sidebar-surface-secondary"],
+  html:not(.dark) aside [class*="bg-token-sidebar-surface-secondary"] {
     background-color: var(--ganadi-sidebar-selected) !important;
     border-radius: 13px !important;
     box-shadow: inset 0 0 0 1px rgba(34, 34, 34, 0.05) !important;
   }
 
-  /* 가나디가 계정 영역 위로 보이도록 아래 여백 */
-  #stage-slideover-sidebar nav,
-  [data-testid="sidebar"] nav,
-  aside nav,
+  /* =========================================================
+     5. 채팅 입력창 & 포커스 기능
+     ========================================================= */
 
-  #stage-slideover-sidebar [class*="overflow-y"],
-  [data-testid="sidebar"] [class*="overflow-y"],
-  aside [class*="overflow-y"] {
-    padding-bottom: 150px !important;
+  form:has(#prompt-textarea) div:has(> #prompt-textarea) {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  html:not(.dark) form:has(#prompt-textarea) > div {
+    background-color: #ffffff !important;
+    border: 2px solid var(--ganadi-line) !important;
+    border-radius: 24px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04) !important;
+    transition: border-color .2s ease, box-shadow .25s ease !important;
+  }
+
+  html:not(.dark) form:has(#prompt-textarea) > div:focus-within {
+    border-color: #000000 !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.3) !important;
   }
 
   /* =========================================================
-     6. 유저 말풍선
+     6. 대화 말풍선 및 가나디 캐릭터 (라이트 모드)
      ========================================================= */
 
-  html:not(.dark)
-  [data-message-author-role="user"]
-  .user-message-bubble-color,
-
-  html:not(.dark)
-  [data-turn="user"]
-  .user-message-bubble-color {
+  html:not(.dark) [data-message-author-role="user"] .user-message-bubble-color,
+  html:not(.dark) [data-turn="user"] .user-message-bubble-color {
     position: relative !important;
     background-color: var(--ganadi-bubble-bg) !important;
     color: var(--ganadi-line) !important;
@@ -261,48 +319,25 @@
     margin-right: 15px !important;
   }
 
-  /* =========================================================
-     7. 유저 가나디
-     ========================================================= */
-
-  html:not(.dark)
-  [data-message-author-role="user"]
-  .user-message-bubble-color::after,
-
-  html:not(.dark)
-  [data-turn="user"]
-  .user-message-bubble-color::after {
+  html:not(.dark) [data-message-author-role="user"] .user-message-bubble-color::after,
+  html:not(.dark) [data-turn="user"] .user-message-bubble-color::after {
     content: '' !important;
     position: absolute !important;
     display: block !important;
-
     width: 76px !important;
     height: 76px !important;
-
-    top: auto !important;
     bottom: 100% !important;
-
     margin-bottom: -21px !important;
     right: 8px !important;
-
     z-index: 10 !important;
-
     background-size: contain !important;
     background-repeat: no-repeat !important;
     background-position: center bottom !important;
     pointer-events: none !important;
-
-    background-image:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 130'%3E%3Cg fill='%23ffffff' stroke='%23222222' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M35 17 C17 12 5 29 13 42 C18 49 25 46 25 37 C25 64 28 86 45 91 C56 94 74 94 85 91 C102 86 105 64 105 37 C105 46 112 49 117 42 C125 29 113 12 95 17 C80 13 50 13 35 17 Z'/%3E%3Cpath d='M31 91 C32 85 39 82 46 84 C52 86 55 91 53 97 C51 103 46 106 39 105 C33 105 29 101 30 96 C30 94 30 92 31 91 Z'/%3E%3Cpath d='M77 91 C78 85 84 83 91 84 C98 85 102 90 101 96 C100 102 95 105 89 105 C82 105 77 102 76 97 C76 95 76 93 77 91 Z'/%3E%3Ccircle cx='44' cy='46' r='4' fill='%23222222' stroke='none'/%3E%3Ccircle cx='86' cy='46' r='4' fill='%23222222' stroke='none'/%3E%3Ccircle cx='65' cy='71' r='2' fill='%23222222' stroke='none'/%3E%3Cpath d='M58 77 C58 81 65 81 65 77 C65 81 72 81 72 77' fill='none' stroke-width='3.5'/%3E%3C/g%3E%3C/svg%3E") !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 130'%3E%3Cg fill='%23ffffff' stroke='%23222222' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M35 17 C17 12 5 29 13 42 C18 49 25 46 25 37 C25 64 28 86 45 91 C56 94 74 94 85 91 C102 86 105 64 105 37 C105 46 112 49 117 42 C125 29 113 12 95 17 C80 13 50 13 35 17 Z'/%3E%3Cpath d='M31 91 C32 85 39 82 46 84 C52 86 55 91 53 97 C51 103 46 106 39 105 C33 105 29 101 30 96 C30 94 30 92 31 91 Z'/%3E%3Cpath d='M77 91 C78 85 83 83 91 84 C98 85 102 90 101 96 C100 102 95 105 89 105 C82 105 77 102 76 97 C76 95 76 93 77 91 Z'/%3E%3Ccircle cx='44' cy='46' r='4' fill='%23222222' stroke='none'/%3E%3Ccircle cx='86' cy='46' r='4' fill='%23222222' stroke='none'/%3E%3Ccircle cx='65' cy='71' r='2' fill='%23222222' stroke='none'/%3E%3Cpath d='M58 77 C58 81 65 81 65 77 C65 81 72 81 72 77' fill='none' stroke-width='3.5'/%3E%3C/g%3E%3C/svg%3E") !important;
   }
 
-  /* =========================================================
-     8. 답변 말풍선
-     ========================================================= */
-
-  html:not(.dark)
-  [data-message-author-role="assistant"]
-  [class*="markdown"] {
+  html:not(.dark) [data-message-author-role="assistant"] [class*="markdown"] {
     position: relative !important;
     background-color: #ffffff !important;
     border: 2.5px solid var(--ganadi-line) !important;
@@ -313,35 +348,226 @@
     overflow: visible !important;
   }
 
-  /* =========================================================
-     9. 답변 가나디
-     ========================================================= */
-
-  html:not(.dark)
-  [data-message-author-role="assistant"]
-  [class*="markdown"]::before {
+  html:not(.dark) [data-message-author-role="assistant"] [class*="markdown"]::before {
     content: '' !important;
     position: absolute !important;
     display: block !important;
-
     width: 76px !important;
     height: 76px !important;
-
-    top: auto !important;
     bottom: 100% !important;
-
     margin-bottom: -21px !important;
     left: 8px !important;
-
     z-index: 10 !important;
-
     background-size: contain !important;
     background-repeat: no-repeat !important;
     background-position: center bottom !important;
     pointer-events: none !important;
-
-    background-image:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 130'%3E%3Cg fill='%23ffffff' stroke='%23222222' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M35 17 C17 12 5 29 13 42 C18 49 25 46 25 37 C25 64 28 86 45 91 C56 94 74 94 85 91 C102 86 105 64 105 37 C105 46 112 49 117 42 C125 29 113 12 95 17 C80 13 50 13 35 17 Z'/%3E%3Cpath d='M31 91 C32 85 39 82 46 84 C52 86 55 91 53 97 C51 103 46 106 39 105 C33 105 29 101 30 96 C30 94 30 92 31 91 Z'/%3E%3Cpath d='M77 91 C78 85 84 83 91 84 C98 85 102 90 101 96 C100 102 95 105 89 105 C82 105 77 102 76 97 C76 95 76 93 77 91 Z'/%3E%3Ccircle cx='44' cy='46' r='4' fill='%23222222' stroke='none'/%3E%3Ccircle cx='86' cy='46' r='4' fill='%23222222' stroke='none'/%3E%3Ccircle cx='65' cy='71' r='2' fill='%23222222' stroke='none'/%3E%3Cpath d='M58 77 C58 81 65 81 65 77 C65 81 72 81 72 77' fill='none' stroke-width='3.5'/%3E%3C/g%3E%3C/svg%3E") !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 130'%3E%3Cg fill='%23ffffff' stroke='%23222222' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M35 17 C17 12 5 29 13 42 C18 49 25 46 25 37 C25 64 28 86 45 91 C56 94 74 94 85 91 C102 86 105 64 105 37 C105 46 112 49 117 42 C125 29 113 12 95 17 C80 13 50 13 35 17 Z'/%3E%3Cpath d='M31 91 C32 85 39 82 46 84 C52 86 55 91 53 97 C51 103 46 106 39 105 C33 105 29 101 30 96 C30 94 30 92 31 91 Z'/%3E%3Cpath d='M77 91 C78 85 83 83 91 84 C98 85 102 90 101 96 C100 102 95 105 89 105 C82 105 77 102 76 97 C76 95 76 93 77 91 Z'/%3E%3Ccircle cx='44' cy='46' r='4' fill='%23222222' stroke='none'/%3E%3Ccircle cx='86' cy='46' r='4' fill='%23222222' stroke='none'/%3E%3Ccircle cx='65' cy='71' r='2' fill='%23222222' stroke='none'/%3E%3Cpath d='M58 77 C58 81 65 81 65 77 C65 81 72 81 72 77' fill='none' stroke-width='3.5'/%3E%3C/g%3E%3C/svg%3E") !important;
   }
 
+  /* =========================================================
+     7. 다크 모드 (DARK MODE) 
+     ========================================================= */
+
+  html.dark body,
+  html.dark main {
+    background-color: #1a1816 !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='%23e2d8c9'%3E%3Cpath d='M34 19 L35 23 L39 24 L35 25 L34 29 L33 25 L29 24 L33 23 Z' opacity='.15'/%3E%3Cpath d='M137 24 L138 27 L141 28 L138 29 L137 32 L136 29 L133 28 L136 27 Z' opacity='.18'/%3E%3Cpath d='M102 69 L104 72 L107 74 L104 76 L102 79 L100 76 L97 74 L100 72 Z' opacity='.2'/%3E%3Cpath d='M154 138 L155.5 140.5 L158 142 L155.5 143.5 L154 146 L152.5 143.5 L150 142 L152.5 140.5 Z' opacity='.12'/%3E%3Cpath d='M22 112 L25 110 L28 112 L31 110 L34 112 L34 115 L28 121 L22 115 Z' opacity='.16'/%3E%3Cpath d='M123 108 L125 107 L127 109 L129 107 L131 109 L131 111 L127 115 L123 111 Z' opacity='.14'/%3E%3Ccircle cx='72' cy='18' r='.8' opacity='.12'/%3E%3Ccircle cx='164' cy='52' r='.7' opacity='.1'/%3E%3Ccircle cx='54' cy='79' r='.8' opacity='.12'/%3E%3Ccircle cx='18' cy='62' r='.65' opacity='.1'/%3E%3Ccircle cx='82' cy='132' r='.8' opacity='.12'/%3E%3Ccircle cx='172' cy='165' r='.65' opacity='.1'/%3E%3Ccircle cx='65' cy='166' r='.6' opacity='.1'/%3E%3Ccircle cx='117' cy='153' r='.7' opacity='.12'/%3E%3Cpath d='M61 48 L61.7 50.3 L64 51 L61.7 51.7 L61 54 L60.3 51.7 L58 51 L60.3 50.3 Z' opacity='.15'/%3E%3Cpath d='M162 90 L162.7 92.3 L165 93 L162.7 93.7 L162 96 L161.3 93.7 L159 93 L161.3 92.3 Z' opacity='.15'/%3E%3C/g%3E%3C/svg%3E") !important;
+    background-repeat: repeat !important;
+    background-size: 180px 180px !important;
+    color: #e2d8c9 !important;
+  }
+
+  html.dark #stage-slideover-sidebar,
+  html.dark [data-testid="sidebar"],
+  html.dark aside {
+    background-color: #24201c !important;
+    background-image:
+      radial-gradient(circle at center, rgba(200, 185, 170, 0.15) 0 4px, rgba(36, 32, 28, 0.95) 4.5px 8px, transparent 8.5px),
+      linear-gradient(to right, transparent 0 26px, rgba(200, 130, 130, 0.25) 26px 28px, transparent 28px 100%),
+      repeating-linear-gradient(to bottom, transparent 0 27px, rgba(255, 255, 255, 0.04) 27px 28px),
+      linear-gradient(to bottom, #26221e 0%, #1c1a17 100%) !important;
+    background-repeat: repeat-y, no-repeat, repeat, no-repeat !important;
+    background-position: 7px 18px, left top, left top, left top !important;
+    background-size: 20px 56px, 100% 100%, 100% 28px, 100% 100% !important;
+    border-right-color: #36302a !important;
+  }
+
+  html.dark #stage-slideover-sidebar a:hover,
+  html.dark #stage-slideover-sidebar button:hover,
+  html.dark [data-testid="sidebar"] a:hover,
+  html.dark [data-testid="sidebar"] button:hover,
+  html.dark aside a:hover,
+  html.dark aside button:hover {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  html.dark #stage-slideover-sidebar [aria-current="page"],
+  html.dark [data-testid="sidebar"] [aria-current="page"],
+  html.dark aside [aria-current="page"] {
+    background-color: rgba(255, 255, 255, 0.14) !important;
+  }
+
+  html.dark ::selection {
+    background-color: #524434 !important;
+    color: #ffffff !important;
+  }
+
+  html.dark form:has(#prompt-textarea) > div {
+    background-color: #24211d !important;
+    border: 2px solid #4a4238 !important;
+    border-radius: 24px !important;
+    transition: border-color .2s ease, box-shadow .25s ease !important;
+  }
+
+  html.dark form:has(#prompt-textarea) > div:focus-within {
+    border-color: #ffffff !important;
+    box-shadow: 0 0 10px #ffffff, 0 0 22px rgba(255, 255, 255, 0.45), inset 0 0 8px rgba(255, 255, 255, 0.15) !important;
+  }
+
+  html.dark #prompt-textarea {
+    color: #f0e6d2 !important;
+  }
+
+  html.dark [data-message-author-role="user"] .user-message-bubble-color,
+  html.dark [data-turn="user"] .user-message-bubble-color {
+    position: relative !important;
+    background-color: #2e2822 !important;
+    color: #f5ebd8 !important;
+    border: 2.5px solid #f5ebd8 !important;
+    border-radius: 14px !important;
+    overflow: visible !important;
+    margin-top: 56px !important;
+    margin-right: 15px !important;
+  }
+
+  html.dark [data-message-author-role="user"] .user-message-bubble-color::after,
+  html.dark [data-turn="user"] .user-message-bubble-color::after {
+    content: '' !important;
+    position: absolute !important;
+    display: block !important;
+    width: 76px !important;
+    height: 76px !important;
+    bottom: 100% !important;
+    margin-bottom: -21px !important;
+    right: 8px !important;
+    z-index: 10 !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center bottom !important;
+    pointer-events: none !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 130'%3E%3Cg fill='%23ffffff' stroke='%23222222' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M35 17 C17 12 5 29 13 42 C18 49 25 46 25 37 C25 64 28 86 45 91 C56 94 74 94 85 91 C102 86 105 64 105 37 C105 46 112 49 117 42 C125 29 113 12 95 17 C80 13 50 13 35 17 Z'/%3E%3Cpath d='M31 91 C32 85 39 82 46 84 C52 86 55 91 53 97 C51 103 46 106 39 105 C33 105 29 101 30 96 C30 94 30 92 31 91 Z'/%3E%3Cpath d='M77 91 C78 85 83 83 91 84 C98 85 102 90 101 96 C100 102 95 105 89 105 C82 105 77 102 76 97 C76 95 76 93 77 91 Z'/%3E%3Ccircle cx='44' cy='46' r='4' fill='%23222222' stroke='none'/%3E%3Ccircle cx='86' cy='46' r='4' fill='%23222222' stroke='none'/%3E%3Ccircle cx='65' cy='71' r='2' fill='%23222222' stroke='none'/%3E%3Cpath d='M58 77 C58 81 65 81 65 77 C65 81 72 81 72 77' fill='none' stroke-width='3.5'/%3E%3C/g%3E%3C/svg%3E") !important;
+  }
+
+  html.dark [data-message-author-role="assistant"] [class*="markdown"] {
+    position: relative !important;
+    background-color: #24201b !important;
+    color: #f5ebd8 !important;
+    border: 2.5px solid #f5ebd8 !important;
+    border-radius: 14px !important;
+    padding: 16px 20px !important;
+    margin-top: 56px !important;
+    margin-left: 15px !important;
+    overflow: visible !important;
+  }
+
+  html.dark [data-message-author-role="assistant"] [class*="markdown"]::before {
+    content: '' !important;
+    position: absolute !important;
+    display: block !important;
+    width: 76px !important;
+    height: 76px !important;
+    bottom: 100% !important;
+    margin-bottom: -21px !important;
+    left: 8px !important;
+    z-index: 10 !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center bottom !important;
+    pointer-events: none !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 130'%3E%3Cg fill='%23ffffff' stroke='%23222222' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M35 17 C17 12 5 29 13 42 C18 49 25 46 25 37 C25 64 28 86 45 91 C56 94 74 94 85 91 C102 86 105 64 105 37 C105 46 112 49 117 42 C125 29 113 12 95 17 C80 13 50 13 35 17 Z'/%3E%3Cpath d='M31 91 C32 85 39 82 46 84 C52 86 55 91 53 97 C51 103 46 106 39 105 C33 105 29 101 30 96 C30 94 30 92 31 91 Z'/%3E%3Cpath d='M77 91 C78 85 83 83 91 84 C98 85 102 90 101 96 C100 102 95 105 89 105 C82 105 77 102 76 97 C76 95 76 93 77 91 Z'/%3E%3Ccircle cx='44' cy='46' r='4' fill='%23222222' stroke='none'/%3E%3Ccircle cx='86' cy='46' r='4' fill='%23222222' stroke='none'/%3E%3Ccircle cx='65' cy='71' r='2' fill='%23222222' stroke='none'/%3E%3Cpath d='M58 77 C58 81 65 81 65 77 C65 81 72 81 72 77' fill='none' stroke-width='3.5'/%3E%3C/g%3E%3C/svg%3E") !important;
+  }
+}
+
+/* =========================================================
+   8. 추가 수정사항
+   ========================================================= */
+@-moz-document domain("chatgpt.com"), domain("chat.openai.com") {
+
+  [data-message-author-role="assistant"] .markdown > div:has(pre),
+  [data-message-author-role="assistant"] .markdown div[class*="contain-inline-size"],
+  [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre),
+  [data-message-author-role="assistant"] div:has(> pre) {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre),
+  html:not(.dark) [data-message-author-role="assistant"] div:has(> pre) {
+    background-color: #f3efe6 !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+  }
+
+  html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) > div:first-child:not(:has(pre)),
+  html:not(.dark) [data-message-author-role="assistant"] div:has(> pre) > div:first-child,
+  html:not(.dark) [data-message-author-role="assistant"] div:has(> pre) button {
+    background-color: #f3efe6 !important;
+    background: #f3efe6 !important;
+    border: none !important;
+  }
+
+  html:not(.dark) [data-message-author-role="assistant"] :not(pre) > code {
+    background-color: #f3efe6 !important;
+    border: none !important;
+    color: #222222 !important;
+    border-radius: 4px !important;
+    padding: 2px 6px !important;
+  }
+
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre),
+  html.dark [data-message-author-role="assistant"] div:has(> pre) {
+    background-color: #1f1b17 !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+  }
+
+  html.dark [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) > div:first-child:not(:has(pre)),
+  html.dark [data-message-author-role="assistant"] div:has(> pre) > div:first-child,
+  html.dark [data-message-author-role="assistant"] div:has(> pre) button {
+    background-color: #1f1b17 !important;
+    background: #1f1b17 !important;
+    border: none !important;
+  }
+
+  html.dark [data-message-author-role="assistant"] :not(pre) > code {
+    background-color: #2b2621 !important;
+    border: none !important;
+    color: #f5ebd8 !important;
+    border-radius: 4px !important;
+    padding: 2px 6px !important;
+  }
+
+  [data-message-author-role="assistant"] pre,
+  [data-message-author-role="assistant"] pre code,
+  [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) pre,
+  [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) code {
+    background-color: transparent !important;
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  /* 폰트 색상 */
+  html:not(.dark) [data-message-author-role="assistant"] pre,
+  html:not(.dark) [data-message-author-role="assistant"] pre code {
+    color: #222222 !important;
+  }
+
+  html.dark [data-message-author-role="assistant"] pre,
+  html.dark [data-message-author-role="assistant"] pre code {
+    color: #f5ebd8 !important;
+  }
 }
