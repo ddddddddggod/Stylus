@@ -1,8 +1,8 @@
 /* ==UserStyle==
 @name           ChatGPT Perfect Floating Ganadi Theme (Clean Code Block - Fixed)
 @namespace      https://chatgpt.com
-@version        28.9.8
-@description    Ganadi Theme with flawless single-box code blocks & beige tone fixes.
+@version        28.9.13
+@description    Ganadi Theme with flawless single-box code blocks & fixed collapsed sidebar character position.
 @author         M.R. Lee
 ==/UserStyle== */
 
@@ -27,7 +27,7 @@
   }
 
   /* =========================================================
-     0. 텍스트 하이라이트 & 스크롤바
+     0. 텍스트 하이라이트 (Selection) & 스크롤바
      ========================================================= */
 
   ::selection {
@@ -69,7 +69,7 @@
   }
 
   /* =========================================================
-     1-1. 새 채팅 화면 전용 가나디 워터마크
+     1-1. 새 채팅 화면 전용 대형 가나디 워터마크
      ========================================================= */
 
   html:not(.dark) main:not(:has([data-message-author-role]))::after {
@@ -158,23 +158,44 @@
   }
 
   /* =========================================================
-     2-1. 가나디 캐릭터 (사이드바)
+     2-1. 가나디 캐릭터 위치 설정
      ========================================================= */
 
-  aside::after,
-  [data-testid="sidebar"]::after,
-  #stage-slideover-sidebar::after {
+  /* 펼쳐진 사이드바일 때 가나디 캐릭터 */
+  aside:not([class*="collapsed"])::after,
+  [data-testid="sidebar"]:not([class*="collapsed"])::after,
+  #stage-slideover-sidebar:not([class*="collapsed"])::after {
     content: '' !important;
     position: absolute !important;
     display: block !important;
     width: 76px !important;
     height: 52px !important;
-    
     bottom: 65px !important; 
     left: 50% !important;
     transform: translateX(-50%) !important;
-    
     z-index: 1 !important; 
+    pointer-events: none !important;
+
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center bottom !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='92' height='62' viewBox='0 0 120 80'%3E%3Cg fill='%23fffdfa' stroke='%23222222' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 80 C20 53 25 39 35 32 C30 22 35 13 43 16 C49 18 53 24 55 28 C58 27 62 27 65 28 C67 23 71 18 77 16 C85 14 90 22 85 32 C95 39 100 53 100 80 Z'/%3E%3Ccircle cx='49' cy='48' r='3' fill='%23222222' stroke='none'/%3E%3Ccircle cx='71' cy='48' r='3' fill='%23222222' stroke='none'/%3E%3Ccircle cx='60' cy='58' r='1.7' fill='%23222222' stroke='none'/%3E%3Cpath d='M55 62 C55 65 60 65 60 62 C60 65 65 65 65 62' fill='none' stroke-width='2.5'/%3E%3C/g%3E%3C/svg%3E") !important;
+  }
+
+  /* 접힌 사이드바일 때 가나디 캐릭터 (맨 아래 바닥에 고정, 프로필 뒤쪽으로 지정) */
+  aside[class*="collapsed"]::after,
+  [data-testid="sidebar"][class*="collapsed"]::after,
+  #stage-slideover-sidebar[class*="collapsed"]::after,
+  .p-2:has(> nav)::after {
+    content: '' !important;
+    position: absolute !important;
+    display: block !important;
+    width: 48px !important;
+    height: 36px !important;
+    bottom: 0px !important;  /* 바닥으로 완전히 내림 */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 0 !important;  /* z-index를 낮추어 상위 아이콘을 가리지 않음 */
     pointer-events: none !important;
 
     background-size: contain !important;
@@ -197,7 +218,7 @@
   }
 
   /* =========================================================
-     3. 사이드바 
+     3. 사이드바 내부 기본 배경 제거
      ========================================================= */
 
   #stage-slideover-sidebar,
@@ -281,7 +302,7 @@
   }
 
   /* =========================================================
-     5. 채팅 입력창 & 포커스 기능
+     5. 채팅 입력창 (Composer) & 포커스 기능
      ========================================================= */
 
   form:has(#prompt-textarea) div:has(> #prompt-textarea) {
@@ -337,7 +358,8 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 130'%3E%3Cg fill='%23ffffff' stroke='%23222222' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M35 17 C17 12 5 29 13 42 C18 49 25 46 25 37 C25 64 28 86 45 91 C56 94 74 94 85 91 C102 86 105 64 105 37 C105 46 112 49 117 42 C125 29 113 12 95 17 C80 13 50 13 35 17 Z'/%3E%3Cpath d='M31 91 C32 85 39 82 46 84 C52 86 55 91 53 97 C51 103 46 106 39 105 C33 105 29 101 30 96 C30 94 30 92 31 91 Z'/%3E%3Cpath d='M77 91 C78 85 83 83 91 84 C98 85 102 90 101 96 C100 102 95 105 89 105 C82 105 77 102 76 97 C76 95 76 93 77 91 Z'/%3E%3Ccircle cx='44' cy='46' r='4' fill='%23222222' stroke='none'/%3E%3Ccircle cx='86' cy='46' r='4' fill='%23222222' stroke='none'/%3E%3Ccircle cx='65' cy='71' r='2' fill='%23222222' stroke='none'/%3E%3Cpath d='M58 77 C58 81 65 81 65 77 C65 81 72 81 72 77' fill='none' stroke-width='3.5'/%3E%3C/g%3E%3C/svg%3E") !important;
   }
 
-  html:not(.dark) [data-message-author-role="assistant"] [class*="markdown"] {
+  html:not(.dark) [data-message-author-role="assistant"] > div > [class*="markdown"],
+  html:not(.dark) [data-message-author-role="assistant"] .agent-turn > div > [class*="markdown"] {
     position: relative !important;
     background-color: #ffffff !important;
     border: 2.5px solid var(--ganadi-line) !important;
@@ -348,7 +370,8 @@
     overflow: visible !important;
   }
 
-  html:not(.dark) [data-message-author-role="assistant"] [class*="markdown"]::before {
+  html:not(.dark) [data-message-author-role="assistant"] > div > [class*="markdown"]::before,
+  html:not(.dark) [data-message-author-role="assistant"] .agent-turn > div > [class*="markdown"]::before {
     content: '' !important;
     position: absolute !important;
     display: block !important;
@@ -366,7 +389,7 @@
   }
 
   /* =========================================================
-     7. 다크 모드 (DARK MODE) 
+     7. 다크 모드 (DARK MODE) 완전 조정
      ========================================================= */
 
   html.dark body,
@@ -459,7 +482,8 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 130'%3E%3Cg fill='%23ffffff' stroke='%23222222' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M35 17 C17 12 5 29 13 42 C18 49 25 46 25 37 C25 64 28 86 45 91 C56 94 74 94 85 91 C102 86 105 64 105 37 C105 46 112 49 117 42 C125 29 113 12 95 17 C80 13 50 13 35 17 Z'/%3E%3Cpath d='M31 91 C32 85 39 82 46 84 C52 86 55 91 53 97 C51 103 46 106 39 105 C33 105 29 101 30 96 C30 94 30 92 31 91 Z'/%3E%3Cpath d='M77 91 C78 85 83 83 91 84 C98 85 102 90 101 96 C100 102 95 105 89 105 C82 105 77 102 76 97 C76 95 76 93 77 91 Z'/%3E%3Ccircle cx='44' cy='46' r='4' fill='%23222222' stroke='none'/%3E%3Ccircle cx='86' cy='46' r='4' fill='%23222222' stroke='none'/%3E%3Ccircle cx='65' cy='71' r='2' fill='%23222222' stroke='none'/%3E%3Cpath d='M58 77 C58 81 65 81 65 77 C65 81 72 81 72 77' fill='none' stroke-width='3.5'/%3E%3C/g%3E%3C/svg%3E") !important;
   }
 
-  html.dark [data-message-author-role="assistant"] [class*="markdown"] {
+  html.dark [data-message-author-role="assistant"] > div > [class*="markdown"],
+  html.dark [data-message-author-role="assistant"] .agent-turn > div > [class*="markdown"] {
     position: relative !important;
     background-color: #24201b !important;
     color: #f5ebd8 !important;
@@ -471,7 +495,8 @@
     overflow: visible !important;
   }
 
-  html.dark [data-message-author-role="assistant"] [class*="markdown"]::before {
+  html.dark [data-message-author-role="assistant"] > div > [class*="markdown"]::before,
+  html.dark [data-message-author-role="assistant"] .agent-turn > div > [class*="markdown"]::before {
     content: '' !important;
     position: absolute !important;
     display: block !important;
@@ -490,10 +515,11 @@
 }
 
 /* =========================================================
-   8. 추가 수정사항
+   8. 코드 블록 테두리 제거 & 배경색 완전히 단일화
    ========================================================= */
 @-moz-document domain("chatgpt.com"), domain("chat.openai.com") {
 
+  /* 1. 코드 블록을 감싸는 모든 최외각/내부 레이어 테두리 & 그림자 완벽 제거 */
   [data-message-author-role="assistant"] .markdown > div:has(pre),
   [data-message-author-role="assistant"] .markdown div[class*="contain-inline-size"],
   [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre),
@@ -503,6 +529,7 @@
     box-shadow: none !important;
   }
 
+  /* 2. 라이트 모드: 코드 상자 전체 단일 배경색 (베이지) */
   html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre),
   html:not(.dark) [data-message-author-role="assistant"] div:has(> pre) {
     background-color: #f3efe6 !important;
@@ -510,6 +537,7 @@
     overflow: hidden !important;
   }
 
+  /* 헤더(언어 표기 + 복사 버튼 영역) 배경 및 구분선 일치화 */
   html:not(.dark) [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) > div:first-child:not(:has(pre)),
   html:not(.dark) [data-message-author-role="assistant"] div:has(> pre) > div:first-child,
   html:not(.dark) [data-message-author-role="assistant"] div:has(> pre) button {
@@ -518,6 +546,7 @@
     border: none !important;
   }
 
+  /* 라이트 모드: 인라인 코드 (`code`) 단일 배경 */
   html:not(.dark) [data-message-author-role="assistant"] :not(pre) > code {
     background-color: #f3efe6 !important;
     border: none !important;
@@ -526,6 +555,7 @@
     padding: 2px 6px !important;
   }
 
+  /* 3. 다크 모드: 코드 상자 전체 단일 배경색 (딥 브라운) */
   html.dark [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre),
   html.dark [data-message-author-role="assistant"] div:has(> pre) {
     background-color: #1f1b17 !important;
@@ -533,6 +563,7 @@
     overflow: hidden !important;
   }
 
+  /* 다크 모드: 헤더 및 복사 버튼 배경 통일 */
   html.dark [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) > div:first-child:not(:has(pre)),
   html.dark [data-message-author-role="assistant"] div:has(> pre) > div:first-child,
   html.dark [data-message-author-role="assistant"] div:has(> pre) button {
@@ -541,6 +572,7 @@
     border: none !important;
   }
 
+  /* 다크 모드: 인라인 코드 단일 배경 */
   html.dark [data-message-author-role="assistant"] :not(pre) > code {
     background-color: #2b2621 !important;
     border: none !important;
@@ -549,6 +581,7 @@
     padding: 2px 6px !important;
   }
 
+  /* 4. 내부 pre 및 code 요소 개별 테두리 및 중복 배경 완전 제거 */
   [data-message-author-role="assistant"] pre,
   [data-message-author-role="assistant"] pre code,
   [data-message-author-role="assistant"] .markdown div[class*="rounded"]:has(pre) pre,
